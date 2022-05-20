@@ -1,4 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+
 from selenium.webdriver.support.ui import WebDriverWait
 
 TIMEOUT_MESSAGE = "Can't find element(s) by locator {} in {} s"
@@ -12,10 +14,6 @@ class BasePage:
         self.url = url
         self.__wait = lambda timeout=TIMEOUT: WebDriverWait(
             driver, timeout=timeout)
-
-    # @property
-    # def locators(self):
-    #     return [p for p in self.locator.__dict__.items() if p[0].startswith('LOCATOR_')]
 
     @property
     def title(self):
@@ -35,6 +33,9 @@ class BasePage:
     def at_page(self, title):
         return self.driver.title == title
 
+    def go(self, url):
+        return self.driver.get(url)
+
     def back(self):
         return self.driver.back()
 
@@ -43,6 +44,22 @@ class BasePage:
 
     def refresh(self):
         return self.driver.refresh()
+
+    def click(self, locator):
+        try:
+            locator = locator.link
+        except:
+            pass
+        self.driver.find_element(*locator).click()
+
+    def hover(self, locator):
+        try:
+            locator = locator.link
+        except:
+            pass
+        element = self.driver.find_element(*locator)
+        ActionChains(self.driver).move_to_element(element).perform()
+        return element
 
     def input_enter_text(self, locator, text):
         element = self.find_element(locator)
