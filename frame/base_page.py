@@ -50,21 +50,26 @@ class BasePage:
             locator = locator.link
         except:
             pass
-        self.driver.find_element(*locator).click()
+        self.find_element(locator).click()
 
     def hover(self, locator):
         try:
             locator = locator.link
         except:
             pass
-        element = self.driver.find_element(*locator)
+        element = self.find_element(locator)
         ActionChains(self.driver).move_to_element(element).perform()
         return element
 
-    def input_enter_text(self, locator, text):
+    def enter_text(self, locator, text):
         element = self.find_element(locator)
+        element.click()
         element.clear()
         element.send_keys(text)
+        return element
+
+    def find(self, locator, time=TIMEOUT):
+        return self.find_element(locator)
 
     def find_element(self, locator, time=TIMEOUT):
         return self.__wait(time).until(EC.presence_of_element_located(locator),

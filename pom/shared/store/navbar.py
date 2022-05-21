@@ -2,7 +2,7 @@ from frame.common_locators import *
 from frame.node import Node
 
 
-class Navbar(Node):
+class navbar(Node):
 
     link = (css, '#menu')
 
