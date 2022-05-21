@@ -2,10 +2,10 @@ from collections import namedtuple
 
 import pytest
 from frame.utils import Utils
-from pom.catalog_page import CatalogPage
-from pom.main_page import MainPageLocators
-from pom.shared.store_menu_product import StoreMenuProductLocators
-from pom.shared.store_navbar import StoreNavbarLocators
+from pom.store.catalog_page import CatalogPage
+from pom.store.main_page import MainPageLocators
+from pom.element.store.menu_product import StoreMenuProductLocators
+from pom.element.store.navbar import StoreNavbarLocators
 
 
 @pytest.fixture(scope='class', autouse=True)

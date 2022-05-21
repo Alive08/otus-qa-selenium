@@ -19,7 +19,6 @@ class StoreFooter(BasePage):
 
     def click_powered_by(self):
         self.find_element(self.locator.LOCATOR_POWERED_BY).click()
-        assert self.at_page(self.locator.TITLE_OPENCART_SITE)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 import pytest
-from pom.admin_login_page import AdminLoginPage, AdminLoginPageLocators
+from pom.admin.login_page import AdminLoginPage, AdminLoginPageLocators
 
 
 @pytest.fixture(scope='class', autouse=True)

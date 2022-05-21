@@ -56,6 +56,7 @@ class BasePage:
         element.click()
         element.clear()
         element.send_keys(text)
+        return element
 
     def find_element(self, locator, time=TIMEOUT):
         return self.__wait(time).until(EC.presence_of_element_located(locator),

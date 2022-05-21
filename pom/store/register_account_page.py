@@ -1,8 +1,8 @@
 from frame.base_locator import BaseLocator, Selector
 from frame.base_page import BasePage
 from selenium.webdriver.common.by import By
-from pom.shared.store_breadcrumb import StoreBreadcrumb
-from pom.shared.store_menu_account import StoreMenuAccount
+from pom.element.store.breadcrumb import StoreBreadcrumb
+from pom.element.store.menu_account import StoreMenuAccount
 
 
 class RegisterAccountPageLocators(BaseLocator):

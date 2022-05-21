@@ -1,6 +1,6 @@
 import pytest
-from pom.main_page import MainPageLocators
-from pom.search_page import SearchPage, SearchPageLocators
+from pom.store.main_page import MainPageLocators
+from pom.store.search_page import SearchPage, SearchPageLocators
 
 
 @pytest.fixture(scope='class', autouse=True)

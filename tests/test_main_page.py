@@ -1,8 +1,8 @@
 import pytest
-from pom.main_page import MainPage, MainPageLocators
-from pom.shared.store_footer import StoreFooterLocators
-from pom.shared.store_header import StoreHeaderLocators
-from pom.shopping_cart_page import ShoppingCartPageLocators
+from pom.store.main_page import MainPage, MainPageLocators
+from pom.element.store.footer import StoreFooterLocators
+from pom.element.store.header import StoreHeaderLocators
+from pom.store.shopping_cart_page import ShoppingCartPageLocators
 
 from conftest import skip_if
 

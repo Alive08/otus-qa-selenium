@@ -1,5 +1,5 @@
 import pytest
-from pom.product_page import ProductPage
+from pom.store.product_page import ProductPage
 
 
 @pytest.fixture(scope='class', autouse=True)

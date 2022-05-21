@@ -1,5 +1,5 @@
 import pytest
-from pom.register_account_page import RegisterAccountPage, RegisterAccountPageLocators
+from pom.store.register_account_page import RegisterAccountPage, RegisterAccountPageLocators
 
 
 @pytest.fixture(scope='class', autouse=True)

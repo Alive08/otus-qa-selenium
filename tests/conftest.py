@@ -7,20 +7,20 @@ from faker import Faker
 import pytest
 from frame.browser import Browser
 from frame.utils import Utils
-from pom.admin_login_page import AdminLoginPage
-from pom.catalog_page import CatalogPage
-from pom.main_page import MainPage
-from pom.product_page import ProductPage
-from pom.register_account_page import RegisterAccountPage
-from pom.search_page import SearchPage
-from pom.shared.store_breadcrumb import StoreBreadcrumb
-from pom.shared.store_footer import StoreFooter
-from pom.shared.store_header import StoreHeader
-from pom.shared.store_menu_account import StoreMenuAccount
-from pom.shared.store_menu_product import StoreMenuProduct
-from pom.shared.store_navbar import StoreNavbar
-from pom.shared.store_thumbnails import StoreProductThumbnails
-from pom.shared.store_top import StoreTop
+from pom.admin.login_page import AdminLoginPage
+from pom.store.catalog_page import CatalogPage
+from pom.store.main_page import MainPage
+from pom.store.product_page import ProductPage
+from pom.store.register_account_page import RegisterAccountPage
+from pom.store.search_page import SearchPage
+from pom.element.store.breadcrumb import StoreBreadcrumb
+from pom.element.store.footer import StoreFooter
+from pom.element.store.header import StoreHeader
+from pom.element.store.menu_account import StoreMenuAccount
+from pom.element.store.menu_product import StoreMenuProduct
+from pom.element.store.navbar import StoreNavbar
+from pom.element.store.thumbnails import StoreProductThumbnails
+from pom.element.store.top import StoreTop
 
 BASE_URL = f"http://{Utils.get_ip()}:8081"
 
