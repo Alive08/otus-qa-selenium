@@ -1,4 +1,5 @@
 from collections import namedtuple
+from time import sleep
 
 import pytest
 from frame.utils import Utils
@@ -53,6 +54,7 @@ class TestCatalogPage:
 
     def test_breadcrumb_go_home(self):
         assert self.page.at_page('Tablets')
+        sleep(5)
         self.breadcrumb.breadcrumb_go_home()
         assert self.page.at_page(MainPageLocators.TITLE_MAIN_PAGE)
 

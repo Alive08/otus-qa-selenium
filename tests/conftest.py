@@ -21,8 +21,7 @@ from pom.shared.store_menu_product import StoreMenuProduct
 from pom.shared.store_navbar import StoreNavbar
 from pom.shared.store_thumbnails import StoreProductThumbnails
 from pom.shared.store_top import StoreTop
-
-BASE_URL = f"http://{Utils.get_ip()}:8081"
+from frame.base_page import BASE_URL
 
 USER_OPTIONS = ('--headless',
                 '--start-maximized',
@@ -104,7 +103,7 @@ class AccountData:
     password_2: str
 
 
-@pytest.fixture
+@pytest.fixture(scope='class')
 def account_valid():
     return AccountData('Denzel', 'Washington', 'denzel.washington@holliwood.com', '+1 234 5678 90', 'helloUser', 'helloUser')
 
