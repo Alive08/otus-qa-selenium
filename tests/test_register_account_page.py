@@ -9,7 +9,16 @@ def page(request, driver, base_url):
     request.cls.page.open()
 
 
-@pytest.mark.usefixtures('top', 'header', 'menu_account')
+@pytest.fixture(scope='class')
+def valid_account(driver, base_url, account_valid):
+    page = RegisterAccountPage(
+        driver, f'{base_url}/{RegisterAccountPageLocators.URL_REGISTER_ACCOUNT}')
+    page.submit_form(account_valid)
+    if 'Your Account Has Been Created!' in page.page_src:
+        page.click_logout()
+
+
+@pytest.mark.usefixtures('top', 'header', 'menu_account', 'valid_account')
 class TestRegisterAccountPage:
 
     def test_go_to_register_from_main_page(self):

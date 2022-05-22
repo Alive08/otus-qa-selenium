@@ -1,4 +1,5 @@
 from collections import namedtuple
+from time import sleep
 
 import pytest
 from frame.utils import Utils

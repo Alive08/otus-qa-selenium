@@ -35,6 +35,7 @@ class RegisterAccountPageLocators(BaseLocator):
         By.CSS_SELECTOR, ".alert.alert-danger.alert-dismissible")
     LOCATOR_BUTTON_CLOSE_PRIVACY_POLICY = Selector(By.CSS_SELECTOR, "button.close")
 
+    LOCATOR_LOGOUT = Selector(By.LINK_TEXT, 'Logout')
 
 class RegisterAccountPage(BasePage):
 
@@ -90,6 +91,8 @@ class RegisterAccountPage(BasePage):
             self.check_box_agree()
         self.click_button_continue()
 
+    def click_logout(self):
+        self.find_element(self.locator.LOCATOR_LOGOUT).click()
 
 if __name__ == '__main__':
 

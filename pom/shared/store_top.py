@@ -53,6 +53,12 @@ class StoreTop(BasePage):
     def click_checkout(self):
         self.find_element(self.locator.LOCATOR_CHECKOUT).click()
 
+    def click_logout(self):
+        self.find_element(
+            StoreTopMenuAccountLocators.LOCATOR_ACCOUNT_MENU_MY_ACCOUNT).click()
+        self.find_element(
+            StoreTopMenuAccountLocators.LOCATOR_ACCOUNT_MENU_LOGOUT.click())
+
 
 if __name__ == '__main__':
 
