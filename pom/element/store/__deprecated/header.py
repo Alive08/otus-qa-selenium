@@ -7,9 +7,11 @@ class StoreHeaderLocators(BaseLocator):
 
     LOCATOR_HEADER = Selector(By.CSS_SELECTOR, "body > header")
     LOCATOR_IMG_LOGO = Selector(By.CSS_SELECTOR, "#logo")
+    
     LOCATOR_INPUT_SEARCH = Selector(By.NAME, "search")
     LOCATOR_BUTTON_SEARCH = Selector(
         By.CSS_SELECTOR, "button.btn.btn-default.btn-lg")
+        
     LOCATOR_BUTTON_SHOPPING_CART = Selector(
         By.CSS_SELECTOR, "#cart > button")
     LOCATOR_TEXT_SHOPPING_CART_EMPTY = Selector(

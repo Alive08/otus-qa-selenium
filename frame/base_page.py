@@ -1,17 +1,20 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from frame.base_locator import Locator, Selector, BaseLocator, Click
+from frame.utils import Utils
 
 TIMEOUT_MESSAGE = "Can't find element(s) by locator {} in {} s"
 TIMEOUT = 3
-DEFAULT_URL = 'http://127.0.0.1:8081'
+# BASE_URL = f'http://{Utils.get_ip()}:8081'
+
+BASE_URL = 'http://127.0.0.1:8081'
 
 
 class BasePage:
 
     locator = BaseLocator
 
-    def __init__(self, driver, url=DEFAULT_URL):
+    def __init__(self, driver, url=BASE_URL):
         self.driver = driver
         self.url = url
         self.__wait = lambda timeout=TIMEOUT: WebDriverWait(
@@ -51,12 +54,18 @@ class BasePage:
     def refresh(self):
         return self.driver.refresh()
 
-    def input_enter_text(self, locator, text):
+    def enter_text(self, locator, text):
         element = self.find_element(locator)
         element.click()
         element.clear()
         element.send_keys(text)
         return element
+
+    def click(self, locator):
+        self.find_element(locator).click()
+
+    def click_element(self, element):
+        element.click()
 
     def find_element(self, locator, time=TIMEOUT):
         return self.__wait(time).until(EC.presence_of_element_located(locator),

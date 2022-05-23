@@ -3,7 +3,7 @@ from frame.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 
-class StoreBreadcrumbLocators(BaseLocator):
+class BreadcrumbLocators(BaseLocator):
 
     LOCATOR_BREADCRUMB = Selector(By.CSS_SELECTOR, "ul.breadcrumb")
     LOCATOR_BREADCRUMB_ITEM = Selector(By.CSS_SELECTOR, "ul.breadcrumb > * a")
@@ -11,20 +11,20 @@ class StoreBreadcrumbLocators(BaseLocator):
         By.CSS_SELECTOR, "ul.breadcrumb > * a[href$='common/home']")
 
 
-class StoreBreadcrumb(BasePage):
+class Breadcrumb(BasePage):
 
-    locator = StoreBreadcrumbLocators
+    locator = BreadcrumbLocators
 
-    def breadcrumb_go_home(self):
+    def go_home(self):
         self.find_element(self.locator.LOCATOR_BREADCRUMB_HOME).click()
 
-    def get_breadcrumb(self):
+    def get_self(self):
         return self.find_element(self.locator.LOCATOR_BREADCRUMB)
 
-    def get_breadcrumb_items(self):
-        return self.get_breadcrumb().find_elements(*StoreBreadcrumbLocators.LOCATOR_BREADCRUMB_ITEM)
+    def get_items(self):
+        return self.get_breadcrumb().find_elements(*self.locator.LOCATOR_BREADCRUMB_ITEM)
 
-    def breadcrumb_back(self):
+    def back(self):
         el = self.get_breadcrumb_items()
         el.pop()
         el.pop().click()
@@ -32,4 +32,4 @@ class StoreBreadcrumb(BasePage):
 
 if __name__ == '__main__':
 
-    print(StoreBreadcrumb.locator.locators)
+    print(Breadcrumb.locator.locators)

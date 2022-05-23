@@ -5,19 +5,19 @@ from selenium.webdriver.common.by import By
 
 class StoreTopLocators(BaseLocator):
 
-    LOCATOR_TOP = Selector(By.CSS_SELECTOR, "#top")
-    LOCATOR_FORM_CURRENCY = Selector(By.CSS_SELECTOR, "#form-currency")
-    LOCATOR_BUTTON_DROPDOWN_CURRENCY = Selector(
-        By.CSS_SELECTOR, "button.btn.btn-link.dropdown-toggle")
-    LOCATOR_DROPDOWN_LIST_CURRENCY = Selector(
-        By.CSS_SELECTOR, "ul.dropdown-menu")
-    LOCATOR_DROPDOWN_LIST_CURRENCY_USD = Selector(
-        By.CSS_SELECTOR, "button[name=USD]")
-    LOCATOR_DROPDOWN_LIST_CURRENCY_EUR = Selector(
-        By.CSS_SELECTOR, "button[name=EUR]")
-    LOCATOR_DROPDOWN_LIST_CURRENCY_GBP = Selector(
-        By.CSS_SELECTOR, "button[name=GBP]")
-    LOCATOR_SELECTED_CURRENCY = Selector(By.CSS_SELECTOR, "strong")
+    # LOCATOR_TOP = Selector(By.CSS_SELECTOR, "#top")
+    # LOCATOR_FORM_CURRENCY = Selector(By.CSS_SELECTOR, "#form-currency")
+    # LOCATOR_BUTTON_DROPDOWN_CURRENCY = Selector(
+    #     By.CSS_SELECTOR, "button.btn.btn-link.dropdown-toggle")
+    # LOCATOR_DROPDOWN_LIST_CURRENCY = Selector(
+    #     By.CSS_SELECTOR, "ul.dropdown-menu")
+    # LOCATOR_DROPDOWN_LIST_CURRENCY_USD = Selector(
+    #     By.CSS_SELECTOR, "button[name=USD]")
+    # LOCATOR_DROPDOWN_LIST_CURRENCY_EUR = Selector(
+    #     By.CSS_SELECTOR, "button[name=EUR]")
+    # LOCATOR_DROPDOWN_LIST_CURRENCY_GBP = Selector(
+    #     By.CSS_SELECTOR, "button[name=GBP]")
+    # LOCATOR_SELECTED_CURRENCY = Selector(By.CSS_SELECTOR, "strong")
 
     LOCATOR_SHOPPING_CART = Selector(
         By.CSS_SELECTOR, "a[title='Shopping Cart']")

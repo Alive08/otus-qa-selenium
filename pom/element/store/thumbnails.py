@@ -3,7 +3,7 @@ from frame.base_locator import BaseLocator, Selector
 from selenium.webdriver.common.by import By
 
 
-class StoreProductThumbnailsLocators(BaseLocator):
+class ProductThumbnailsLocators(BaseLocator):
 
     LOCATOR_PRODUCT_THUMBNAILS = Selector(By.CSS_SELECTOR, ".product-thumb")
     LOCATOR_PRODUCT_THUMBNAIL_IMAGE = Selector(
@@ -24,29 +24,29 @@ class StoreProductThumbnailsLocators(BaseLocator):
         By.CSS_SELECTOR, ".button-group > button:nth-child(3)")
 
 
-class StoreProductThumbnails(BasePage):
+class ProductThumbnails(BasePage):
 
-    locator = StoreProductThumbnailsLocators
+    locator = ProductThumbnailsLocators
 
-    def get_product_thumbnails(self):
+    def get_products(self):
         return self.find_elements(self.locator.LOCATOR_PRODUCT_THUMBNAILS)
 
-    def get_product_thumbnail(self, index):
-        return self.get_product_thumbnails()[index]
+    def get_product(self, index):
+        return self.get_products()[index]
 
-    def get_product_thumbnail_link(self, product):
+    def get_product_link(self, product):
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_HREF)
 
-    def get_product_thumbnail_price(self, product):
+    def get_product_price(self, product):
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_PRICE)
 
-    def get_product_thumbnail_description(self, product):
+    def get_product_description(self, product):
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_CAPTION_DESCRIPTION)
 
-    def click_product_thumbnail_link(self, product):
+    def click_product_link(self, product):
         self.get_product_thumbnail_link(product).click()
 
 
 if __name__ == '__main__':
 
-    print(StoreProductThumbnails.locator.locators)
+    print(ProductThumbnails.locator.locators)

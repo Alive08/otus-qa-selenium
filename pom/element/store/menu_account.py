@@ -3,7 +3,7 @@ from frame.base_page import BaseMenu
 from selenium.webdriver.common.by import By
 
 
-class StoreMenuAccountLocators(BaseLocator):
+class MenuAccountLocators(BaseLocator):
 
     LOCATOR_MENU_ACCOUNT = Selector(By.CSS_SELECTOR, ".list-group")
     LOCATOR_MENU_ACCOUNT_LOGIN = Selector(
@@ -36,11 +36,11 @@ class StoreMenuAccountLocators(BaseLocator):
         By.CSS_SELECTOR, "#column-right > div > a[href$='account/logout']")
 
 
-class StoreMenuAccount(BaseMenu):
+class MenuAccount(BaseMenu):
 
-    locator = StoreMenuAccountLocators
+    locator = MenuAccountLocators
 
 
 if __name__ == '__main__':
 
-    print(StoreMenuAccount.locator.locators)
+    print(MenuAccount.locator.locators)

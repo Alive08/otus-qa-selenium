@@ -3,10 +3,7 @@ from frame.base_page import BaseMenu
 from selenium.webdriver.common.by import By
 
 
-class StoreMenuProductLocators(BaseLocator):
-
-    # _XPATH_LEFT_MENU = "//*[@id='column-left']//a[contains(text(), '{}')]"
-    # _XPATH_LEFT_MENU = "//*[@id='column-left']//a[text()='{}')]"
+class MenuProductLocators(BaseLocator):
 
     LOCATOR_MENU_PRODUCT = Selector(By.CSS_SELECTOR, "#column-left")
 
@@ -53,10 +50,11 @@ class StoreMenuProductLocators(BaseLocator):
         By.CSS_SELECTOR, "#column-left > * a[href$='mp3-players']")
 
 
-class StoreMenuProduct(BaseMenu):
+class MenuProduct(BaseMenu):
 
-    locator = StoreMenuProductLocators
+    locator = MenuProductLocators
+
 
 if __name__ == '__main__':
 
-    print(StoreMenuProduct.locator.locators)
+    print(MenuProduct.locator.locators)

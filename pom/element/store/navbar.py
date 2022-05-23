@@ -3,10 +3,7 @@ from frame.base_page import BaseMenu
 from selenium.webdriver.common.by import By
 
 
-class StoreNavbarLocators(BaseLocator):
-
-    # _XPATH_NAVBAR = "//*[@id='menu']//a[contains(text(),'{}')]"
-    # _XPATH_NAVBAR = "//*[@id='menu']//a[text()='{}']"
+class NavbarLocators(BaseLocator):
 
     LOCATOR_NAVBAR = Selector(By.CSS_SELECTOR, "ul.nav.navbar-nav")
 
@@ -59,10 +56,11 @@ class StoreNavbarLocators(BaseLocator):
         By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(8) > a")
 
 
-class StoreNavbar(BaseMenu):
+class Navbar(BaseMenu):
 
-    locator = StoreNavbarLocators
+    locator = NavbarLocators
+
 
 if __name__ == '__main__':
 
-    print(StoreNavbar.locator.locators)
+    print(Navbar.locator.locators)
