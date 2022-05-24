@@ -7,22 +7,10 @@ from faker import Faker
 import pytest
 from frame.browser import Browser
 from frame.utils import Utils
-from pom.admin.login_page import AdminLoginPage
-from pom.store.catalog_page import CatalogPage
-from pom.store.main_page import MainPage
-from pom.store.product_page import ProductPage
-from pom.store.register_account_page import RegisterAccountPage
-from pom.store.search_page import SearchPage
-from pom.element.store.breadcrumb import StoreBreadcrumb
-from pom.element.store.footer import StoreFooter
-from pom.element.store.header import StoreHeader
-from pom.element.store.menu_account import StoreMenuAccount
-from pom.element.store.menu_product import StoreMenuProduct
-from pom.element.store.navbar import StoreNavbar
-from pom.element.store.thumbnails import StoreProductThumbnails
-from pom.element.store.top import StoreTop
 
-BASE_URL = f"http://{Utils.get_ip()}:8081"
+
+# BASE_URL = f"http://{Utils.get_ip()}:8081"
+BASE_URL = 'http://127.0.0.1:8081'
 
 USER_OPTIONS = ('--headless',
                 '--start-maximized',
@@ -122,52 +110,10 @@ def account_random():
     )
 
 
-@pytest.fixture
-def wd(request, driver):
-    request.cls.wd = driver
-
-
 @pytest.fixture(autouse=True)
-def back_to_base(request):
+def back_to_base(request, base_url):
     yield
-    request.cls.page.open()
-
-
-@pytest.fixture(scope='class')
-def top(request, driver):
-    request.cls.top = StoreTop(driver)
-
-
-@pytest.fixture(scope='class')
-def header(request, driver):
-    request.cls.header = StoreHeader(driver)
-
-
-@pytest.fixture(scope='class')
-def footer(request, driver):
-    request.cls.footer = StoreFooter(driver)
-
-
-@pytest.fixture(scope='class')
-def navbar(request, driver):
-    request.cls.navbar = StoreNavbar(driver)
-
-
-@pytest.fixture(scope='class')
-def breadcrumb(request, driver):
-    request.cls.breadcrumb = StoreBreadcrumb(driver)
-
-
-@pytest.fixture(scope='class')
-def thumbnails(request, driver):
-    request.cls.thumbnails = StoreProductThumbnails(driver)
-
-
-@pytest.fixture(scope='class')
-def menu_product(request, driver):
-    request.cls.menu_product = StoreMenuProduct(driver)
-
-
-@pytest.fixture(scope='class')
-def menu_account(request, driver):
-    request.cls.menu_account = StoreMenuAccount(driver)
+    try:
+        request.instance.driver.get(base_url + request.instance.url)
+    except:
+        pass

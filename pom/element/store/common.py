@@ -1,5 +1,5 @@
 from frame.base_locator import BaseLocator, Selector
-from frame.base_page import BaseMenu, BasePage
+from frame.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 

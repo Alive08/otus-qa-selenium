@@ -1,5 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 from frame.base_locator import Locator, Selector, BaseLocator, Click
 from frame.utils import Utils
 
@@ -14,9 +15,9 @@ class BasePage:
 
     locator = BaseLocator
 
-    def __init__(self, driver, url=BASE_URL):
+    def __init__(self, driver, url=''):
         self.driver = driver
-        self.url = url
+        self.url = BASE_URL + url
         self.__wait = lambda timeout=TIMEOUT: WebDriverWait(
             driver, timeout=timeout)
 
@@ -61,8 +62,21 @@ class BasePage:
         element.send_keys(text)
         return element
 
-    def click(self, locator):
-        self.find_element(locator).click()
+    def click(self, locator, time=TIMEOUT):
+        try:
+            locator = locator.self
+        except:
+            pass
+        self.__wait(time).until(EC.element_to_be_clickable(locator)).click()
+
+    def hover(self, locator, time=TIMEOUT):
+        try:
+            locator = locator.self
+        except:
+            pass
+        element = self.find_element(locator, time)
+        ActionChains(self.driver).move_to_element(element).perform()
+        return element
 
     def click_element(self, element):
         element.click()
@@ -91,44 +105,6 @@ class BasePage:
         return self.__wait(time).until(EC.presence_of_element_located(locator),
                                        message=TIMEOUT_MESSAGE.format(locator, time))
 
-    def does_not_present(self, locator, time=TIMEOUT):
-        return self.__wait(time).until_not(EC.presence_of_element_located(locator),
-                                           message=TIMEOUT_MESSAGE.format(locator, time))
-
-
-class BaseMenu(BasePage):
-
-    locator = BaseLocator
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.click = Click(self)
-
-    def __getattr__(self, attr):
-        return self.click_item(self.locator.mapper(attr).locator)
-
-    def find_item(self, selector):
-        return self.find_nested_item(selector, self.locator.root)
-
-    def click_item(self, selector):
-        self.click_nested_item(selector, self.locator.root)
-
-    def find_nested_item(self, selector: Selector, top: Selector) -> Locator:
-        parent = None
-        l = self.locator.find_by_selector(selector.selector)
-        if l:
-            parent = self.locator.find_by_name(l.name.rsplit('_', 1).pop(0))
-            # if parent:
-            #     if parent.locator == top:
-            #         parent = None
-        return parent, l
-
-    def click_nested_item(self, selector, top):
-        parent, l = self.find_nested_item(selector, top)
-        if parent:
-            self.find_element(parent.locator).click()
-        self.find_element(l.locator).click()
-
-    def find_nested_element(self, text, top):
-        _, l = self.find_nested_item(text, top)
-        return self.find_element(l.locator)
+    # def does_not_present(self, locator, time=TIMEOUT):
+    #     return not self.__wait(time).until(EC.presence_of_element_located(locator),
+    #                                        message=TIMEOUT_MESSAGE.format(locator, time))

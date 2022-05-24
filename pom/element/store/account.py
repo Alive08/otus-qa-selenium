@@ -1,23 +1,23 @@
 from selenium.webdriver.common.by import By
-from frame.base_locator import BaseLocator, Selector
-from frame.base_page import BasePage
 
 
-class DropdownAccountLocators(BaseLocator):
+class account:
 
-    LOCATOR_DROPDOWN_ACCOUNT = Selector(By.CSS_SELECTOR, "a[title='My Account']")
-    LOCATOR_DROPDOWN_ACCOUNT_LOGIN = Selector(By.LINK_TEXT, "Login")
-    LOCATOR_DROPDOWN_ACCOUNT_REGISTER = Selector(By.LINK_TEXT, "Register")
-    LOCATOR_DROPDOWN_ACCOUNT_MY_ACCOUNT = Selector(By.LINK_TEXT, "My Account")
-    LOCATOR_DROPDOWN_ACCOUNT_ORDER_HISTORY = Selector(
-        By.LINK_TEXT, "Order History")
-    LOCATOR_DROPDOWN_ACCOUNT_TRANSACTIONS = Selector(By.LINK_TEXT, "Transactions")
-    LOCATOR_DROPDOWN_ACCOUNT_DOWNLOADS = Selector(By.LINK_TEXT, "Downloads")
-    LOCATOR_DROPDOWN_ACCOUNT_LOGOUT = Selector(By.LINK_TEXT, "Logout")
-
-
-class DropdownAccount(BasePage):
-
-    locator = DropdownAccountLocators
-
-    
+    self = (By.CSS_SELECTOR, ".list-group")
+    login = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(1)")
+    register = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(2)")
+    forgotten_password = (
+        By.CSS_SELECTOR, "#column-right > div > a:nth-child(3)")
+    my_account = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(4)")
+    address_book = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(5)")
+    wish_list = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(6)")
+    order_history = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(7)")
+    downloads = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(8)")
+    recurring_payments = (
+        By.CSS_SELECTOR, "#column-right > div > a:nth-child(9)")
+    reward_points = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(10)")
+    returns = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(11)")
+    transactions = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(12)")
+    newsletters = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(13)")
+    logout = (By.CSS_SELECTOR,
+              "#column-right > div > a[href$='account/logout']")

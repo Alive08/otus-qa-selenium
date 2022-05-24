@@ -1,13 +1,11 @@
 from frame.base_locator import BaseLocator, Selector
 from frame.base_page import BasePage
 from selenium.webdriver.common.by import By
-from pom.element.store.breadcrumb import StoreBreadcrumb
-from pom.element.store.menu_account import StoreMenuAccount
 
 
 class RegisterAccountPageLocators(BaseLocator):
 
-    URL = "index.php?route=account/register"
+    URL = "/index.php?route=account/register"
     URL_REGISTER_ACCOUNT = URL
     TITLE_REGISTER_ACCOUNT = "Register Account"
 
@@ -41,22 +39,22 @@ class RegisterAccountPage(BasePage):
     locator = RegisterAccountPageLocators
 
     def enter_first_name(self, fname):
-        self.input_enter_text(self.locator.LOCATOR_INPUT_FIRST_NAME, fname)
+        self.enter_text(self.locator.LOCATOR_INPUT_FIRST_NAME, fname)
 
     def enter_last_name(self, lname):
-        self.input_enter_text(self.locator.LOCATOR_INPUT_LAST_NAME, lname)
+        self.enter_text(self.locator.LOCATOR_INPUT_LAST_NAME, lname)
 
     def enter_email(self, email):
-        self.input_enter_text(self.locator.LOCATOR_INPUT_EMAIL, email)
+        self.enter_text(self.locator.LOCATOR_INPUT_EMAIL, email)
 
     def enter_telephone(self, telephone):
-        self.input_enter_text(self.locator.LOCATOR_INPUT_TELEPHONE, telephone)
+        self.enter_text(self.locator.LOCATOR_INPUT_TELEPHONE, telephone)
 
     def enter_password(self, password):
-        self.input_enter_text(self.locator.LOCATOR_INPUT_PASSWORD, password)
+        self.enter_text(self.locator.LOCATOR_INPUT_PASSWORD, password)
 
     def enter_password_confirm(self, password):
-        self.input_enter_text(
+        self.enter_text(
             self.locator.LOCATOR_INPUT_PASSWORD_CONFIRM, password)
 
     def is_checked_agree(self):

@@ -1,66 +1,43 @@
-from frame.base_locator import BaseLocator, Selector
-from frame.base_page import BaseMenu
+from frame.node import Node
 from selenium.webdriver.common.by import By
 
+class navbar(Node):
 
-class NavbarLocators(BaseLocator):
+    self = (By.CSS_SELECTOR, '#menu')
 
-    LOCATOR_NAVBAR = Selector(By.CSS_SELECTOR, "ul.nav.navbar-nav")
+    class desktops(Node):
+        self = (By.LINK_TEXT, 'Desktops')
+        pc = (By.PARTIAL_LINK_TEXT, 'PC')
+        mac = (By.PARTIAL_LINK_TEXT, 'Mac')
+        all = (By.LINK_TEXT, 'Show All Desktops')
 
-    LOCATOR_NAVBAR_DESKTOPS = Selector(
-        By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(1) > a")
-    LOCATOR_NAVBAR_DESKTOPS_PC = Selector(
-        By.CSS_SELECTOR, "#menu > *  li:nth-child(1) > * li:nth-child(1) > a")
-    LOCATOR_NAVBAR_DESKTOPS_MAC = Selector(
-        By.CSS_SELECTOR, "#menu > *  li:nth-child(1) > * li:nth-child(2) > a")
-    LOCATOR_NAVBAR_DESKTOPS_ALL = Selector(
-        By.CSS_SELECTOR, "#menu > * ul > li:nth-child(1) > div > a")
+    class laptops(Node):
+        self = (By.LINK_TEXT, 'Laptops & Notebooks')
+        macs = (By.PARTIAL_LINK_TEXT, 'Macs')
+        windows = (By.PARTIAL_LINK_TEXT, 'Windows')
+        all = (By.LINK_TEXT, 'Show All Laptops & Notebooks')
 
-    LOCATOR_NAVBAR_LAPTOPS = Selector(
-        By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(2) > a")
-    LOCATOR_NAVBAR_LAPTOPS_MAC = Selector(
-        By.CSS_SELECTOR, "#menu > *  li:nth-child(2) > * li:nth-child(1) > a")
-    LOCATOR_NAVBAR_LAPTOPS_WIN = Selector(
-        By.CSS_SELECTOR, "#menu > *  li:nth-child(2) > * li:nth-child(2) > a")
-    LOCATOR_NAVBAR_LAPTOPS_ALL = Selector(
-        By.CSS_SELECTOR, "#menu > * ul > li:nth-child(2) > div > a")
+    class components(Node):
+        self = (By.LINK_TEXT, 'Components')
+        mice = (By.PARTIAL_LINK_TEXT, 'Mice and Trackballs')
+        monitors = (By.PARTIAL_LINK_TEXT, 'Monitors')
+        printers = (By.PARTIAL_LINK_TEXT, 'Printers')
+        scanners = (By.PARTIAL_LINK_TEXT, 'Scanners')
+        webcameras = (By.PARTIAL_LINK_TEXT, 'Web Cameras')
+        all = (By.LINK_TEXT, 'Show All Components')
 
-    LOCATOR_NAVBAR_COMPONENTS = Selector(
-        By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(3) > a")
-    LOCATOR_NAVBAR_COMPONENTS_MICE = (
-        By.CSS_SELECTOR, "#menu > *  li:nth-child(3) > * li:nth-child(1) > a")
-    LOCATOR_NAVBAR_COMPONENTS_MONITORS = Selector(
-        By.CSS_SELECTOR, "#menu > * li:nth-child(3) > * li:nth-child(2) > a")
-    LOCATOR_NAVBAR_COMPONENTS_PRINTERS = Selector(
-        By.CSS_SELECTOR, "#menu > * li:nth-child(3) > * li:nth-child(3) > a")
-    LOCATOR_NAVBAR_COMPONENTS_SCANNERS = Selector(
-        By.CSS_SELECTOR, "#menu > * li:nth-child(3) > * li:nth-child(4) > a")
-    LOCATOR_NAVBAR_COMPONENTS_WEBCAMERA = Selector(
-        By.CSS_SELECTOR, "#menu > * li:nth-child(3) > * li:nth-child(5) > a")
-    LOCATOR_NAVBAR_COMPONENTS_ALL = Selector(
-        By.CSS_SELECTOR, "#menu > * ul > li:nth-child(3) > div > a")
+    class tablets(Node):
+        self = (By.LINK_TEXT, 'Tablets')
 
-    LOCATOR_NAVBAR_TABLETS = Selector(
-        By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(4) > a")
+    class software(Node):
+        self = (By.LINK_TEXT, 'Software')
 
-    LOCATOR_NAVBAR_SOFTWARE = Selector(
-        By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(5) > a")
+    class phones(Node):
+        self = (By.LINK_TEXT, 'Phones & PDAs')
 
-    LOCATOR_NAVBAR_PHONES = Selector(
-        By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(6) > a")
+    class cameras(Node):
+        self = (By.LINK_TEXT, 'Cameras')
 
-    LOCATOR_NAVBAR_CAMERAS = Selector(
-        By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(7) > a")
-
-    LOCATOR_NAVBAR_MP3 = Selector(
-        By.CSS_SELECTOR, "#menu > * > ul > li:nth-child(8) > a")
-
-
-class Navbar(BaseMenu):
-
-    locator = NavbarLocators
-
-
-if __name__ == '__main__':
-
-    print(Navbar.locator.locators)
+    class mp3(Node):
+        self = (By.LINK_TEXT, 'MP3 Players')
+    
