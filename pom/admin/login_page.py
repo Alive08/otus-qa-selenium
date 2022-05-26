@@ -17,14 +17,16 @@ class AdminLoginPageLocators(BaseLocator):
     LOCATOR_INPUT_PASSWORD = Selector(By.CSS_SELECTOR, "#input-password")
     LOCATOR_INPUT_EMAIL = Selector(By.CSS_SELECTOR, "#input-email")
 
-    LOCATOR_BUTTON_LOGIN_SUBMIT = Selector(By.CSS_SELECTOR, "button.btn.btn-primary")
+    LOCATOR_BUTTON_LOGIN_SUBMIT = Selector(
+        By.CSS_SELECTOR, "button.btn.btn-primary")
     LOCATOR_BUTTON_FORGOTTEN_PASSWORD_CANCEL = Selector(
         By.CSS_SELECTOR, "a.btn.btn-default")
     LOCATOR_BUTTON_FORGOTTEN_PASSWORD_SUBMIT = Selector(
         By.CSS_SELECTOR, "button.btn.btn-primary")
     LOCATOR_BUTTON_ALERT_CLOSE = Selector(By.CSS_SELECTOR, "button.close")
 
-    LOCATOR_LINK_FORGOTTEN_PASSWORD = Selector(By.LINK_TEXT, "Forgotten Password")
+    LOCATOR_LINK_FORGOTTEN_PASSWORD = Selector(
+        By.LINK_TEXT, "Forgotten Password")
 
     LOCATOR_ALERT_DANGER_MESSAGE = Selector(
         By.CSS_SELECTOR, "div.alert.alert-danger.alert-dismissible")
@@ -57,7 +59,7 @@ class AdminLoginPage(BasePage):
 
     def click_login_button(self):
         self.find_element(self.locator.LOCATOR_BUTTON_LOGIN_SUBMIT).click()
-    
+
     def admin_login_with(self, login, password):
         self.enter_login(login)
         self.enter_password(password)
@@ -66,7 +68,7 @@ class AdminLoginPage(BasePage):
     def click_forgotten_password_link(self):
         self.find_element(self.locator.LOCATOR_LINK_FORGOTTEN_PASSWORD).click()
 
-    def click_close_alert_button(self):
+    def close_alert(self):
         self.find_element(self.locator.LOCATOR_BUTTON_ALERT_CLOSE).click()
 
     def click_forgotten_password_cancel_button(self):
@@ -76,6 +78,18 @@ class AdminLoginPage(BasePage):
     def click_forgotten_password_reset_button(self):
         self.find_element(
             self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_SUBMIT).click()
+
+    def does_present_alert_danger(self):
+        return self.does_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
+
+    def does_not_present_alert_danger(self):
+        return self.does_not_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
+
+    def does_present_alert_success(self):
+        return self.does_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
+
+    def does_not_present_alert_success(self):
+        return self.does_not_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
 
 if __name__ == '__main__':

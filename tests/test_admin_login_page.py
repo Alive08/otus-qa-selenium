@@ -5,7 +5,7 @@ from pom.admin.login_page import AdminLoginPage, AdminLoginPageLocators
 @pytest.fixture(scope='class', autouse=True)
 def page(request, driver):
     request.cls.driver = driver
-    request.cls.url = AdminLoginPageLocators.URL_ADMIN_LOGIN_PAGE
+    request.cls.url = AdminLoginPageLocators.URL
     page = AdminLoginPage(driver, request.cls.url)
     page.open()
     return page
@@ -33,11 +33,9 @@ class TestAdminLoginPage:
         assert page.at_page(AdminLoginPageLocators.TITLE_ADMIN_LOGIN_PAGE)
         page.admin_login_with(*invalid_creds)
         assert page.at_page(AdminLoginPageLocators.TITLE_ADMIN_LOGIN_PAGE)
-        assert page.find_element(
-            AdminLoginPageLocators.LOCATOR_ALERT_DANGER_MESSAGE)
-        page.click_close_alert_button()
-        assert page.does_not_present(
-            AdminLoginPageLocators.LOCATOR_ALERT_DANGER_MESSAGE)
+        assert page.does_present_alert_danger()
+        page.close_alert()
+        assert page.does_not_present_alert_danger()
 
     def test_admin_reset_password_cancel(self, page: AdminLoginPage):
         assert page.at_page(AdminLoginPageLocators.TITLE_ADMIN_LOGIN_PAGE)
@@ -56,9 +54,8 @@ class TestAdminLoginPage:
         page.click_forgotten_password_reset_button()
         assert page.at_page(
             AdminLoginPageLocators.TITLE_FORGOTTEN_PASSWORD_PAGE)
-        assert page.find_element(
-            AdminLoginPageLocators.LOCATOR_ALERT_DANGER_MESSAGE)
-        page.click_close_alert_button()
+        assert page.does_present_alert_danger()
+        page.close_alert()
         page.click_forgotten_password_cancel_button()
 
     def test_admin_reset_password_submit_valid_email(self, page: AdminLoginPage):
@@ -69,8 +66,6 @@ class TestAdminLoginPage:
         page.enter_email('user@example.com')
         page.click_forgotten_password_reset_button()
         assert page.at_page(AdminLoginPageLocators.TITLE_ADMIN_LOGIN_PAGE)
-        assert page.find_element(
-            AdminLoginPageLocators.LOCATOR_ALERT_SUCCESS_MESSAGE)
-        page.click_close_alert_button()
-        assert page.does_not_present(
-            AdminLoginPageLocators.LOCATOR_ALERT_SUCCESS_MESSAGE)
+        assert page.does_present_alert_success()
+        page.close_alert()
+        assert page.does_not_present_alert_success()
