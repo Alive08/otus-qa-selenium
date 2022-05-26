@@ -22,7 +22,7 @@ class Breadcrumb(BasePage):
         return self.find_element(self.locator.LOCATOR_BREADCRUMB)
 
     def get_items(self):
-        return self.get_breadcrumb().find_elements(*self.locator.LOCATOR_BREADCRUMB_ITEM)
+        return self.get_self().find_elements(*self.locator.LOCATOR_BREADCRUMB_ITEM)
 
     def back(self):
         el = self.get_breadcrumb_items()

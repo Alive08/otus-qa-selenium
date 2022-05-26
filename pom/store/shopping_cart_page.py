@@ -9,7 +9,7 @@ class ShoppingCartPageLocators(BaseLocator):
 
     LOCATOR_BUTTON_CONTINUE = Selector(By.LINK_TEXT, "Continue")
     LOCATOR_HEADER_SHOPPING_CART = Selector(By.CSS_SELECTOR, "#content > h1")
-    LOCATOR_SHOPPING_CART_EMPTY = Selector(By.CSS_SELECTOR, "#content > p")
+    TEXT_SHOPPING_CART_EMPTY = 'Your shopping cart is empty!'
 
 
 class ShoppingCartPage(BasePage):
@@ -18,6 +18,9 @@ class ShoppingCartPage(BasePage):
 
     def click_continue_button(self):
         return self.find_element(self.locator.LOCATOR_BUTTON_CONTINUE).click()
+    
+    def is_empty(self):
+        return self.locator.TEXT_SHOPPING_CART_EMPTY in self.page_src
 
 
 if __name__ == '__main__':

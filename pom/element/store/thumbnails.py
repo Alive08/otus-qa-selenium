@@ -44,7 +44,7 @@ class ProductThumbnails(BasePage):
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_CAPTION_DESCRIPTION)
 
     def click_product_link(self, product):
-        self.get_product_thumbnail_link(product).click()
+        self.get_product_link(product).click()
 
 
 if __name__ == '__main__':
