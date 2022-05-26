@@ -105,6 +105,6 @@ class BasePage:
         return self.__wait(time).until(EC.presence_of_element_located(locator),
                                        message=TIMEOUT_MESSAGE.format(locator, time))
 
-    # def does_not_present(self, locator, time=TIMEOUT):
-    #     return not self.__wait(time).until(EC.presence_of_element_located(locator),
-    #                                        message=TIMEOUT_MESSAGE.format(locator, time))
+    def does_not_present(self, locator, time=TIMEOUT):
+        return self.__wait(time).until_not(EC.presence_of_element_located(locator),
+                                           message=TIMEOUT_MESSAGE.format(locator, time))

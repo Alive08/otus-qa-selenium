@@ -37,29 +37,43 @@ class AdminLoginPage(BasePage):
     locator = AdminLoginPageLocators
 
     def enter_login(self, login):
-        self.find_element(self.locator.LOCATOR_INPUT_USERNAME).send_keys(login)
+        inp = self.find_element(self.locator.LOCATOR_INPUT_USERNAME)
+        inp.clear()
+        inp.click()
+        inp.send_keys(login)
 
     def enter_password(self, password):
-        self.find_element(
-            self.locator.LOCATOR_INPUT_PASSWORD).send_keys(password)
+        inp = self.find_element(
+            self.locator.LOCATOR_INPUT_PASSWORD)
+        inp.clear()
+        inp.click()
+        inp.send_keys(password)
 
     def enter_email(self, email):
-        self.find_element(self.locator.LOCATOR_INPUT_EMAIL).send_keys(email)
+        inp = self.find_element(self.locator.LOCATOR_INPUT_EMAIL)
+        inp.clear()
+        inp.click()
+        inp.send_keys(email)
 
-    def click_on_login_button(self):
+    def click_login_button(self):
         self.find_element(self.locator.LOCATOR_BUTTON_LOGIN_SUBMIT).click()
+    
+    def admin_login_with(self, login, password):
+        self.enter_login(login)
+        self.enter_password(password)
+        self.click_login_button()
 
-    def click_on_forgotten_password_link(self):
+    def click_forgotten_password_link(self):
         self.find_element(self.locator.LOCATOR_LINK_FORGOTTEN_PASSWORD).click()
 
-    def click_on_close_alert_button(self):
-        return self.find_element(self.locator.LOCATOR_BUTTON_ALERT_CLOSE).click()
+    def click_close_alert_button(self):
+        self.find_element(self.locator.LOCATOR_BUTTON_ALERT_CLOSE).click()
 
-    def click_on_forgotten_password_cancel_button(self):
+    def click_forgotten_password_cancel_button(self):
         self.find_element(
             self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_CANCEL).click()
 
-    def click_on_forgotten_password_reset_button(self):
+    def click_forgotten_password_reset_button(self):
         self.find_element(
             self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_SUBMIT).click()
 

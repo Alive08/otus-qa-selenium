@@ -24,8 +24,8 @@ class ShoppingCartButton(BasePage):
         return self.find_element(self.locator.LOCATOR_TEXT_SHOPPING_CART_NOT_EMPTY).text
 
     def is_empty(self):
-        return not self.find_element(self.locator.LOCATOR_TEXT_SHOPPING_CART_EMPTY)
+        return self.find_element(self.locator.LOCATOR_TEXT_SHOPPING_CART_EMPTY)
     
     def is_not_empty(self):
-        return not self.find_element(self.locator.LOCATOR_TEXT_SHOPPING_CART_NOT_EMPTY)
+        return self.find_element(self.locator.LOCATOR_TEXT_SHOPPING_CART_NOT_EMPTY)
     

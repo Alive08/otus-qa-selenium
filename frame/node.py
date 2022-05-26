@@ -3,17 +3,17 @@ class Node:
     @classmethod
     @property
     def items(cls):
-        return [getattr(cls, k) for k in cls.__dict__ if not k.startswith('_') and not k in ('items', 'link')]
+        return [getattr(cls, k) for k in cls.__dict__ if not k.startswith('_') and not k in ('items', 'self')]
 
     @classmethod
     @property
     def items_map(cls):
-        return {k: getattr(cls, k) for k in cls.__dict__ if not k.startswith('_') and not k in ('items', 'link')}
+        return {k: getattr(cls, k) for k in cls.__dict__ if not k.startswith('_') and not k in ('items', 'self')}
 
     @classmethod
     @property
     def item_names(cls):
-        return [k for k in cls.__dict__.keys() if not k.startswith('_') and not k in ('items', 'link')]
+        return [k for k in cls.__dict__.keys() if not k.startswith('_') and not k in ('items', 'self')]
 
     @classmethod
     def item_name(cls, selector):

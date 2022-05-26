@@ -1,7 +1,6 @@
-from tkinter.messagebox import NO
+from frame.node import Node
 from selenium.webdriver.common.by import By
 
-from frame.node import Node
 
 class product(Node):
 
@@ -14,16 +13,22 @@ class product(Node):
 
     class laptops(Node):
         self = (By.CSS_SELECTOR, "#column-left > * a[href$='laptop-notebook']")
-        mac = (By.CSS_SELECTOR, "#column-left > * a[href$='laptop-notebook/macs']")
-        win = (By.CSS_SELECTOR, "#column-left > * a[href$='laptop-notebook/windows']")
+        mac = (By.CSS_SELECTOR,
+               "#column-left > * a[href$='laptop-notebook/macs']")
+        win = (By.CSS_SELECTOR,
+               "#column-left > * a[href$='laptop-notebook/windows']")
 
     class components(Node):
         self = (By.CSS_SELECTOR, "#column-left > * a[href$='component']")
         mice = (By.CSS_SELECTOR, "#column-left > * a[href$='component/mouse']")
-        monitors = (By.CSS_SELECTOR, "#column-left > * a[href$='component/monitor']")
-        printers = (By.CSS_SELECTOR, "#column-left > * a[href$='component/printer']")
-        scanners = (By.CSS_SELECTOR, "#column-left > * a[href$='component/scanner']")
-        webcameras = (By.CSS_SELECTOR, "#column-left > * a[href$='component/web-camera']")
+        monitors = (By.CSS_SELECTOR,
+                    "#column-left > * a[href$='component/monitor']")
+        printers = (By.CSS_SELECTOR,
+                    "#column-left > * a[href$='component/printer']")
+        scanners = (By.CSS_SELECTOR,
+                    "#column-left > * a[href$='component/scanner']")
+        webcameras = (By.CSS_SELECTOR,
+                      "#column-left > * a[href$='component/web-camera']")
 
     class tablets(Node):
         self = (By.CSS_SELECTOR, "#column-left > * a[href$='tablet']")
