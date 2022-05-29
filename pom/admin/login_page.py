@@ -45,8 +45,7 @@ class AdminLoginPage(BasePage):
         inp.send_keys(login)
 
     def enter_password(self, password):
-        inp = self.find_element(
-            self.locator.LOCATOR_INPUT_PASSWORD)
+        inp = self.find_element(self.locator.LOCATOR_INPUT_PASSWORD)
         inp.clear()
         inp.click()
         inp.send_keys(password)
@@ -58,7 +57,7 @@ class AdminLoginPage(BasePage):
         inp.send_keys(email)
 
     def click_login_button(self):
-        self.find_element(self.locator.LOCATOR_BUTTON_LOGIN_SUBMIT).click()
+        self.click(self.locator.LOCATOR_BUTTON_LOGIN_SUBMIT)
 
     def admin_login_with(self, login, password):
         self.enter_login(login)
@@ -66,18 +65,15 @@ class AdminLoginPage(BasePage):
         self.click_login_button()
 
     def click_forgotten_password_link(self):
-        self.find_element(self.locator.LOCATOR_LINK_FORGOTTEN_PASSWORD).click()
-
-    def close_alert(self):
-        self.find_element(self.locator.LOCATOR_BUTTON_ALERT_CLOSE).click()
+        self.click(self.locator.LOCATOR_LINK_FORGOTTEN_PASSWORD)
 
     def click_forgotten_password_cancel_button(self):
-        self.find_element(
-            self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_CANCEL).click()
+        self.click(
+            self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_CANCEL)
 
     def click_forgotten_password_reset_button(self):
-        self.find_element(
-            self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_SUBMIT).click()
+        self.click(
+            self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_SUBMIT)
 
     def does_present_alert_danger(self):
         return self.does_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
@@ -90,6 +86,9 @@ class AdminLoginPage(BasePage):
 
     def does_not_present_alert_success(self):
         return self.does_not_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
+
+    def close_alert(self):
+        self.click(self.locator.LOCATOR_BUTTON_ALERT_CLOSE)
 
 
 if __name__ == '__main__':

@@ -19,6 +19,7 @@ class RegisterAccountPageLocators(BaseLocator):
     LOCATOR_INPUT_PASSWORD_CONFIRM = Selector(
         By.CSS_SELECTOR, "#input-confirm")
 
+    TEXT_ACCOUNT_CREATED = "Your Account Has Been Created!"
     TEXT_PASSWORDS_MISMATCH = "Password confirmation does not match password!"
     TEXT_FIRST_NAME_ERROR = "First Name must be between 1 and 32 characters!"
     TEXT_LAST_NAME_ERROR = "Last Name must be between 1 and 32 characters!"
@@ -62,20 +63,20 @@ class RegisterAccountPage(BasePage):
 
     def check_box_agree(self):
         if not self.is_checked_agree():
-            self.find_element(self.locator.LOCATOR_CHECKBOX_AGREE).click()
+            self.click(self.locator.LOCATOR_CHECKBOX_AGREE)
 
     def uncheck_box_agree(self):
         if self.is_checked_agree():
-            self.find_element(self.locator.LOCATOR_CHECKBOX_AGREE).click()
+            self.click(self.locator.LOCATOR_CHECKBOX_AGREE)
 
     def click_button_continue(self):
-        self.find_element(self.locator.LOCATOR_BUTTON_CONTINUE).click()
+        self.click(self.locator.LOCATOR_BUTTON_CONTINUE)
     
     def click_privacy_policy(self):
-        self.find_element(self.locator.LOCATOR_LINK_PRIVACY_POLICY).click()
+        self.click(self.locator.LOCATOR_LINK_PRIVACY_POLICY)
     
     def close_privacy_policy(self):
-        self.find_element(self.locator.LOCATOR_BUTTON_CLOSE_PRIVACY_POLICY).click()
+        self.click(self.locator.LOCATOR_BUTTON_CLOSE_PRIVACY_POLICY)
 
     def submit_form(self, data, agree=True):
         self.enter_first_name(data.fname)

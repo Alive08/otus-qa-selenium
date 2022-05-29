@@ -1,5 +1,5 @@
-from frame.base_page import BasePage
 from frame.base_locator import BaseLocator, Selector
+from frame.base_page import BasePage, Currency
 from selenium.webdriver.common.by import By
 
 
@@ -39,6 +39,15 @@ class ProductThumbnails(BasePage):
 
     def get_product_price(self, product):
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_PRICE)
+
+    def get_price_currency(self, product):
+        price = self.get_product_price(product)
+        if price.text.startswith(Currency.USD.value):
+            return Currency.USD.value.lower()
+        elif price.text.endswith(Currency.EUR.value):
+            return Currency.EUR.value.lower()
+        elif price.text.startswith(Currency.GBP.value):
+            return Currency.GBP.value.lower()
 
     def get_product_description(self, product):
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_CAPTION_DESCRIPTION)

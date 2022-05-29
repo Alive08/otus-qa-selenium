@@ -16,7 +16,7 @@ class Breadcrumb(BasePage):
     locator = BreadcrumbLocators
 
     def go_home(self):
-        self.find_element(self.locator.LOCATOR_BREADCRUMB_HOME).click()
+        self.click(self.locator.LOCATOR_BREADCRUMB_HOME)
 
     def get_self(self):
         return self.find_element(self.locator.LOCATOR_BREADCRUMB)

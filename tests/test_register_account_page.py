@@ -9,8 +9,9 @@ from pom.store.register_account_page import (RegisterAccountPage,
 def page(request, driver) -> RegisterAccountPage:
     request.cls.driver = driver
     request.cls.url = RegisterAccountPageLocators.URL
-    return RegisterAccountPage(driver, request.cls.url)
-
+    page = RegisterAccountPage(driver, request.cls.url)
+    page.open()
+    return page
 
 class TestRegisterAccountPage:
 
@@ -38,8 +39,8 @@ class TestRegisterAccountPage:
     def test_submit_form_random_data(self, page: RegisterAccountPage, account_random):
         account_random.password_2 = account_random.password_1
         page.submit_form(account_random)
-        page.click(account_dropdown)
         assert 'Your Account Has Been Created!' in page.page_src
+        page.click(account_dropdown)
         page.click(account_dropdown.logout)
 
     def test_submit_form_privacy_policy_unchecked(self, page: RegisterAccountPage, account_random):

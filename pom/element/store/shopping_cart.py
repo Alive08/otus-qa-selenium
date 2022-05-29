@@ -18,7 +18,7 @@ class ShoppingCartButton(BasePage):
     locator = ShoppingCartButtonLocators
 
     def click_button(self):
-        return self.find_element(self.locator.LOCATOR_BUTTON_SHOPPING_CART).click()
+        return self.click(self.locator.LOCATOR_BUTTON_SHOPPING_CART)
 
     def get_total(self):
         return self.find_element(self.locator.LOCATOR_TEXT_SHOPPING_CART_NOT_EMPTY).text
@@ -28,4 +28,3 @@ class ShoppingCartButton(BasePage):
     
     def is_not_empty(self):
         return self.find_element(self.locator.LOCATOR_TEXT_SHOPPING_CART_NOT_EMPTY)
-    

@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
+from frame.node import Node
 
 
-class account:
+class account(Node):
 
     self = (By.CSS_SELECTOR, ".list-group")
     login = (By.CSS_SELECTOR, "#column-right > div > a:nth-child(1)")

@@ -1,7 +1,8 @@
+from frame.node import Node
 from selenium.webdriver.common.by import By
 
 
-class currency:
+class currency(Node):
 
     form = (By.CSS_SELECTOR, "#form-currency")
     button = (By.CSS_SELECTOR, "button.btn.btn-link.dropdown-toggle")

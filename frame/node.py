@@ -21,4 +21,8 @@ class Node:
             for k, v in c.items_map.items():
                 if selector == v:
                     return k
+    @classmethod
+    def get_item_by_name(cls, name):
+        return cls.items_map[name]
+    
     
