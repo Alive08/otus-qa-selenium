@@ -1,0 +1,169 @@
+{
+  "uid" : "c817e3d5f83c83dc",
+  "name" : "test_delete_product",
+  "fullName" : "tests.test_admin_scenarios.TestAdminScenarios#test_delete_product",
+  "historyId" : "1385cb083a6a2601891ef5101cda04d9",
+  "time" : {
+    "start" : 1653844078223,
+    "stop" : 1653844082859,
+    "duration" : 4636
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "account_admin_valid",
+    "time" : {
+      "start" : 1653844067570,
+      "stop" : 1653844067570,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "driver",
+    "time" : {
+      "start" : 1653844044491,
+      "stop" : 1653844054804,
+      "duration" : 10313
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1653844044491,
+      "stop" : 1653844044491,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "back_to_base",
+    "time" : {
+      "start" : 1653844078222,
+      "stop" : 1653844078222,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1653844044459,
+      "stop" : 1653844044491,
+      "duration" : 32
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "driver::0",
+    "time" : {
+      "start" : 1653844245433,
+      "stop" : 1653844245598,
+      "duration" : 165
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "back_to_base::0",
+    "time" : {
+      "start" : 1653844082859,
+      "stop" : 1653844082859,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_admin_scenarios"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAdminScenarios"
+  }, {
+    "name" : "host",
+    "value" : "ubuntu"
+  }, {
+    "name" : "thread",
+    "value" : "47551-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_admin_scenarios"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "675932c0cb351526",
+      "status" : "passed",
+      "time" : {
+        "start" : 1653842159817,
+        "stop" : 1653842163993,
+        "duration" : 4176
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c817e3d5f83c83dc.json",
+  "parameterValues" : [ ]
+}

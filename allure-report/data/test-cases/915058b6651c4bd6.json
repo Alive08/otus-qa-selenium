@@ -1,0 +1,167 @@
+{
+  "uid" : "915058b6651c4bd6",
+  "name" : "test_menu[software-software]",
+  "fullName" : "tests.test_catalog_page.TestCatalogPage#test_menu",
+  "historyId" : "411c010c7500e96d45b4529c406ec186",
+  "time" : {
+    "start" : 1653844131498,
+    "stop" : 1653844132452,
+    "duration" : 954
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "driver",
+    "time" : {
+      "start" : 1653844044491,
+      "stop" : 1653844054804,
+      "duration" : 10313
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1653844044491,
+      "stop" : 1653844044491,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "back_to_base",
+    "time" : {
+      "start" : 1653844131465,
+      "stop" : 1653844131471,
+      "duration" : 6
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1653844044459,
+      "stop" : 1653844044491,
+      "duration" : 32
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "page",
+    "time" : {
+      "start" : 1653844082863,
+      "stop" : 1653844083590,
+      "duration" : 727
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "driver::0",
+    "time" : {
+      "start" : 1653844245433,
+      "stop" : 1653844245598,
+      "duration" : 165
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "back_to_base::0",
+    "time" : {
+      "start" : 1653844132457,
+      "stop" : 1653844132834,
+      "duration" : 377
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_catalog_page"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCatalogPage"
+  }, {
+    "name" : "host",
+    "value" : "ubuntu"
+  }, {
+    "name" : "thread",
+    "value" : "47551-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_catalog_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "l",
+    "value" : "<class 'pom.element.store.product.product.software'>"
+  }, {
+    "name" : "p",
+    "value" : "<class 'pom.element.store.product.product.software'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "915058b6651c4bd6.json",
+  "parameterValues" : [ "<class 'pom.element.store.product.product.software'>", "<class 'pom.element.store.product.product.software'>" ]
+}

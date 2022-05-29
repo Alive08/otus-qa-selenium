@@ -15,7 +15,7 @@ class SearchString(BasePage):
     locator = SearchStringLocators
 
     def click_search_button(self):
-        return self.find_element(self.locator.LOCATOR_BUTTON_SEARCH).click()
+        return self.click(self.locator.LOCATOR_BUTTON_SEARCH)
 
     def do_search(self, text):
         element = self.find_element(self.locator.LOCATOR_INPUT_SEARCH)

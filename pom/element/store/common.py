@@ -21,16 +21,16 @@ class CommonElements(BasePage):
     locator = CommonElementsLocators
 
     def click_logo(self):
-        return self.find_element(self.locator.LOCATOR_IMG_LOGO).click()
+        return self.click(self.locator.LOCATOR_IMG_LOGO)
 
     def click_checkout(self):
-        self.find_element(self.locator.LOCATOR_LINK_CHECKOUT).click()
+        self.click(self.locator.LOCATOR_LINK_CHECKOUT)
 
     def click_wish_list(self):
-        self.find_element(self.locator.LOCATOR_LINK_WISH_LIST).click()
+        self.click(self.locator.LOCATOR_LINK_WISH_LIST)
 
     def click_shopping_cart(self):
-        self.find_element(self.locator.LOCATOR_LINK_SHOPPING_CART).click()
+        self.click(self.locator.LOCATOR_LINK_SHOPPING_CART)
 
     def click_powered_by(self):
-        self.find_element(self.locator.LOCATOR_POWERED_BY).click()
+        self.click(self.locator.LOCATOR_POWERED_BY)

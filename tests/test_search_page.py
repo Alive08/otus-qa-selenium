@@ -25,7 +25,7 @@ class TestSearchFromMainPage:
         assert page.at_page(SearchPageLocators.TITLE_SEARCH_PAGE)
         assert SearchPageLocators.LOCATOR_TEXT_SEARCH_FAIL in page.page_src
 
-    @pytest.mark.parametrize('text, fail', (('iphone', False), ('xiaomi', True)), ids=('success', 'fail'))
+    @pytest.mark.parametrize('text, fail', (('iphone', False), ('huawey', True)), ids=('success', 'fail'))
     def test_search_product(self, text, fail, page: MainPage):
         SearchString(self.driver, self.url).do_search(text)
         assert page.at_page(f"Search - {text}")

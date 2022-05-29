@@ -1,0 +1,73 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.TimeoutException: Message: \nStacktrace:\n#0 0x55f3ece4af33 <unknown>\n#1 0x55f3ecb95118 <unknown>\n#2 0x55f3ecbcb3f7 <unknown>\n#3 0x55f3ecbcb5c1 <unknown>\n#4 0x55f3ecbfe5c4 <unknown>\n#5 0x55f3ecbe8f9d <unknown>\n#6 0x55f3ecbfc2e4 <unknown>\n#7 0x55f3ecbe8e63 <unknown>\n#8 0x55f3ecbbe82a <unknown>\n#9 0x55f3ecbbf985 <unknown>\n#10 0x55f3ece8f4cd <unknown>\n#11 0x55f3ece935ec <unknown>\n#12 0x55f3ece7971e <unknown>\n#13 0x55f3ece94238 <unknown>\n#14 0x55f3ece6e870 <unknown>\n#15 0x55f3eceb0608 <unknown>\n#16 0x55f3eceb0788 <unknown>\n#17 0x55f3ececaf1d <unknown>\n#18 0x7f70c67f3609 <unknown>",
+      "children" : [ {
+        "name" : "test_navbar_with_subcats[item2-Desktops]",
+        "uid" : "23110231024759cd",
+        "parentUid" : "c2ccb0897174c6ce664eb6fe5725d316",
+        "status" : "broken",
+        "time" : {
+          "start" : 1653844086733,
+          "stop" : 1653844090325,
+          "duration" : 3592
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('link text', 'Show All Desktops')", "'Desktops'" ]
+      } ],
+      "uid" : "c2ccb0897174c6ce664eb6fe5725d316"
+    }, {
+      "name" : "selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <a href=\"http://127.0.0.1:8081/index.php?route=common/home\">...</a> is not clickable at point (382, 224). Other element would receive the click: <li>...</li>\n  (Session info: chrome=102.0.5005.61)\nStacktrace:\n#0 0x55f3ece4af33 <unknown>\n#1 0x55f3ecb95118 <unknown>\n#2 0x55f3ecbd2a42 <unknown>\n#3 0x55f3ecbd05f2 <unknown>\n#4 0x55f3ecbcdc74 <unknown>\n#5 0x55f3ecbcc8c5 <unknown>\n#6 0x55f3ecbc05b9 <unknown>\n#7 0x55f3ecbe8f72 <unknown>\n#8 0x55f3ecbbfe73 <unknown>\n#9 0x55f3ecbe907e <unknown>\n#10 0x55f3ecbfc2e4 <unknown>\n#11 0x55f3ecbe8e63 <unknown>\n#12 0x55f3ecbbe82a <unknown>\n#13 0x55f3ecbbf985 <unknown>\n#14 0x55f3ece8f4cd <unknown>\n#15 0x55f3ece935ec <unknown>\n#16 0x55f3ece7971e <unknown>\n#17 0x55f3ece94238 <unknown>\n#18 0x55f3ece6e870 <unknown>\n#19 0x55f3eceb0608 <unknown>\n#20 0x55f3eceb0788 <unknown>\n#21 0x55f3ececaf1d <unknown>\n#22 0x7f70c67f3609 <unknown>",
+      "children" : [ {
+        "name" : "test_breadcrumb_go_home",
+        "uid" : "1920a5b401325a40",
+        "parentUid" : "777df170031e7e7363af147e1b36bd6a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1653844136845,
+          "stop" : 1653844138070,
+          "duration" : 1225
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_breadcrumb_walk",
+        "uid" : "80d72100409147ff",
+        "parentUid" : "777df170031e7e7363af147e1b36bd6a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1653844138364,
+          "stop" : 1653844140729,
+          "duration" : 2365
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "777df170031e7e7363af147e1b36bd6a"
+    }, {
+      "name" : "selenium.common.exceptions.TimeoutException: Message: Can't find element(s) by locator Selector(by='css selector', selector='.slideshow .swiper-button-prev') in 3 s\nStacktrace:\n#0 0x55f3ece4af33 <unknown>\n#1 0x55f3ecb95118 <unknown>\n#2 0x55f3ecbcb3f7 <unknown>\n#3 0x55f3ecbcb5c1 <unknown>\n#4 0x55f3ecbfe5c4 <unknown>\n#5 0x55f3ecbe8f9d <unknown>\n#6 0x55f3ecbfc2e4 <unknown>\n#7 0x55f3ecbe8e63 <unknown>\n#8 0x55f3ecbbe82a <unknown>\n#9 0x55f3ecbbf985 <unknown>\n#10 0x55f3ece8f4cd <unknown>\n#11 0x55f3ece935ec <unknown>\n#12 0x55f3ece7971e <unknown>\n#13 0x55f3ece94238 <unknown>\n#14 0x55f3ece6e870 <unknown>\n#15 0x55f3eceb0608 <unknown>\n#16 0x55f3eceb0788 <unknown>\n#17 0x55f3ececaf1d <unknown>\n#18 0x7f70c67f3609 <unknown>",
+      "children" : [ {
+        "name" : "test_slideshow_next_prev_click",
+        "uid" : "90ee662d34f12a09",
+        "parentUid" : "2228d555d38d3289447e8b31d788ef04",
+        "status" : "broken",
+        "time" : {
+          "start" : 1653844182447,
+          "stop" : 1653844186992,
+          "duration" : 4545
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2228d555d38d3289447e8b31d788ef04"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}

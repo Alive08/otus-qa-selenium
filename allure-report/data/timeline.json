@@ -1,0 +1,1508 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "ubuntu",
+    "children" : [ {
+      "name" : "47551-MainThread",
+      "children" : [ {
+        "name" : "test_if_at_page",
+        "uid" : "8afd19138ff36788",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844230422,
+          "stop" : 1653844230761,
+          "duration" : 339
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_view_list",
+        "uid" : "b913796df0b2a3e2",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844141061,
+          "stop" : 1653844141869,
+          "duration" : 808
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_menu[phones-phones]",
+        "uid" : "2ee07bb93cfc9c47",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844132837,
+          "stop" : 1653844133817,
+          "duration" : 980
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.product.product.phones'>", "<class 'pom.element.store.product.product.phones'>" ]
+      }, {
+        "name" : "test_menu[software-software]",
+        "uid" : "915058b6651c4bd6",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844131498,
+          "stop" : 1653844132452,
+          "duration" : 954
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.product.product.software'>", "<class 'pom.element.store.product.product.software'>" ]
+      }, {
+        "name" : "test_add_product_to_shopping_cart",
+        "uid" : "c78f59cb0ac19945",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844193384,
+          "stop" : 1653844194293,
+          "duration" : 909
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_menu[laptops-win]",
+        "uid" : "3e7450c69a6472cc",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844120182,
+          "stop" : 1653844121143,
+          "duration" : 961
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='laptop-notebook/windows']\")", "<class 'pom.element.store.product.product.laptops'>" ]
+      }, {
+        "name" : "test_submit_form_duplicate_data",
+        "uid" : "4030aa7afc015aa",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844208567,
+          "stop" : 1653844210298,
+          "duration" : 1731
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_click_on_empty_shopping_cart",
+        "uid" : "4630a5dc738e6b5c",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844171896,
+          "stop" : 1653844172126,
+          "duration" : 230
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_slideshow_next_prev_click",
+        "uid" : "90ee662d34f12a09",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "broken",
+        "time" : {
+          "start" : 1653844182447,
+          "stop" : 1653844186992,
+          "duration" : 4545
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_try_register_account_with_errors[email-E-Mail Address does not appear to be valid!]",
+        "uid" : "9d46654cf81bdf9e",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844220534,
+          "stop" : 1653844222812,
+          "duration" : 2278
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'E-Mail Address does not appear to be valid!'", "'email'" ]
+      }, {
+        "name" : "test_select_show[15]",
+        "uid" : "6f84b170d3ca342",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844151695,
+          "stop" : 1653844151861,
+          "duration" : 166
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'15'" ]
+      }, {
+        "name" : "test_select_show[25]",
+        "uid" : "aec3c068402825c4",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844152158,
+          "stop" : 1653844152721,
+          "duration" : 563
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'25'" ]
+      }, {
+        "name" : "test_navbar[components-webcameras]",
+        "uid" : "73460e15b3c2576f",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844103865,
+          "stop" : 1653844104720,
+          "duration" : 855
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Web Cameras')", "<class 'pom.element.store.navbar.navbar.components'>" ]
+      }, {
+        "name" : "test_menu[components-mice]",
+        "uid" : "39058bdd2f6f0282",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844123498,
+          "stop" : 1653844124465,
+          "duration" : 967
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='component/mouse']\")", "<class 'pom.element.store.product.product.components'>" ]
+      }, {
+        "name" : "test_navbar[phones-phones]",
+        "uid" : "6d83003cd696f545",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844109253,
+          "stop" : 1653844110230,
+          "duration" : 977
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.navbar.navbar.phones'>", "<class 'pom.element.store.navbar.navbar.phones'>" ]
+      }, {
+        "name" : "test_menu[components-webcameras]",
+        "uid" : "b7034230354410fc",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844128832,
+          "stop" : 1653844129758,
+          "duration" : 926
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='component/web-camera']\")", "<class 'pom.element.store.product.product.components'>" ]
+      }, {
+        "name" : "test_search_product[success]",
+        "uid" : "98c792a89dfa8512",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844232123,
+          "stop" : 1653844232891,
+          "duration" : 768
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "False", "'iphone'" ]
+      }, {
+        "name" : "test_click_on_powered_by",
+        "uid" : "604d4d291ae7191a",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844172441,
+          "stop" : 1653844181522,
+          "duration" : 9081
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_click_search_button_no_text",
+        "uid" : "f6e6333a6148eed8",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844231091,
+          "stop" : 1653844231725,
+          "duration" : 634
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_menu[desktops-pc]",
+        "uid" : "3bbb0e072a554f3f",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844114592,
+          "stop" : 1653844115439,
+          "duration" : 847
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='desktops/pc']\")", "<class 'pom.element.store.product.product.desktops'>" ]
+      }, {
+        "name" : "test_select_show[50]",
+        "uid" : "546d5de9e7070cf",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844153138,
+          "stop" : 1653844154008,
+          "duration" : 870
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'50'" ]
+      }, {
+        "name" : "test_navbar[desktops-pc]",
+        "uid" : "285b31f0e3e7eb3",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844091213,
+          "stop" : 1653844091772,
+          "duration" : 559
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'PC')", "<class 'pom.element.store.navbar.navbar.desktops'>" ]
+      }, {
+        "name" : "test_check_agree",
+        "uid" : "889eabd9669c5ebf",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844205291,
+          "stop" : 1653844205625,
+          "duration" : 334
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_change_currency[GBP]",
+        "uid" : "d9e4e3f842a8d3b2",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844237830,
+          "stop" : 1653844239471,
+          "duration" : 1641
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'GBP'" ]
+      }, {
+        "name" : "test_go_to_register_from_main_page",
+        "uid" : "ac7734c8db281ca7",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844203353,
+          "stop" : 1653844204320,
+          "duration" : 967
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_navbar[desktops-all]",
+        "uid" : "cfe286b3863cee21",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844093322,
+          "stop" : 1653844094099,
+          "duration" : 777
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('link text', 'Show All Desktops')", "<class 'pom.element.store.navbar.navbar.desktops'>" ]
+      }, {
+        "name" : "test_select_product_from_featured[1-iphone]",
+        "uid" : "178dfb6c76dfd2d",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844190339,
+          "stop" : 1653844190863,
+          "duration" : 524
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'iphone'", "1" ]
+      }, {
+        "name" : "test_select_sort_cameras[Default]",
+        "uid" : "492db1da366058d7",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844156733,
+          "stop" : 1653844157435,
+          "duration" : 702
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Default', value='Canon')" ]
+      }, {
+        "name" : "test_menu[components-printers]",
+        "uid" : "60d478830f793531",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844126211,
+          "stop" : 1653844127117,
+          "duration" : 906
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='component/printer']\")", "<class 'pom.element.store.product.product.components'>" ]
+      }, {
+        "name" : "test_navbar_with_subcats[item1-Mac]",
+        "uid" : "59d7bed2493d8f69",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844085318,
+          "stop" : 1653844086088,
+          "duration" : 770
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Mac')", "'Mac'" ]
+      }, {
+        "name" : "test_menu[laptops-mac]",
+        "uid" : "55b1f8f1a55d46b2",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844118846,
+          "stop" : 1653844119784,
+          "duration" : 938
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='laptop-notebook/macs']\")", "<class 'pom.element.store.product.product.laptops'>" ]
+      }, {
+        "name" : "test_select_product_from_featured[2-test]",
+        "uid" : "2e271a79c8b7081b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844191441,
+          "stop" : 1653844192032,
+          "duration" : 591
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'test'", "2" ]
+      }, {
+        "name" : "test_change_currency[EUR]",
+        "uid" : "3901363ecac1a1c4",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844236045,
+          "stop" : 1653844237812,
+          "duration" : 1767
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'EUR'" ]
+      }, {
+        "name" : "test_navbar[components-monitors]",
+        "uid" : "d5736d7265676014",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844100144,
+          "stop" : 1653844100960,
+          "duration" : 816
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Monitors')", "<class 'pom.element.store.navbar.navbar.components'>" ]
+      }, {
+        "name" : "test_select_sort[Rating (Lowest)]",
+        "uid" : "a743cdb86d423c5e",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844148538,
+          "stop" : 1653844149224,
+          "duration" : 686
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Rating (Lowest)'" ]
+      }, {
+        "name" : "test_navbar[cameras-cameras]",
+        "uid" : "b85c0356507117c0",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844110853,
+          "stop" : 1653844112043,
+          "duration" : 1190
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.navbar.navbar.cameras'>", "<class 'pom.element.store.navbar.navbar.cameras'>" ]
+      }, {
+        "name" : "test_menu[components-scanners]",
+        "uid" : "62d6dc12e142b6e6",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844127476,
+          "stop" : 1653844128494,
+          "duration" : 1018
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='component/scanner']\")", "<class 'pom.element.store.product.product.components'>" ]
+      }, {
+        "name" : "test_navbar[mp3-mp3]",
+        "uid" : "7d042519636216eb",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844112503,
+          "stop" : 1653844112943,
+          "duration" : 440
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.navbar.navbar.mp3'>", "<class 'pom.element.store.navbar.navbar.mp3'>" ]
+      }, {
+        "name" : "test_select_sort_cameras[Model (A - Z)]",
+        "uid" : "46f6b91047ff0a8c",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844166753,
+          "stop" : 1653844167857,
+          "duration" : 1104
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Model (A - Z)', value='Canon')" ]
+      }, {
+        "name" : "test_copyright_should_present",
+        "uid" : "3b2f62b9ad1b91d0",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844181994,
+          "stop" : 1653844182090,
+          "duration" : 96
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_navbar[laptops-laptops]",
+        "uid" : "121ea246e9ceae80",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844094624,
+          "stop" : 1653844094949,
+          "duration" : 325
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.navbar.navbar.laptops'>", "<class 'pom.element.store.navbar.navbar.laptops'>" ]
+      }, {
+        "name" : "test_select_sort[Name (A - Z)]",
+        "uid" : "1ef5f1b9c7d9a900",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844143754,
+          "stop" : 1653844144359,
+          "duration" : 605
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Name (A - Z)'" ]
+      }, {
+        "name" : "test_select_sort_cameras[Price (High > Low)]",
+        "uid" : "9d1af13e30f71e2c",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844162320,
+          "stop" : 1653844163447,
+          "duration" : 1127
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Price (High > Low)', value='Nikon')" ]
+      }, {
+        "name" : "test_select_sort[Default]",
+        "uid" : "a04448a9741b6f80",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844143250,
+          "stop" : 1653844143428,
+          "duration" : 178
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Default'" ]
+      }, {
+        "name" : "test_navbar[components-printers]",
+        "uid" : "d9527120130eace4",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844101502,
+          "stop" : 1653844102315,
+          "duration" : 813
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Printers')", "<class 'pom.element.store.navbar.navbar.components'>" ]
+      }, {
+        "name" : "test_navbar[desktops-mac]",
+        "uid" : "127128059be6a5dd",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844092158,
+          "stop" : 1653844092891,
+          "duration" : 733
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Mac')", "<class 'pom.element.store.navbar.navbar.desktops'>" ]
+      }, {
+        "name" : "test_select_show[100]",
+        "uid" : "1c47768e3f7eda5b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844155662,
+          "stop" : 1653844156354,
+          "duration" : 692
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'100'" ]
+      }, {
+        "name" : "test_select_show[75]",
+        "uid" : "f4cb3bb739da9b86",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844154437,
+          "stop" : 1653844155273,
+          "duration" : 836
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'75'" ]
+      }, {
+        "name" : "test_navbar[tablets-tablets]",
+        "uid" : "a2ea19607bbfb362",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844106415,
+          "stop" : 1653844107536,
+          "duration" : 1121
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.navbar.navbar.tablets'>", "<class 'pom.element.store.navbar.navbar.tablets'>" ]
+      }, {
+        "name" : "test_admin_login[SUCCESS]",
+        "uid" : "d286a4bc862f211a",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844055914,
+          "stop" : 1653844057397,
+          "duration" : 1483
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Dashboard'", "'user'", "'bitnami'" ]
+      }, {
+        "name" : "test_delete_product",
+        "uid" : "c817e3d5f83c83dc",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844078223,
+          "stop" : 1653844082859,
+          "duration" : 4636
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_menu[components-monitors]",
+        "uid" : "db0e7e3a5900afd2",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844124849,
+          "stop" : 1653844125757,
+          "duration" : 908
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='component/monitor']\")", "<class 'pom.element.store.product.product.components'>" ]
+      }, {
+        "name" : "test_navbar[software-software]",
+        "uid" : "745e737481a8d878",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844107939,
+          "stop" : 1653844108867,
+          "duration" : 928
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.navbar.navbar.software'>", "<class 'pom.element.store.navbar.navbar.software'>" ]
+      }, {
+        "name" : "test_menu[desktops-desktops]",
+        "uid" : "31552faa46703898",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844113342,
+          "stop" : 1653844114274,
+          "duration" : 932
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.product.product.desktops'>", "<class 'pom.element.store.product.product.desktops'>" ]
+      }, {
+        "name" : "test_add_product",
+        "uid" : "75339dfdc0b6a1d6",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844067674,
+          "stop" : 1653844078215,
+          "duration" : 10541
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_select_sort_cameras[Rating (Lowest)]",
+        "uid" : "24c2a5e1bb71ed66",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844165283,
+          "stop" : 1653844166329,
+          "duration" : 1046
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Rating (Lowest)', value='Canon')" ]
+      }, {
+        "name" : "test_try_register_account_with_errors[lname-Last Name must be between 1 and 32 characters!]",
+        "uid" : "b0320be252fc83eb",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844218096,
+          "stop" : 1653844220032,
+          "duration" : 1936
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Last Name must be between 1 and 32 characters!'", "'lname'" ]
+      }, {
+        "name" : "test_navbar[components-mice]",
+        "uid" : "bb318212cb70e619",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844099177,
+          "stop" : 1653844099801,
+          "duration" : 624
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Mice and Trackballs')", "<class 'pom.element.store.navbar.navbar.components'>" ]
+      }, {
+        "name" : "test_menu[mp3players-mp3players]",
+        "uid" : "5c3b5b898bb3cf57",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844135551,
+          "stop" : 1653844136549,
+          "duration" : 998
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.product.product.mp3players'>", "<class 'pom.element.store.product.product.mp3players'>" ]
+      }, {
+        "name" : "test_admin_login_failed",
+        "uid" : "db12a879797ff82d",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844061591,
+          "stop" : 1653844063028,
+          "duration" : 1437
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_view_product_images[Canon EOS 5D]",
+        "uid" : "c356b516f8277071",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844201218,
+          "stop" : 1653844202532,
+          "duration" : 1314
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "3" ]
+      }, {
+        "name" : "test_select_sort_cameras[Name (A - Z)]",
+        "uid" : "e5b76dd13bba695",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844157754,
+          "stop" : 1653844158879,
+          "duration" : 1125
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Name (A - Z)', value='Canon')" ]
+      }, {
+        "name" : "test_select_sort[Price (Low > High)]",
+        "uid" : "84cb22bc3156842",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844145557,
+          "stop" : 1653844146202,
+          "duration" : 645
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Price (Low > High)'" ]
+      }, {
+        "name" : "test_if_at_page",
+        "uid" : "30e6ab61effec30e",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844170258,
+          "stop" : 1653844170282,
+          "duration" : 24
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_try_register_account_with_errors[fname-First Name must be between 1 and 32 characters!]",
+        "uid" : "4abb440bb4fddd3b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844215581,
+          "stop" : 1653844217442,
+          "duration" : 1861
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'First Name must be between 1 and 32 characters!'", "'fname'" ]
+      }, {
+        "name" : "test_search_product[fail]",
+        "uid" : "f6e77073d3470b67",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844233217,
+          "stop" : 1653844233941,
+          "duration" : 724
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "True", "'huawey'" ]
+      }, {
+        "name" : "test_admin_login[FAIL]",
+        "uid" : "61eeb6522d088077",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844057762,
+          "stop" : 1653844058627,
+          "duration" : 865
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Administration'", "'user'", "'bitnomi'" ]
+      }, {
+        "name" : "test_select_product_from_featured[3-canon-eos-5d]",
+        "uid" : "5b7083981afbd5df",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844192375,
+          "stop" : 1653844192962,
+          "duration" : 587
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'canon-eos-5d'", "3" ]
+      }, {
+        "name" : "test_navbar_with_subcats[item0-PC]",
+        "uid" : "c56f5c98f4cd216e",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844084127,
+          "stop" : 1653844084930,
+          "duration" : 803
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'PC')", "'PC'" ]
+      }, {
+        "name" : "test_if_at_page",
+        "uid" : "c88b7a213fc9d506",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844055626,
+          "stop" : 1653844055646,
+          "duration" : 20
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_view_grid",
+        "uid" : "fb5156c308d09c87",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844142228,
+          "stop" : 1653844142858,
+          "duration" : 630
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_try_register_account_with_errors[password_1-Password must be between 4 and 20 characters!]",
+        "uid" : "6d1001482c3a29ea",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844225491,
+          "stop" : 1653844227442,
+          "duration" : 1951
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Password must be between 4 and 20 characters!'", "'password_1'" ]
+      }, {
+        "name" : "test_menu[desktops-mac]",
+        "uid" : "d50b68294c9dcf77",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844115787,
+          "stop" : 1653844117092,
+          "duration" : 1305
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('css selector', \"#column-left > * a[href$='desktops/mac']\")", "<class 'pom.element.store.product.product.desktops'>" ]
+      }, {
+        "name" : "test_select_sort_cameras[Rating (Highest)]",
+        "uid" : "51d8a2a097e8af9b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844163794,
+          "stop" : 1653844164995,
+          "duration" : 1201
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Rating (Highest)', value='Nikon')" ]
+      }, {
+        "name" : "test_navbar[laptops-windows]",
+        "uid" : "1b3cde83a82f2743",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844096636,
+          "stop" : 1653844097238,
+          "duration" : 602
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Windows')", "<class 'pom.element.store.navbar.navbar.laptops'>" ]
+      }, {
+        "name" : "test_admin_reset_password_submit_valid_email",
+        "uid" : "fbfbf7d382dfbea9",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844065592,
+          "stop" : 1653844067351,
+          "duration" : 1759
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_select_sort[Model (A - Z)]",
+        "uid" : "897ddb5d3c91c552",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844149653,
+          "stop" : 1653844150273,
+          "duration" : 620
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Model (A - Z)'" ]
+      }, {
+        "name" : "test_admin_login_successful",
+        "uid" : "404e59bcc77c7037",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844058870,
+          "stop" : 1653844061347,
+          "duration" : 2477
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_navbar[components-components]",
+        "uid" : "fbd45801cc3809a2",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844098573,
+          "stop" : 1653844098896,
+          "duration" : 323
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.navbar.navbar.components'>", "<class 'pom.element.store.navbar.navbar.components'>" ]
+      }, {
+        "name" : "test_select_sort[Rating (Highest)]",
+        "uid" : "c91321dc08f4ffcb",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844147576,
+          "stop" : 1653844148123,
+          "duration" : 547
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Rating (Highest)'" ]
+      }, {
+        "name" : "test_read_privacy_policy",
+        "uid" : "67ed0724260cecb9",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844204632,
+          "stop" : 1653844205015,
+          "duration" : 383
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_select_sort[Model (Z - A)]",
+        "uid" : "eda545a8bca63f20",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844150680,
+          "stop" : 1653844151316,
+          "duration" : 636
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Model (Z - A)'" ]
+      }, {
+        "name" : "test_admin_reset_password_cancel",
+        "uid" : "a657b9572bbfcfa8",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844063162,
+          "stop" : 1653844063871,
+          "duration" : 709
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_select_sort[Name (Z - A)]",
+        "uid" : "40e9698aff3b6a36",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844144695,
+          "stop" : 1653844145227,
+          "duration" : 532
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Name (Z - A)'" ]
+      }, {
+        "name" : "test_navbar_with_subcats[item2-Desktops]",
+        "uid" : "23110231024759cd",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "broken",
+        "time" : {
+          "start" : 1653844086733,
+          "stop" : 1653844090325,
+          "duration" : 3592
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('link text', 'Show All Desktops')", "'Desktops'" ]
+      }, {
+        "name" : "test_navbar[desktops-desktops]",
+        "uid" : "c8ace0d01f06b0e1",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844090696,
+          "stop" : 1653844090887,
+          "duration" : 191
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.navbar.navbar.desktops'>", "<class 'pom.element.store.navbar.navbar.desktops'>" ]
+      }, {
+        "name" : "test_navbar[components-all]",
+        "uid" : "7d9854dea3d133c",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844105159,
+          "stop" : 1653844105890,
+          "duration" : 731
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('link text', 'Show All Components')", "<class 'pom.element.store.navbar.navbar.components'>" ]
+      }, {
+        "name" : "test_breadcrumb_go_home",
+        "uid" : "1920a5b401325a40",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "broken",
+        "time" : {
+          "start" : 1653844136845,
+          "stop" : 1653844138070,
+          "duration" : 1225
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_select_sort_cameras[Price (Low > High)]",
+        "uid" : "8212faa2536cb17",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844160710,
+          "stop" : 1653844161923,
+          "duration" : 1213
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Price (Low > High)', value='Canon')" ]
+      }, {
+        "name" : "test_menu[cameras-cameras]",
+        "uid" : "cb0713b5cd517cf",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844134267,
+          "stop" : 1653844135131,
+          "duration" : 864
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.product.product.cameras'>", "<class 'pom.element.store.product.product.cameras'>" ]
+      }, {
+        "name" : "test_view_product_images[MacBook]",
+        "uid" : "eebd5a14b1aefd4f",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844194637,
+          "stop" : 1653844196179,
+          "duration" : 1542
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "0" ]
+      }, {
+        "name" : "test_select_product_from_catalog",
+        "uid" : "b5f89e47a18e67b2",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844187523,
+          "stop" : 1653844188785,
+          "duration" : 1262
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_menu[laptops-laptops]",
+        "uid" : "8b81a385b370dd5d",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844117489,
+          "stop" : 1653844118442,
+          "duration" : 953
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.product.product.laptops'>", "<class 'pom.element.store.product.product.laptops'>" ]
+      }, {
+        "name" : "test_breadcrumb_walk",
+        "uid" : "80d72100409147ff",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "broken",
+        "time" : {
+          "start" : 1653844138364,
+          "stop" : 1653844140729,
+          "duration" : 2365
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_register_user_account",
+        "uid" : "cd7f0efd94c41ad6",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844239526,
+          "stop" : 1653844242699,
+          "duration" : 3173
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_if_at_page",
+        "uid" : "2327ca23212338de",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844083590,
+          "stop" : 1653844083606,
+          "duration" : 16
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_select_sort[Price (High > Low)]",
+        "uid" : "63958e3206bac3bc",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844146583,
+          "stop" : 1653844147182,
+          "duration" : 599
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Price (High > Low)'" ]
+      }, {
+        "name" : "test_checkout_with_empty_cart",
+        "uid" : "59a77ce806cfcde1",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844170626,
+          "stop" : 1653844171494,
+          "duration" : 868
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_change_currency[USD]",
+        "uid" : "4f6796dfc86c1d52",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844234381,
+          "stop" : 1653844236041,
+          "duration" : 1660
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'USD'" ]
+      }, {
+        "name" : "test_admin_reset_password_submit_invalid_email",
+        "uid" : "a2482edeaf6a3d2b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844064084,
+          "stop" : 1653844065372,
+          "duration" : 1288
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_view_product_images[iPhone]",
+        "uid" : "92af07c48c3241f5",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844196559,
+          "stop" : 1653844198289,
+          "duration" : 1730
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "1" ]
+      }, {
+        "name" : "test_select_sort_cameras[Model (Z - A)]",
+        "uid" : "f202ca732d7b561b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844168236,
+          "stop" : 1653844169319,
+          "duration" : 1083
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Model (Z - A)', value='Nikon')" ]
+      }, {
+        "name" : "test_submit_form_privacy_policy_unchecked",
+        "uid" : "aab2d3146986d01b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844213471,
+          "stop" : 1653844215248,
+          "duration" : 1777
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_view_product_images[Apple Cinema 30\"]",
+        "uid" : "b92e962b3cf574af",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844198669,
+          "stop" : 1653844200792,
+          "duration" : 2123
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "2" ]
+      }, {
+        "name" : "test_register_passwords_mismatch",
+        "uid" : "12881a552fb780e9",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844227823,
+          "stop" : 1653844229584,
+          "duration" : 1761
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_try_register_account_with_errors[phone-Telephone must be between 3 and 32 characters!]",
+        "uid" : "e784fc3b778e7b6a",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844223306,
+          "stop" : 1653844225103,
+          "duration" : 1797
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'Telephone must be between 3 and 32 characters!'", "'phone'" ]
+      }, {
+        "name" : "test_navbar[laptops-all]",
+        "uid" : "6f2392d0a5f08592",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844097581,
+          "stop" : 1653844098248,
+          "duration" : 667
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('link text', 'Show All Laptops & Notebooks')", "<class 'pom.element.store.navbar.navbar.laptops'>" ]
+      }, {
+        "name" : "test_navbar[components-scanners]",
+        "uid" : "9f23cc43087cfa1c",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844102621,
+          "stop" : 1653844103289,
+          "duration" : 668
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Scanners')", "<class 'pom.element.store.navbar.navbar.components'>" ]
+      }, {
+        "name" : "test_submit_form_random_data",
+        "uid" : "707e731007aa2dd8",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844210660,
+          "stop" : 1653844212969,
+          "duration" : 2309
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_user_login_and_logout",
+        "uid" : "a3b7e6fc40f58f0b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844242706,
+          "stop" : 1653844245425,
+          "duration" : 2719
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_menu[components-components]",
+        "uid" : "3b10f380625735ff",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844121941,
+          "stop" : 1653844123151,
+          "duration" : 1210
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.product.product.components'>", "<class 'pom.element.store.product.product.components'>" ]
+      }, {
+        "name" : "test_select_sort_cameras[Name (Z - A)]",
+        "uid" : "e4ef2bae203d4425",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844159252,
+          "stop" : 1653844160270,
+          "duration" : 1018
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "Option(text='Name (Z - A)', value='Nikon')" ]
+      }, {
+        "name" : "test_navbar[laptops-macs]",
+        "uid" : "263bc52af8560292",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844095286,
+          "stop" : 1653844096066,
+          "duration" : 780
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "('partial link text', 'Macs')", "<class 'pom.element.store.navbar.navbar.laptops'>" ]
+      }, {
+        "name" : "test_select_product_from_featured[0-macbook]",
+        "uid" : "1d67a1b7b1ce517b",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844189169,
+          "stop" : 1653844189748,
+          "duration" : 579
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'macbook'", "0" ]
+      }, {
+        "name" : "test_menu[tablets-tablets]",
+        "uid" : "893767184c42e966",
+        "parentUid" : "5f8a21a028de3b5503783917c9266131",
+        "status" : "passed",
+        "time" : {
+          "start" : 1653844130091,
+          "stop" : 1653844130967,
+          "duration" : 876
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'pom.element.store.product.product.tablets'>", "<class 'pom.element.store.product.product.tablets'>" ]
+      } ],
+      "uid" : "5f8a21a028de3b5503783917c9266131"
+    } ],
+    "uid" : "fd8342d1c2e3fbb0ae3eb3c73964add6"
+  } ],
+  "name" : "timeline"
+}

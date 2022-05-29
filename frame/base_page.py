@@ -1,5 +1,8 @@
+from enum import Enum
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
 from frame.base_locator import Locator, Selector, BaseLocator, Click
 from frame.utils import Utils
@@ -11,15 +14,23 @@ TIMEOUT = 3
 BASE_URL = 'http://127.0.0.1:8081'
 
 
+class Currency(Enum):
+    USD = '$'
+    EUR = '€'
+    GBP = '£'
+
+
 class BasePage:
 
     locator = BaseLocator
 
-    def __init__(self, driver, url=''):
+    def __init__(self, driver, url='', open=False):
         self.driver = driver
         self.url = BASE_URL + url
         self.__wait = lambda timeout=TIMEOUT: WebDriverWait(
             driver, timeout=timeout)
+        if open:
+            self.open()
 
     @property
     def locators(self):
@@ -60,6 +71,18 @@ class BasePage:
         element.click()
         element.clear()
         element.send_keys(text)
+        return element
+
+    def enter_text_with_dropdown(self, locator, text):
+        element = self.find_element(locator)
+        element.clear()
+        element.click()
+        element.send_keys(text)
+        try:
+            # handle input with a dropdown
+            self.click(Selector(By.PARTIAL_LINK_TEXT, text))
+        except:
+            element.clear()
         return element
 
     def click(self, locator, time=TIMEOUT):
@@ -105,6 +128,25 @@ class BasePage:
         return self.__wait(time).until(EC.presence_of_element_located(locator),
                                        message=TIMEOUT_MESSAGE.format(locator, time))
 
-    def does_not_present(self, locator, time=TIMEOUT):
-        return self.__wait(time).until_not(EC.presence_of_element_located(locator),
-                                           message=TIMEOUT_MESSAGE.format(locator, time))
+    # def does_not_present(self, locator, time=TIMEOUT):
+    #     return self.__wait(time).until_not(EC.presence_of_element_located(locator),
+    #                                        message=TIMEOUT_MESSAGE.format(locator, time))
+
+    def does_not_present(self, locator, time=0.5):
+        try:
+            self.does_present(locator, time=time)
+        except TimeoutException:
+            return True
+        else:
+            return False
+
+    def does_alert_present(self, time=0.5):
+        return self.__wait(time).until(EC.alert_is_present())
+    
+    def alert_accept(self):
+        self.driver.switch_to.alert.accept()
+
+    def alert_dismiss(self):
+        self.driver.switch_to_alert().dismiss()
+    
+      

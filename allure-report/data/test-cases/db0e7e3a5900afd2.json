@@ -1,0 +1,167 @@
+{
+  "uid" : "db0e7e3a5900afd2",
+  "name" : "test_menu[components-monitors]",
+  "fullName" : "tests.test_catalog_page.TestCatalogPage#test_menu",
+  "historyId" : "bd6d239a390fc3824d7f4ab8983f73c1",
+  "time" : {
+    "start" : 1653844124849,
+    "stop" : 1653844125757,
+    "duration" : 908
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "back_to_base",
+    "time" : {
+      "start" : 1653844124847,
+      "stop" : 1653844124847,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "driver",
+    "time" : {
+      "start" : 1653844044491,
+      "stop" : 1653844054804,
+      "duration" : 10313
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1653844044491,
+      "stop" : 1653844044491,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1653844044459,
+      "stop" : 1653844044491,
+      "duration" : 32
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "page",
+    "time" : {
+      "start" : 1653844082863,
+      "stop" : 1653844083590,
+      "duration" : 727
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "back_to_base::0",
+    "time" : {
+      "start" : 1653844125760,
+      "stop" : 1653844126170,
+      "duration" : 410
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "driver::0",
+    "time" : {
+      "start" : 1653844245433,
+      "stop" : 1653844245598,
+      "duration" : 165
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_catalog_page"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCatalogPage"
+  }, {
+    "name" : "host",
+    "value" : "ubuntu"
+  }, {
+    "name" : "thread",
+    "value" : "47551-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_catalog_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "l",
+    "value" : "('css selector', \"#column-left > * a[href$='component/monitor']\")"
+  }, {
+    "name" : "p",
+    "value" : "<class 'pom.element.store.product.product.components'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "db0e7e3a5900afd2.json",
+  "parameterValues" : [ "('css selector', \"#column-left > * a[href$='component/monitor']\")", "<class 'pom.element.store.product.product.components'>" ]
+}

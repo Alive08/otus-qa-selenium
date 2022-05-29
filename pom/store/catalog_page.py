@@ -91,10 +91,10 @@ class CatalogPage(BasePage):
         return self.get_select_sort().first_selected_option
 
     def click_button_view_list(self):
-        self.find_element(self.locator.LOCATOR_BUTTON_VIEW_LIST).click()
+        self.click(self.locator.LOCATOR_BUTTON_VIEW_LIST)
 
     def click_button_view_grid(self):
-        self.find_element(self.locator.LOCATOR_BUTTON_VIEW_GRID).click()
+        self.click(self.locator.LOCATOR_BUTTON_VIEW_GRID)
 
     def get_view_list_elements(self):
         return self.find_elements(self.locator.LOCATOR_LAYOUT_LIST)
