@@ -23,9 +23,9 @@ class TestMainPage:
         assert page.at_page(page.locator.TITLE_MAIN_PAGE)
 
     def test_checkout_with_empty_cart(self):
-        common_elements = CommonElements(self.driver, self.url)
+        common_elements = CommonElements(self.driver)
         common_elements.click_checkout()
-        page = ShoppingCartPage(self.driver, self.url)
+        page = ShoppingCartPage(self.driver)
         assert page.at_page(
             ShoppingCartPageLocators.TITLE_SHOPPING_CART_PAGE)
         assert page.is_empty()

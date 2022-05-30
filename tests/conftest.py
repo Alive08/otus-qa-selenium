@@ -14,6 +14,8 @@ from pom.element.store.account import account
 
 BASE_URL = 'http://127.0.0.1:8081'
 
+MAX_TIMEOUT = 10
+
 USER_OPTIONS = ('--headless',
                 '--start-maximized',
                 '--start-fullscreen')
@@ -74,9 +76,9 @@ def driver(request):
     for option in USER_OPTIONS:
         if request.config.getoption(option):
             options.update({option: True})
-
     driver = Browser(request.config.getoption("--browser"),
                      options=options)()
+    driver.implicitly_wait(MAX_TIMEOUT)
 
     yield driver
 

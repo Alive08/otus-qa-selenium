@@ -2,14 +2,12 @@ from collections import namedtuple
 import pytest
 from frame.base_page import BASE_URL
 from frame.utils import Utils
-from pom.element.store.breadcrumb import Breadcrumb, BreadcrumbLocators
+from pom.element.store.breadcrumb import Breadcrumb
 from pom.element.store.navbar import navbar
 from pom.element.store.product import product
 from pom.element.store.thumbnails import ProductThumbnails
 from pom.store.catalog_page import CatalogPage
 from pom.store.main_page import MainPageLocators
-
-from tests.conftest import skip_if
 
 
 @pytest.fixture(scope='class', autouse=True)
@@ -44,23 +42,19 @@ class TestCatalogPage:
         page.click(p)
         page.click(l)
 
-    @skip_if('start-maximized')
     def test_breadcrumb_go_home(self, page: CatalogPage):
         assert page.at_page('Tablets')
-        bc = Breadcrumb(self.driver)
-        bc.go_home()
+        Breadcrumb(self.driver).go_home()
         assert page.at_page(MainPageLocators.TITLE_MAIN_PAGE)
 
-    @skip_if('start-maximized')
     def test_breadcrumb_walk(self, page: CatalogPage):
         assert page.at_page('Tablets')
         page.click(product.components)
         page.click(product.components.monitors)
         assert page.at_page('Monitors')
+        bc = Breadcrumb(self.driver)
         while not page.at_page(MainPageLocators.TITLE_MAIN_PAGE):
-            links = Breadcrumb(self.driver, self.url).get_items()
-            links.pop()
-            links.pop().click()
+            bc.back()
         assert page.at_page(MainPageLocators.TITLE_MAIN_PAGE)
 
     def test_view_list(self, page: CatalogPage):

@@ -30,22 +30,21 @@ class TestProductPage:
                                              (2, 'test'),
                                              (3, 'canon-eos-5d')))
     def test_select_product_from_featured(self, index, expr, page: ProductPage):
-        tn = ProductThumbnails(self.driver, self.url)
+        tn = ProductThumbnails(self.driver)
         tn.get_product_link(
             tn.get_product(index)).click()
         assert expr in page.current_url
 
     def test_add_product_to_shopping_cart(self, page: ProductPage):
-        tn = ProductThumbnails(self.driver, self.url)
+        tn = ProductThumbnails(self.driver)
         tn.get_product(1).click()
         assert page.at_page('iPhone')
-        page.add_product_to_shopping_cart(quantity=1)
-        assert page.get_product_price() in ShoppingCartButton(
-            self.driver, self.url).get_total()
+        page.add_product_to_shopping_cart(1)
+        assert page.get_product_price() in ShoppingCartButton(self.driver).get_total()
 
     @pytest.mark.parametrize('item', range(0, 4), ids=('MacBook', 'iPhone', 'Apple Cinema 30"', 'Canon EOS 5D'))
     def test_view_product_images(self, item, page: ProductPage):
-        tn = ProductThumbnails(self.driver, self.url)
+        tn = ProductThumbnails(self.driver)
         tn.click_product_link(tn.get_product(item))
         for t in page.get_thumbnails():
             t.click()

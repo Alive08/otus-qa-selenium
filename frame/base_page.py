@@ -26,6 +26,7 @@ class BasePage:
 
     def __init__(self, driver, url='', open=False):
         self.driver = driver
+        self.actions = ActionChains(driver)
         self.url = BASE_URL + url
         self.__wait = lambda timeout=TIMEOUT: WebDriverWait(
             driver, timeout=timeout)
@@ -98,7 +99,7 @@ class BasePage:
         except:
             pass
         element = self.find_element(locator, time)
-        ActionChains(self.driver).move_to_element(element).perform()
+        self.actions.move_to_element(element).perform()
         return element
 
     def click_element(self, element):
@@ -140,13 +141,15 @@ class BasePage:
         else:
             return False
 
+    def is_clickable(self, locator, time=TIMEOUT):
+        return self.__wait(time).until(EC.element_to_be_clickable(locator),
+                                       message=TIMEOUT_MESSAGE.format(locator, time))
+
     def does_alert_present(self, time=0.5):
         return self.__wait(time).until(EC.alert_is_present())
-    
+
     def alert_accept(self):
         self.driver.switch_to.alert.accept()
 
     def alert_dismiss(self):
         self.driver.switch_to_alert().dismiss()
-    
-      

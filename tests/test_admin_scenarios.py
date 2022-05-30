@@ -1,10 +1,8 @@
-from re import A
-from pom.admin.login_page import AdminLoginPage, AdminLoginPageLocators
 from pom.admin.admin_page import AdminPage
+from pom.admin.login_page import AdminLoginPage, AdminLoginPageLocators
 from pom.admin.product_page import AdminProductPage
-from pom.element.admin.navigation import navigation
 from pom.element.admin.common import AdminCommonElements
-import time
+from pom.element.admin.navigation import navigation
 
 from tests.conftest import ProductData
 
