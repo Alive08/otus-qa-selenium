@@ -14,7 +14,7 @@ from pom.element.store.account import account
 
 BASE_URL = 'http://127.0.0.1:8081'
 
-MAX_TIMEOUT = 10
+MAX_TIMEOUT = 5
 
 USER_OPTIONS = ('--headless',
                 '--start-maximized',

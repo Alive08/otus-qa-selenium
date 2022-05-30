@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
-from frame.base_locator import Locator, Selector, BaseLocator, Click
+from frame.base_locator import Locator, Selector, BaseLocator
 from frame.utils import Utils
 
 TIMEOUT_MESSAGE = "Can't find element(s) by locator {} in {} s"
@@ -128,10 +128,6 @@ class BasePage:
     def does_present(self, locator, time=TIMEOUT):
         return self.__wait(time).until(EC.presence_of_element_located(locator),
                                        message=TIMEOUT_MESSAGE.format(locator, time))
-
-    # def does_not_present(self, locator, time=TIMEOUT):
-    #     return self.__wait(time).until_not(EC.presence_of_element_located(locator),
-    #                                        message=TIMEOUT_MESSAGE.format(locator, time))
 
     def does_not_present(self, locator, time=0.5):
         try:

@@ -57,19 +57,3 @@ class BaseLocator:
         l = cls.find_by_name(text)
         return l if l else cls.find_by_name(f'{cls.root.name}_{text.upper()}')
 
-
-class Click:
-    def __init__(self, obj):
-        self.obj = obj
-        self.locator = obj.locator
-
-    def root(self):
-        self.locator.locators.sort(key=lambda x: len(x.name))
-        return self.locator.locators[0]
-
-    def mapper(self, text):
-        l = self.locator.find_by_name(text)
-        return l if l else self.locator.find_by_name(f'{self.root().name}_{text.upper()}')
-
-    def __getattr__(self, attr):
-        return self.obj.click_item(self.mapper(attr).locator)
