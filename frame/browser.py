@@ -73,7 +73,7 @@ class BrowserOpera(BaseBrowser):
     def __init__(self, options=None):
         self._options = ChromeOptions()
         super().__init__(options)
-        self._options.binary_location = '/snap/opera/current/usr/bin/opera'
+        self._options.binary_location = '/usr/bin/opera'
         # https://github.com/operasoftware/operachromiumdriver/issues/96
         self._options.add_experimental_option('w3c', True)
 
