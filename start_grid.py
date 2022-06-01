@@ -7,6 +7,7 @@ import subprocess
 
 DRIVERS = "~/.wdm"
 GRID = "~/Downloads/selenium-server-4.2.1.jar"
+YANDEX = DRIVERS + '/drivers/yandexdriver/linux64/latest'
 
 parser = argparse.ArgumentParser()
 
@@ -30,7 +31,7 @@ def main():
 
     my_env = os.environ.copy()
     my_env['PATH'] = f"{os.environ.get('PATH')}:" + ':'.join(
-        [f"{v['binary_path'].rsplit('/', 1)[0]}" for k, v in d.items()])
+        [f"{v['binary_path'].rsplit('/', 1)[0]}" for k, v in d.items()]) + f':{os.path.expanduser(YANDEX)}'
 
     my_command = ["java", "-jar", args.jar, args.mode, "--host", args.host]
     if args.port:

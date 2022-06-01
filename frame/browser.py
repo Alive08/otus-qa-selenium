@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.edge.service import Service as EdgeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver.opera.options import Options as OperaOptions
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
@@ -30,6 +31,7 @@ class BaseBrowser:
     @property
     def options(self):
         return self._options
+
 
 class BrowserChrome(BaseBrowser):
 
@@ -56,6 +58,7 @@ class BrowserFirefox(BaseBrowser):
                 GeckoDriverManager().install()),
             options=self._options)
 
+
 class BrowserEdge(BaseBrowser):
 
     def __init__(self, options=None):
@@ -68,12 +71,15 @@ class BrowserEdge(BaseBrowser):
                 EdgeChromiumDriverManager().install()),
             options=self._options)
 
+
 class BrowserOpera(BaseBrowser):
 
     def __init__(self, options=None):
         self._options = ChromeOptions()
+        # self._options = OperaOptions()
         super().__init__(options)
         self._options.binary_location = '/usr/bin/opera'
+        self._options.set_capability("browserName", "opera")
         # https://github.com/operasoftware/operachromiumdriver/issues/96
         self._options.add_experimental_option('w3c', True)
 

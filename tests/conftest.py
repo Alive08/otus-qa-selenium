@@ -84,11 +84,9 @@ def driver(request):
 
     if executor != "local":
         executor_url = f"http://{executor}:4444/wd/hub"
-        options = Browser(browser, options=options).options
-        options.set_capability("platformName", "LINUX")
         driver = webdriver.Remote(
             command_executor=executor_url,
-            options=options
+            options=Browser(browser, options=options).options
         )
     else:
         driver = Browser(browser, options=options)()
