@@ -27,6 +27,9 @@ class BaseBrowser:
         for option in *COMMON_OPTIONS, *options:
             self._options.add_argument(option)
 
+    @property
+    def options(self):
+        return self._options
 
 class BrowserChrome(BaseBrowser):
 
@@ -107,6 +110,7 @@ class Browser:
             self.__browser = BROWSERS[name].value(options=options)
         except KeyError:
             raise AssertionError(f'Unsupported browser: {self.__name}')
+        self.options = self.__browser.options
 
     def __call__(self, *args, **kwargs):
         return self.__browser(*args, **kwargs)

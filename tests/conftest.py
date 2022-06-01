@@ -1,7 +1,7 @@
 import random
 from collections import namedtuple
 from dataclasses import dataclass
-
+from selenium import webdriver
 import pytest
 from faker import Faker
 from frame.browser import Browser
@@ -25,6 +25,7 @@ def pytest_addoption(parser):
     parser.addoption("--base-url", default=BASE_URL)
     parser.addoption("--browser", default="chrome",
                      choices=('chrome', 'firefox', 'edge', 'opera', 'yandex'))
+    parser.addoption("--executor", default="local")
     parser.addoption("--headless", action="store_true")
     parser.addoption("--start-maximized", action="store_true")
     parser.addoption("--start-fullscreen", action="store_true")
@@ -72,12 +73,26 @@ def invalid_creds():
 
 @pytest.fixture(scope='session')
 def driver(request):
+    
+    browser = request.config.getoption('browser')
+    executor = request.config.getoption('executor')
+
     options = {}
     for option in USER_OPTIONS:
         if request.config.getoption(option):
             options.update({option: True})
-    driver = Browser(request.config.getoption("--browser"),
-                     options=options)()
+
+    if executor != "local":
+        executor_url = f"http://{executor}:4444/wd/hub"
+        options = Browser(browser, options=options).options
+        options.set_capability("platformName", "LINUX")
+        driver = webdriver.Remote(
+            command_executor=executor_url,
+            options=options
+        )
+    else:
+        driver = Browser(browser, options=options)()
+
     driver.implicitly_wait(MAX_TIMEOUT)
 
     yield driver
