@@ -33,7 +33,7 @@ def main():
     my_env['PATH'] = f"{os.environ.get('PATH')}:" + ':'.join(
         [f"{v['binary_path'].rsplit('/', 1)[0]}" for k, v in d.items()]) + f':{os.path.expanduser(YANDEX)}'
 
-    my_command = ["java", "-jar", args.jar, args.mode, "--host", args.host]
+    my_command = ["java", "-jar", args.jar, args.mode, "--host", args.host, "--log-level", "ALL"]
     if args.port:
         my_command.extend(["--port", args.port])
 
