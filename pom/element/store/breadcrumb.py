@@ -17,7 +17,7 @@ class Breadcrumb(BasePage):
     locator = BreadcrumbLocators
 
     def go_home(self):
-        # self.click(self.locator.LOCATOR_BREADCRUMB_HOME) - does not work with chromedriver
+        # self.click(self.locator.LOCATOR_BREADCRUMB_HOME)# - does not work with chromedriver
         self.actions.click(self.find_element(self.locator.LOCATOR_BREADCRUMB)).send_keys(
             Keys.TAB).send_keys(Keys.ENTER).perform()
 

@@ -5,7 +5,7 @@ from pom.element.admin.common import AdminCommonElements
 from pom.element.admin.navigation import navigation
 
 from tests.conftest import ProductData
-
+import time
 
 class TestAdminScenarios:
 

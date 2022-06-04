@@ -9,9 +9,9 @@ from frame.utils import Utils
 
 TIMEOUT_MESSAGE = "Can't find element(s) by locator {} in {} s"
 TIMEOUT = 3
-# BASE_URL = f'http://{Utils.get_ip()}:8081'
+BASE_URL = f'http://{Utils.get_ip()}:8081'
 
-BASE_URL = 'http://127.0.0.1:8081'
+# BASE_URL = 'http://127.0.0.1:8081'
 
 
 class Currency(Enum):
