@@ -9,7 +9,7 @@ class AdminProductPageLocators(BaseLocator):
     class product(Node):
 
         name = (By.CSS_SELECTOR, "#form-product > * #input-name1")
-        description = (By.CSS_SELECTOR, "#form-product > * div.note-editable > p")
+        description = (By.CSS_SELECTOR, "#form-product > * div.note-editable")
         meta_tag_title = (By.CSS_SELECTOR, "#form-product > * #input-meta-title1")
         model = (By.CSS_SELECTOR, "#form-product > * #input-model")
         price = (By.CSS_SELECTOR, "#form-product > * #input-price")
