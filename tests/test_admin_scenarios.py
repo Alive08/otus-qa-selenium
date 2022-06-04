@@ -31,7 +31,6 @@ class TestAdminScenarios:
         admin_page.click_tab('Links')
         product_page.set_product_category(
             product_random.categories.capitalize())
-        product_page.set_product_manufacturer(product_random.manufacturer)
 
         admin_page.click_save()
 

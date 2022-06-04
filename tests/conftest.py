@@ -160,7 +160,6 @@ class ProductData:
     model: str
     price: int
     quantity: int
-    manufacturer: str
     categories: str
 
 
@@ -174,7 +173,6 @@ def product_random():
         model=faker.word(),
         price=faker.pyint(),
         quantity=faker.pyint(),
-        manufacturer='None',
         categories=random.choice(product.item_names)
     )
 
@@ -191,3 +189,7 @@ def back_to_base(request, base_url):
 @pytest.fixture(scope='session')
 def account_admin_valid():
     return ('user', 'bitnami')
+
+
+# DELETE `oc_product_description`, `oc_product` FROM `oc_product_description` INNER JOIN `oc_product`
+# WHERE `oc_product_description`.product_id = `oc_product`.product_id AND `oc_product_description`.name like 'test\_%'
