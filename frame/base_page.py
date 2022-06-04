@@ -2,16 +2,17 @@ from enum import Enum
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from frame.base_locator import Locator, Selector, BaseLocator
 from frame.utils import Utils
 
 TIMEOUT_MESSAGE = "Can't find element(s) by locator {} in {} s"
 TIMEOUT = 3
-# BASE_URL = f'http://{Utils.get_ip()}:8081'
 
-BASE_URL = 'http://127.0.0.1:8081'
+BASE_URL = f'http://{Utils.get_ip()}:8081'
+
+# BASE_URL = 'http://127.0.0.1:8081'
 
 
 class Currency(Enum):
@@ -129,7 +130,7 @@ class BasePage:
         return self.__wait(time).until(EC.presence_of_element_located(locator),
                                        message=TIMEOUT_MESSAGE.format(locator, time))
 
-    def does_not_present(self, locator, time=0.5):
+    def does_not_present(self, locator, time=0.2):
         try:
             self.does_present(locator, time=time)
         except TimeoutException:

@@ -28,7 +28,7 @@ class TestUserScenarios:
         tn = ProductThumbnails(driver)
         assert tn.get_price_currency(tn.get_product(0)) == Currency[cur].value
 
-    def test_register_user_account(self, driver, account_random: AccountData):
+    def test_register_user_account(self, driver, account_random: AccountData, db_delete_customer_random):
         page = RegisterAccountPage(driver, RegisterAccountPageLocators.URL)
         page.open()
         account_random.password_2 = account_random.password_1  # valid input
@@ -38,7 +38,7 @@ class TestUserScenarios:
         AccountPage(driver).click_continue()
         assert page.at_page(MainPageLocators.TITLE_MAIN_PAGE)
 
-    def test_user_login_and_logout(self, driver, account_valid: AccountData):
+    def test_user_login_and_logout(self, driver, account_valid: AccountData, db_customer_valid):
         page = MainPage(driver, MainPageLocators.URL)
         page.open()
         page.click(account_dropdown)
