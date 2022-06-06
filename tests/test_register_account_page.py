@@ -32,11 +32,17 @@ class TestRegisterAccountPage:
         page.uncheck_box_agree()
         assert not page.is_checked_agree()
 
-    def test_submit_form_duplicate_data(self, page: RegisterAccountPage, account_valid):
+    def test_submit_form_valid_data(self, page: RegisterAccountPage, account_valid, db_delete_customer_valid):
+        page.submit_form(account_valid)
+        assert 'Your Account Has Been Created!' in page.page_src
+        page.click(account_dropdown)
+        page.click(account_dropdown.logout)
+
+    def test_submit_form_duplicate_data(self, page: RegisterAccountPage, account_valid, db_customer_valid):
         page.submit_form(account_valid)
         assert page.does_present(page.locator.LOCATOR_ALERT_DANGER)
 
-    def test_submit_form_random_data(self, page: RegisterAccountPage, account_random):
+    def test_submit_form_random_data(self, page: RegisterAccountPage, account_random, db_delete_customer_random):
         account_random.password_2 = account_random.password_1
         page.submit_form(account_random)
         assert 'Your Account Has Been Created!' in page.page_src

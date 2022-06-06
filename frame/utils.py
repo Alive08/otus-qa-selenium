@@ -1,8 +1,9 @@
-import socket
-import pytest
+import hashlib
 import random
+import socket
 import string
-from requests import request
+
+import pytest
 
 
 class Utils:
@@ -40,4 +41,11 @@ class Utils:
 
     def random_symbols(size):
         return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(size))
-    
+
+    # https://www.generacodice.com/en/articolo/2217802/OpenCart-Customer-Password-Encryption
+    def encrypt_oc_password(password):
+        salt = Utils.random_symbols(9)
+        round_0 = hashlib.sha1(password.encode('utf-8')).hexdigest()
+        round_1 = hashlib.sha1((salt + round_0).encode('utf-8')).hexdigest()
+        round_2 = hashlib.sha1((salt + round_1).encode('utf-8')).hexdigest()
+        return (salt, round_2)

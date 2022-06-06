@@ -42,5 +42,5 @@ class product(Node):
     class cameras(Node):
         self = (By.CSS_SELECTOR, "#column-left > * a[href$='camera']")
 
-    class mp3players(Node):
+    class MP3Players(Node):
         self = (By.CSS_SELECTOR, "#column-left > * a[href$='mp3-players']")

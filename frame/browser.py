@@ -38,6 +38,7 @@ class BrowserChrome(BaseBrowser):
     def __init__(self, options=None):
         self._options = ChromeOptions()
         super().__init__(options)
+        self._options.set_capability("browserName", "chrome")
 
     def __call__(self):
         return webdriver.Chrome(
@@ -51,6 +52,7 @@ class BrowserFirefox(BaseBrowser):
     def __init__(self, options=None):
         self._options = FirefoxOptions()
         super().__init__(options)
+        self._options.set_capability("browserName", "firefox")
 
     def __call__(self):
         return webdriver.Firefox(
@@ -64,6 +66,7 @@ class BrowserEdge(BaseBrowser):
     def __init__(self, options=None):
         self._options = EdgeOptions()
         super().__init__(options)
+        self._options.set_capability("browserName", "MicrosoftEdge")
 
     def __call__(self):
         return webdriver.Edge(
