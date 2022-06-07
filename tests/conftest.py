@@ -2,7 +2,6 @@ import random
 from collections import namedtuple
 from dataclasses import dataclass
 
-import mysql.connector
 import pytest
 from faker import Faker
 from frame.base_page import BASE_URL
@@ -80,7 +79,7 @@ def invalid_creds():
 
 @pytest.fixture(scope='session')
 def driver(request):
-    
+
     browser = request.config.getoption('browser')
     version = request.config.getoption('bversion')
     executor = request.config.getoption('executor')
@@ -101,8 +100,8 @@ def driver(request):
 
     if executor != "local":
         executor_url = f'http://{executor}:4444/wd/hub'
-        options=Browser(browser, options=options).options
-        for k,v in capabilities.items():
+        options = Browser(browser, options=options).options
+        for k, v in capabilities.items():
             options.set_capability(k, v) if v else next
 
         driver = webdriver.Remote(
@@ -112,12 +111,10 @@ def driver(request):
     else:
         driver = Browser(browser, options=options)()
 
-    # driver.implicitly_wait(MAX_TIMEOUT)
     driver.maximize_window()
 
     yield driver
 
-    driver.close()
     driver.quit()
 
 
@@ -156,22 +153,6 @@ def account_random():
     )
 
 
-@pytest.fixture(scope='session')
-def _account_valid(driver):
-    data = AccountData('Denzel', 'Washington',
-                       'denzel.washington@holliwood.com',
-                       '+1 234 5678 90',
-                       'helloUser', 'helloUser')
-    page = RegisterAccountPage(driver, RegisterAccountPageLocators.URL)
-    page.open()
-    page.submit_form(data, agree=True)
-    try:
-        page.click(account.logout, time=0.25)
-    except:
-        pass
-    return data
-
-
 @dataclass
 class ProductData:
     name: str
@@ -207,6 +188,7 @@ def back_to_base(request, base_url):
 @pytest.fixture(scope='session')
 def account_admin_valid():
     return ('user', 'bitnami')
+
 
 @pytest.fixture(scope='session')
 def db_connector(my_IP):
