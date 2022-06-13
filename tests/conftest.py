@@ -1,18 +1,20 @@
+import logging
 import random
-from collections import namedtuple
-from dataclasses import dataclass
+import time
+from datetime import datetime
+from pathlib import Path
+import allure
+from allure_commons.types import AttachmentType
 
-import mysql.connector
 import pytest
 from faker import Faker
 from frame.base_page import BASE_URL
 from frame.browser import Browser
 from frame.db import DB
+from frame.logger import _init_logger
+from frame.types import AccountData, Creds, ProductData
 from frame.utils import Utils
-from pom.element.store.account import account
 from pom.element.store.product import product
-from pom.store.register_account_page import (RegisterAccountPage,
-                                             RegisterAccountPageLocators)
 from selenium import webdriver
 
 MAX_TIMEOUT = 5
@@ -31,14 +33,44 @@ def pytest_addoption(parser):
     parser.addoption("--headless", action="store_true")
     parser.addoption("--start-maximized", default=True, action="store_true")
     parser.addoption("--start-fullscreen", action="store_true")
+    parser.addoption("--test-log-level", default="INFO",
+                     choices=("DEBUG", "INFO", "WARNING", "ERROR"))
+    parser.addoption("--test-log-file", default="testrun.log")
+    parser.addoption("--screenshots-dir", default="screenshots")
 
 
-option = None
-
-
-def pytest_configure(config):
+def pytest_configure(config: pytest.Config):
     global option
     option = config.option
+
+
+@pytest.fixture(scope='session')
+def options():
+    return option
+
+
+@pytest.fixture(scope='session')
+def _app_logger(options):
+    return _init_logger('', level=options.test_log_level, logfile=options.test_log_file)
+
+
+# logger for conftest's fixtures
+@pytest.fixture(scope='session')
+def _logger(options, _app_logger):
+    return _init_logger(__name__)
+
+
+@pytest.fixture(scope='session')
+def screenshots_dir(driver, rootdir, _logger):
+    workdir = Path(rootdir, "screenshots", driver.session_id)
+    try:
+        workdir.mkdir(parents=True, exist_ok=True)
+    except Exception as e:
+        _logger.exception(e)
+        pytest.fail()
+    else:
+        _logger.info("created screenshots directory %s", workdir)
+        return workdir
 
 
 def skip_if(opt):
@@ -55,6 +87,15 @@ def skip_if_not(opt):
     )
 
 
+@pytest.fixture(autouse=True)
+def log(request, _logger):
+    _logger.info(">>> RUN <%s> <<<", request.node.name)
+
+    yield
+
+    _logger.info(">>> END <%s> <<<", request.node.name)
+
+
 @pytest.fixture(scope='session')
 def my_IP():
     return Utils.get_ip()
@@ -63,9 +104,6 @@ def my_IP():
 @pytest.fixture(scope='session')
 def base_url(request):
     return request.config.getoption("--base-url")
-
-
-Creds = namedtuple('Creds', ('login', 'password'))
 
 
 @pytest.fixture(scope='session')
@@ -79,8 +117,10 @@ def invalid_creds():
 
 
 @pytest.fixture(scope='session')
-def driver(request):
-    
+def driver(request, options, _app_logger):
+
+    logger = _init_logger('driver')
+
     browser = request.config.getoption('browser')
     version = request.config.getoption('bversion')
     executor = request.config.getoption('executor')
@@ -100,9 +140,10 @@ def driver(request):
     }
 
     if executor != "local":
+        logger.info("using remote executor at %s with %s", executor, browser)
         executor_url = f'http://{executor}:4444/wd/hub'
-        options=Browser(browser, options=options).options
-        for k,v in capabilities.items():
+        options = Browser(browser, options=options).options
+        for k, v in capabilities.items():
             options.set_capability(k, v) if v else next
 
         driver = webdriver.Remote(
@@ -110,25 +151,20 @@ def driver(request):
             options=options
         )
     else:
+        logger.info("using local instance of %s", browser)
         driver = Browser(browser, options=options)()
 
-    # driver.implicitly_wait(MAX_TIMEOUT)
+    driver.logger = logger
+    driver.test_name = request.node.name
+
     driver.maximize_window()
+
+    logger.info("starting webdriver %s session %s", browser, driver.session_id)
 
     yield driver
 
-    driver.close()
+    logger.info("closing webdriver %s session %s", browser, driver.session_id)
     driver.quit()
-
-
-@dataclass
-class AccountData:
-    fname: str
-    lname: str
-    email: str
-    phone: str
-    password_1: str
-    password_2: str
 
 
 @pytest.fixture
@@ -156,32 +192,6 @@ def account_random():
     )
 
 
-@pytest.fixture(scope='session')
-def _account_valid(driver):
-    data = AccountData('Denzel', 'Washington',
-                       'denzel.washington@holliwood.com',
-                       '+1 234 5678 90',
-                       'helloUser', 'helloUser')
-    page = RegisterAccountPage(driver, RegisterAccountPageLocators.URL)
-    page.open()
-    page.submit_form(data, agree=True)
-    try:
-        page.click(account.logout, time=0.25)
-    except:
-        pass
-    return data
-
-
-@dataclass
-class ProductData:
-    name: str
-    description: str
-    model: str
-    price: int
-    quantity: int
-    categories: str
-
-
 @pytest.fixture
 def product_random():
     faker = Faker()
@@ -196,17 +206,21 @@ def product_random():
 
 
 @pytest.fixture(autouse=True)
-def back_to_base(request, base_url):
+def back_to_base(request, base_url, _logger: logging.Logger):
     yield
     try:
         request.instance.driver.get(base_url + request.instance.url)
     except:
+        pass
+    else:
+        _logger.info("go back to %s", request.instance.url)
         pass
 
 
 @pytest.fixture(scope='session')
 def account_admin_valid():
     return ('user', 'bitnami')
+
 
 @pytest.fixture(scope='session')
 def db_connector(my_IP):
@@ -219,48 +233,105 @@ def db_connector(my_IP):
 
 
 @pytest.fixture
-def db_product_random(db_connector: DB, product_random):
+def db_product_random(db_connector: DB, product_random, _logger):
+    _logger.info("adding random product")
 
     yield db_connector.add_product(product_random)
 
+    _logger.info("deleting product")
     db_connector.delete_product('test')
 
 
 @pytest.fixture
-def db_delete_product(db_connector: DB):
+def db_delete_product(db_connector: DB, _logger):
 
     yield
 
+    _logger.info("deleting product")
     db_connector.delete_product('test')
 
 
 @pytest.fixture
-def db_customer_valid(db_connector: DB, account_valid):
+def db_customer_valid(db_connector: DB, account_valid, _logger):
+    _logger.info("adding valid customer account")
 
     yield db_connector.create_customer(account_valid)
 
+    _logger.info("deleting customer {}".format(account_valid.email))
     db_connector.delete_customer(account_valid.email)
 
 
 @pytest.fixture
-def db_delete_customer_valid(db_connector: DB, account_valid):
+def db_delete_customer_valid(db_connector: DB, account_valid, _logger):
+    _logger.info("deleting valid customer account")
 
     yield
 
+    _logger.info("deleting customer {}".format(account_valid.email))
     db_connector.delete_customer(account_valid.email)
 
 
 @pytest.fixture
-def db_customer_random(db_connector: DB, account_random):
+def db_customer_random(db_connector: DB, account_random, _logger):
+    _logger.info("adding random customer account")
 
     yield db_connector.create_customer(account_random)
 
+    _logger.info("deleting customer {}".format(account_random.email))
     db_connector.delete_customer(account_random.email)
 
 
 @pytest.fixture
-def db_delete_customer_random(db_connector: DB, account_random):
+def db_delete_customer_random(db_connector: DB, account_random, _logger):
+    _logger.info("deleting random customer account")
 
     yield
 
+    _logger.info("deleting customer {}".format(account_random.email))
     db_connector.delete_customer(account_random.email)
+
+
+# https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    # execute all other hooks to obtain the report object
+    outcome = yield
+
+    rep = outcome.get_result()
+
+    # set a report attribute for each phase of a call
+    # which can be "setup", "call", "teardown"
+
+    setattr(item, "rep_" + rep.when, rep)
+
+
+def take_screenshot_selenium(driver, dir, nodeid):
+    time.sleep(1)
+    file_name = f'{nodeid}_{datetime.today().strftime("%Y-%m-%d_%H:%M")}.png'.replace("/",
+                                                                                      "_").replace("::", "__")
+    driver.save_screenshot(f"{dir}/{file_name}")
+    return file_name
+
+
+def take_screenshot_allure(driver, nodeid):
+    time.sleep(1)
+    allure.attach(driver.get_screenshot_as_png(), name=nodeid,
+                  attachment_type=AttachmentType.PNG)
+
+
+@pytest.fixture(scope="function", autouse=True)
+def fail_check(request, driver, _logger, screenshots_dir):
+
+    yield
+
+    if request.node.rep_setup.failed:
+        _logger.error("setting up a test %s failed", request.node.nodeid)
+    elif request.node.rep_setup.passed:
+        if request.node.rep_call.failed:
+            # driver = request.node.funcargs['driver']
+            screenshot = take_screenshot_selenium(
+                driver, screenshots_dir, request.node.nodeid)
+            take_screenshot_allure(driver, request.node.nodeid)
+            _logger.error("executing test %s failed", request.node.nodeid)
+            _logger.info("screenshot stored in %s",
+                         Path(screenshots_dir, screenshot))

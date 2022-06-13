@@ -1,4 +1,5 @@
 from enum import Enum
+import logging
 
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions, FirefoxOptions
@@ -12,6 +13,9 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.opera import OperaDriverManager
 
+from frame.logger import _init_logger
+
+
 DRIVER_PATH = '/home/user/Downloads/webdrivers'
 
 COMMON_OPTIONS = ('--no-sandbox', '--disable-infobars',
@@ -21,10 +25,13 @@ COMMON_OPTIONS = ('--no-sandbox', '--disable-infobars',
 class BaseBrowser:
 
     def __init__(self, options=None):
+        self._logger = _init_logger(type(self).__name__)
         self._set_options(options)
 
     # set common options for different browsers
     def _set_options(self, options):
+        self._logger.debug(
+            "setting options for %s", type(self).__name__)
         for option in *COMMON_OPTIONS, *options:
             self._options.add_argument(option)
 
@@ -114,12 +121,19 @@ class BROWSERS(Enum):
 class Browser:
 
     def __init__(self, name, options=None):
-        self.__name = name
+        self._logger = _init_logger(type(self).__name__)
+        self._name = name
         try:
-            self.__browser = BROWSERS[name].value(options=options)
+            self._browser = BROWSERS[name].value(options=options)
         except KeyError:
-            raise AssertionError(f'Unsupported browser: {self.__name}')
-        self.options = self.__browser.options
+            self._logger.error("unsupported browser: %s", self.name)
+            raise AssertionError(f'Unsupported browser: {self._name}')
+        self.options = self._browser.options
 
     def __call__(self, *args, **kwargs):
-        return self.__browser(*args, **kwargs)
+        self._logger.debug("%s webdriver is ready for use", self._name)
+        return self._browser(*args, **kwargs)
+
+if __name__ == '__main__':
+    pass
+

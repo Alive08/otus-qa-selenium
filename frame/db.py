@@ -1,6 +1,9 @@
+import logging
+
 import mysql.connector
 from mysql.connector import errors
 
+from frame.logger import _init_logger
 from frame.utils import Utils
 
 
@@ -17,18 +20,29 @@ class DB:
         self.database = database
         self.user = user
         self.password = password
+        self._logger = _init_logger(type(self).__name__)
         self.connection = self.connect()
 
     def connect(self):
-        return mysql.connector.connect(
-            host=self.host,
-            port=self.port,
-            database=self.database,
-            user=self.user,
-            password=self.password
-        )
+        connection = None
+        try:
+            connection = mysql.connector.connect(
+                host=self.host,
+                port=self.port,
+                database=self.database,
+                user=self.user,
+                password=self.password
+            )
+        except Exception as e:
+            self._logger.exception(e)
+            raise e
+        else:
+            self._logger.info(
+                "connected to DB %s@%s:%s", self.database, self.host, self.port)
+            return connection
 
     def close(self):
+        self._logger.info("closing DB connection")
         self.connection.close()
 
     def select(self, query, *args):
@@ -36,9 +50,10 @@ class DB:
             try:
                 cursor.execute(query, (args))
             except errors.Error as e:
-                print(e)
+                self._logger.exception(e)
                 return None
             else:
+                self._logger.debug("executing <%s>", query)
                 return cursor.fetchall()
 
     def delete(self, query, *args):
@@ -46,9 +61,10 @@ class DB:
             try:
                 cursor.execute(query, (args))
             except errors.Error as e:
-                print(e)
+                self._logger.exception(e)
                 return None
             else:
+                self._logger.debug("executing <%s>", query)
                 self.connection.commit()
             finally:
                 cursor.close()
@@ -58,14 +74,16 @@ class DB:
             try:
                 cursor.execute(query, args)
             except errors.Error as e:
-                print(e)
+                self._logger.exception(e)
                 return None
             else:
+                self._logger.debug("executing <%s>", query)
                 self.connection.commit()
             finally:
                 cursor.close()
 
     def add_product(self, product):
+        self._logger.info("adding <%s>", product.name)
         query_insert_product = """INSERT INTO oc_product
                                 (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity,
                                 stock_status_id, manufacturer_id, price, tax_class_id, date_added, date_modified)
@@ -93,7 +111,8 @@ class DB:
         self.insert(query_insert_product_to_category, product_id, 33)
 
     def delete_product(self, name_prefix):
-
+        self._logger.info(
+            "deleting products with prefix <%s>", name_prefix)
         query_delete_product = """DELETE oc_product_description, oc_product_to_category, oc_product
                 FROM oc_product INNER JOIN oc_product_description INNER JOIN oc_product_to_category
                 WHERE oc_product_description.product_id = oc_product.product_id
@@ -103,7 +122,7 @@ class DB:
         self.delete(query_delete_product, f'{name_prefix}\_%')
 
     def create_customer(self, account):
-
+        self._logger.info("creating customer <%s>", account.email)
         query_get_customer = "SELECT customer_id FROM oc_customer WHERE email = %s"
 
         query_create_customer = """INSERT INTO oc_customer
@@ -124,6 +143,7 @@ class DB:
         return account
 
     def delete_customer(self, email):
+        self._logger.info("deleting customer <%s>", email)
 
         query_delete_customer = "DELETE FROM oc_customer WHERE email = %s"
 

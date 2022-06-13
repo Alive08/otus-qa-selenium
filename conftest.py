@@ -1,4 +1,15 @@
-import sys
 import os
+import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+import pytest
+import allure
+
+def mydir():
+    return os.path.dirname(os.path.abspath(__file__))
+
+sys.path.append(mydir())
+
+
+@pytest.fixture(scope='session')
+def rootdir():
+    return mydir()
