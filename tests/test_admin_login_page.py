@@ -13,7 +13,7 @@ def page(request, driver):
 
 
 @allure.feature("Admin-side scenarios")
-@allure.story("Admin login page")
+@allure.story("Admin login page expirience")
 class TestAdminLoginPage:
 
     @allure.title("check if login page is accessible")

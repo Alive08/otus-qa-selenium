@@ -1,7 +1,7 @@
 from frame.base_locator import BaseLocator, Selector
 from frame.base_page import BasePage
 from selenium.webdriver.common.by import By
-
+import allure
 
 class SearchStringLocators(BaseLocator):
     
@@ -14,9 +14,11 @@ class SearchString(BasePage):
 
     locator = SearchStringLocators
 
+    @allure.step("click Search button")
     def click_search_button(self):
         return self.click(self.locator.LOCATOR_BUTTON_SEARCH)
 
+    @allure.step("perform search by text {text}")
     def do_search(self, text):
         element = self.find_element(self.locator.LOCATOR_INPUT_SEARCH)
         element.click()

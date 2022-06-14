@@ -1,6 +1,7 @@
-from selenium.webdriver.common.by import By
-from frame.base_page import BasePage
+import allure
 from frame.base_locator import BaseLocator, Selector
+from frame.base_page import BasePage
+from selenium.webdriver.common.by import By
 
 
 class AdminLoginPageLocators(BaseLocator):
@@ -38,55 +39,68 @@ class AdminLoginPage(BasePage):
 
     locator = AdminLoginPageLocators
 
+    @allure.step("enter login {login}")
     def enter_login(self, login):
         inp = self.find_element(self.locator.LOCATOR_INPUT_USERNAME)
         inp.clear()
         inp.click()
         inp.send_keys(login)
 
+    @allure.step("enter password {password}")
     def enter_password(self, password):
         inp = self.find_element(self.locator.LOCATOR_INPUT_PASSWORD)
         inp.clear()
         inp.click()
         inp.send_keys(password)
 
+    @allure.step("enter email {email}")
     def enter_email(self, email):
         inp = self.find_element(self.locator.LOCATOR_INPUT_EMAIL)
         inp.clear()
         inp.click()
         inp.send_keys(email)
 
+    @allure.step("click Login button")
     def click_login_button(self):
         self.click(self.locator.LOCATOR_BUTTON_LOGIN_SUBMIT)
 
+    @allure.step("admin login with login {login}, password {password}")
     def admin_login_with(self, login, password):
         self.enter_login(login)
         self.enter_password(password)
         self.click_login_button()
 
+    @allure.step("click Forgotten password link")
     def click_forgotten_password_link(self):
         self.click(self.locator.LOCATOR_LINK_FORGOTTEN_PASSWORD)
 
+    @allure.step("click Cancel button on Forgotten password page")
     def click_forgotten_password_cancel_button(self):
         self.click(
             self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_CANCEL)
 
+    @allure.step("click Reset button on Forgotten password page")
     def click_forgotten_password_reset_button(self):
         self.click(
             self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_SUBMIT)
 
+    @allure.step("check if alert danger is present")
     def does_present_alert_danger(self):
         return self.does_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
 
+    @allure.step("check if alert danger does not present")
     def does_not_present_alert_danger(self):
         return self.does_not_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
 
+    @allure.step("check if alert success is present")
     def does_present_alert_success(self):
         return self.does_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
+    @allure.step("check if alert success does not present")
     def does_not_present_alert_success(self):
         return self.does_not_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
+    @allure.step("close alert")
     def close_alert(self):
         self.click(self.locator.LOCATOR_BUTTON_ALERT_CLOSE)
 

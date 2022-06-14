@@ -16,3 +16,9 @@ def test_url(driver, url):
     with allure.step('Find h1 header'):
         driver.find_element(By.CSS_SELECTOR, "body > div > h1")
         
+
+@allure.epic("My epic", "Another epic")
+@allure.feature("My feature", "Another feature", "One more feature")
+@allure.story("My story", "Alternative story")
+def test_multiple_bdd_label():
+     pass

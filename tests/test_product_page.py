@@ -16,7 +16,7 @@ def page(request, driver) -> ProductPage:
 
 
 @allure.feature("Customer-side scenarios")
-@allure.story("Product page")
+@allure.story("Product page expirience")
 class TestProductPage:
 
     @allure.title("select product from catalog")

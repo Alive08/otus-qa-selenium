@@ -1,7 +1,8 @@
-from selenium.webdriver.common.by import By
+import allure
+from frame.base_locator import BaseLocator, Selector
 from frame.base_page import BasePage
 from frame.node import Node
-from frame.base_locator import BaseLocator, Selector
+from selenium.webdriver.common.by import By
 
 
 class AdminPageLocators(BaseLocator):
@@ -40,32 +41,42 @@ class AdminPage(BasePage):
 
     locator = AdminPageLocators
 
+    @allure.step("click Add button")
     def click_add(self):
         self.click(self.locator.LOCATOR_ADD)
 
+    @allure.step("click Copy button")
     def click_copy(self):
         self.click(self.locator.LOCATOR_COPY)
 
+    @allure.step("click Delete button")
     def click_delete(self):
         self.click(self.locator.LOCATOR_DELETE)
 
+    @allure.step("click Save button")
     def click_save(self):
         self.click(self.locator.LOCATOR_SAVE)
 
+    @allure.step("click tab {tab}")
     def click_tab(self, tab):
         self.click(self.locator.tabs.get_item_by_name(tab.lower()))
 
+    @allure.step("check if alert danger is present")
     def does_present_alert_danger(self):
         return self.does_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
 
+    @allure.step("check if alert danger does not present")
     def does_not_present_alert_danger(self):
         return self.does_not_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
 
+    @allure.step("check if alert success is present")
     def does_present_alert_success(self):
         return self.does_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
+    @allure.step("check if alert success does not present")
     def does_not_present_alert_success(self):
         return self.does_not_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
+    @allure.step("close alert")
     def close_alert(self):
         self.click(self.locator.LOCATOR_BUTTON_ALERT_CLOSE)

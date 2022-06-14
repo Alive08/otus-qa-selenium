@@ -16,7 +16,7 @@ from tests.conftest import AccountData
 
 
 @allure.feature("Customer-side scenarios")
-@allure.story("Customer using store UI")
+@allure.story("Customer expiriense with UI")
 class TestUserScenarios:
 
     @allure.title("User changes currency")

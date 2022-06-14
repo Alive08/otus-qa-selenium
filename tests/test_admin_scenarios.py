@@ -53,7 +53,7 @@ class TestAdminScenarios:
 
     @allure.title("delete product")
     def test_delete_product(self, driver, account_admin_valid, db_product_random):
-        with allure.step("do login"):
+        with allure.step("do login with {account_admin_valid}"):
             AdminLoginPage(driver, AdminLoginPageLocators.URL,
                         open=True).admin_login_with(*account_admin_valid)
         
@@ -76,8 +76,8 @@ class TestAdminScenarios:
                 admin_page.click_delete()
                 if admin_page.does_alert_present():
                     admin_page.alert_accept()
-            assert admin_page.does_present_alert_success()
-            admin_page.close_alert()
+                assert admin_page.does_present_alert_success()
+                admin_page.close_alert()
 
         with allure.step("do logout"):
             AdminCommonElements(driver).click_logout()

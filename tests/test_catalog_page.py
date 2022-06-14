@@ -1,5 +1,4 @@
 from collections import namedtuple
-from math import prod
 
 import allure
 import pytest
@@ -21,8 +20,9 @@ def page(request, driver) -> CatalogPage:
     page.open()
     return page
 
+
 @allure.feature("Customer-side scenarios")
-@allure.story("Catalog page")
+@allure.story("Catalog page expirience")
 class TestCatalogPage:
 
     @allure.title("check if catalog page opened")
@@ -38,17 +38,19 @@ class TestCatalogPage:
         page.click(item)
         assert page.at_page(title)
 
-    @allure.story("use navbar")
+    @allure.title("use navbar")
     @pytest.mark.parametrize('p, l', [(p, l) for p in navbar.items for l in [p, *p.items]], ids=lambda x: navbar.item_name(x))
     def test_navbar(self, page: CatalogPage, p, l):
-        allure.dynamic.title(f"go to {navbar.item_name(p)} -> {navbar.item_name(l)}")
+        allure.dynamic.title(
+            f"with navbar go to {navbar.item_name(p)} / {navbar.item_name(l)}")
         page.click(p)
         page.click(l)
 
-    @allure.story("use menu")
+    @allure.title("use menu")
     @pytest.mark.parametrize('p, l', [(p, l) for p in product.items for l in [p, *p.items]], ids=lambda x: product.item_name(x))
     def test_menu(self, page: CatalogPage, p, l):
-        allure.dynamic.title(f"go to {product.item_name(p)} -> {product.item_name(l)}")
+        allure.dynamic.title(
+            f"with menu go to {product.item_name(p)} / {product.item_name(l)}")
         page.click(p)
         page.click(l)
 
@@ -87,7 +89,7 @@ class TestCatalogPage:
         page.select_sort_set_by_text(selected)
         assert page.get_sort_selected_option().text == selected
 
-    @allure.title("show {} products per page")
+    @allure.title("show {selected} products per page")
     @pytest.mark.parametrize('selected', (CatalogPage.select_show_options.keys()))
     def test_select_show(self, selected, page: CatalogPage):
         page.select_show_set_by_text(selected)
@@ -107,9 +109,10 @@ class TestCatalogPage:
         Option = namedtuple('Option', ('text', 'value'))
         return [Option(*item) for item in options.items()]
 
-    @allure.title("products sorting by {selected}")
+    @allure.title("test sorting modes")
     @pytest.mark.parametrize('selected', (select_sort_data()), ids=lambda v: v.text)
     def test_select_sort_cameras(self, selected, page: CatalogPage):
+        allure.dynamic.title(f"sorted by {selected.text}")
         page.click(product.cameras)
         page.select_sort_set_by_text(selected.text)
         assert page.get_sort_selected_option().text == selected.text

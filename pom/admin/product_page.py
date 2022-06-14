@@ -1,3 +1,4 @@
+import allure
 from frame.base_locator import BaseLocator
 from frame.base_page import BasePage
 from frame.node import Node
@@ -10,11 +11,13 @@ class AdminProductPageLocators(BaseLocator):
 
         name = (By.CSS_SELECTOR, "#form-product > * #input-name1")
         description = (By.CSS_SELECTOR, "#form-product > * div.note-editable")
-        meta_tag_title = (By.CSS_SELECTOR, "#form-product > * #input-meta-title1")
+        meta_tag_title = (
+            By.CSS_SELECTOR, "#form-product > * #input-meta-title1")
         model = (By.CSS_SELECTOR, "#form-product > * #input-model")
         price = (By.CSS_SELECTOR, "#form-product > * #input-price")
         quantity = (By.CSS_SELECTOR, "#form-product > * #input-quantity")
-        manufacturer = (By.CSS_SELECTOR, "#form-product > * #input-manufacturer")
+        manufacturer = (By.CSS_SELECTOR,
+                        "#form-product > * #input-manufacturer")
         categories = (By.CSS_SELECTOR, "#form-product > * #input-category")
 
     class filter(Node):
@@ -29,49 +32,65 @@ class AdminProductPageLocators(BaseLocator):
     class product_row(Node):
 
         self = (By.CSS_SELECTOR, "#form-product > * table > tbody > tr")
-        checkbox = (By.CSS_SELECTOR, "#form-product > * table > tbody > tr > td > input[type='checkbox']")
-        no_result = (By.CSS_SELECTOR, "#form-product > * table > tbody  > tr > td[colspan='8']")
-        
+        checkbox = (
+            By.CSS_SELECTOR, "#form-product > * table > tbody > tr > td > input[type='checkbox']")
+        name = (By.CSS_SELECTOR,
+                "#form-product > div > table > tbody > tr > td:nth-child(2)")
+        no_result = (By.CSS_SELECTOR,
+                     "#form-product > * table > tbody  > tr > td[colspan='8']")
+
 
 class AdminProductPage(BasePage):
 
     locator = AdminProductPageLocators
 
+    @allure.step("set product name as {name}")
     def set_product_name(self, name):
         self.enter_text(self.locator.product.name, name)
 
+    @allure.step("set product description as {description}")
     def set_product_description(self, description):
         self.enter_text(self.locator.product.description, description)
 
+    @allure.step("set product meta tag title as {tag}")
     def set_meta_tag_title(self, tag):
         self.enter_text(self.locator.product.meta_tag_title, tag)
 
+    @allure.step("set product model as {model}")
     def set_product_model(self, model):
         self.enter_text(self.locator.product.model, model)
 
+    @allure.step("set product price as {price}")
     def set_product_price(self, price):
         self.enter_text(self.locator.product.price, price)
 
+    @allure.step("set product quantity as {quantity}")
     def set_product_quantity(self, quantity):
         self.enter_text(self.locator.product.quantity, quantity)
 
+    @allure.step("set product category as {category}")
     def set_product_category(self, category):
         self.enter_text_with_dropdown(
             self.locator.product.categories, category)
 
+    @allure.step("set product manufacturer as {manufacturer}")
     def set_product_manufacturer(self, manufacturer):
         self.enter_text_with_dropdown(
             self.locator.product.manufacturer, manufacturer)
 
+    @allure.step("set name as {name} in Filter form")
     def set_filter_name(self, name):
         self.enter_text(self.locator.filter.name, name)
-    
+
+    @allure.step("set model as {model} in Filter form")
     def set_filter_model(self, model):
         self.enter_text(self.locator.filter.model, model)
 
+    @allure.step("set price as {price} in Filter form")
     def set_filter_price(self, price):
         self.enter_text(self.locator.filter.model, price)
 
+    @allure.step("set quantity as {quantity} in Filter form")
     def set_filter_quantity(self, quantity):
         self.enter_text(self.locator.filter.model, quantity)
 
@@ -79,21 +98,33 @@ class AdminProductPage(BasePage):
         # TBD
         pass
 
+    @allure.step("click Filter button")
     def click_filter(self):
         self.click(self.locator.filter.button)
-    
+
+    @allure.step("get all products from list")
     def get_products(self):
         if self.does_not_present(self.locator.product_row.no_result):
             return self.find_elements(self.locator.product_row.self)
 
+    @allure.step("get product name")
+    def get_product_name(self, product):
+        return product.find_element(*self.locator.product_row.name).text
+
+    @allure.step("check if product selected")
     def is_product_selected(self, product):
+        allure.dynamic.title(f"check if product {0} selected)")
         return product.find_element(*self.locator.product_row.checkbox).get_attribute('checked')
 
+    @allure.step("select product")
     def select_product(self, product):
+        allure.dynamic.title(f"select product {0}")
         if not self.is_product_selected(product):
             product.find_element(*self.locator.product_row.checkbox).click()
 
+    @allure.step("unselect product")
     def unselect_product(self, product):
+        allure.dynamic.title(
+            f"unselect product {self.get_product_name(product)}")
         if self.is_product_selected(product):
             product.find_element(*self.locator.product_row.checkbox).click()
-
