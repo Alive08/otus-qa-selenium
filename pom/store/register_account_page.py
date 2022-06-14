@@ -1,3 +1,4 @@
+import allure
 from frame.base_locator import BaseLocator, Selector
 from frame.base_page import BasePage
 from selenium.webdriver.common.by import By
@@ -39,45 +40,58 @@ class RegisterAccountPage(BasePage):
 
     locator = RegisterAccountPageLocators
 
+    @allure.step("enter first name {fname}")
     def enter_first_name(self, fname):
         self.enter_text(self.locator.LOCATOR_INPUT_FIRST_NAME, fname)
-
+    
+    @allure.step("enter last name {lname}")
     def enter_last_name(self, lname):
         self.enter_text(self.locator.LOCATOR_INPUT_LAST_NAME, lname)
 
+    @allure.step("enter email {email}")
     def enter_email(self, email):
         self.enter_text(self.locator.LOCATOR_INPUT_EMAIL, email)
 
+    @allure.step("enter phone number {telephone}")
     def enter_telephone(self, telephone):
         self.enter_text(self.locator.LOCATOR_INPUT_TELEPHONE, telephone)
 
+    @allure.step("enter password {password}")
     def enter_password(self, password):
         self.enter_text(self.locator.LOCATOR_INPUT_PASSWORD, password)
 
+    @allure.step("confirm password {password}")
     def enter_password_confirm(self, password):
         self.enter_text(
             self.locator.LOCATOR_INPUT_PASSWORD_CONFIRM, password)
 
+    @allure.step("check if box 'Agree' is checked")
     def is_checked_agree(self):
         return self.find_element(self.locator.LOCATOR_CHECKBOX_AGREE).get_attribute('checked')
 
+    @allure.step("check 'Agree' box")
     def check_box_agree(self):
         if not self.is_checked_agree():
             self.click(self.locator.LOCATOR_CHECKBOX_AGREE)
 
+    @allure.step("uncheck 'Agree' box")
     def uncheck_box_agree(self):
         if self.is_checked_agree():
             self.click(self.locator.LOCATOR_CHECKBOX_AGREE)
 
+    @allure.step("click Continue button")
     def click_button_continue(self):
         self.click(self.locator.LOCATOR_BUTTON_CONTINUE)
     
+    @allure.step("click Privacy policy link")
     def click_privacy_policy(self):
         self.click(self.locator.LOCATOR_LINK_PRIVACY_POLICY)
     
+    @allure.step("close Privacy policy")
     def close_privacy_policy(self):
         self.click(self.locator.LOCATOR_BUTTON_CLOSE_PRIVACY_POLICY)
 
+    @allure.step("fill in and submit registration form")
     def submit_form(self, data, agree=True):
         self.enter_first_name(data.fname)
         self.enter_last_name(data.lname)

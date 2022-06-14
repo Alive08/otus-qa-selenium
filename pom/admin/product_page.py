@@ -113,18 +113,14 @@ class AdminProductPage(BasePage):
 
     @allure.step("check if product selected")
     def is_product_selected(self, product):
-        allure.dynamic.title(f"check if product {0} selected)")
         return product.find_element(*self.locator.product_row.checkbox).get_attribute('checked')
 
     @allure.step("select product")
     def select_product(self, product):
-        allure.dynamic.title(f"select product {0}")
         if not self.is_product_selected(product):
             product.find_element(*self.locator.product_row.checkbox).click()
 
     @allure.step("unselect product")
     def unselect_product(self, product):
-        allure.dynamic.title(
-            f"unselect product {self.get_product_name(product)}")
         if self.is_product_selected(product):
             product.find_element(*self.locator.product_row.checkbox).click()

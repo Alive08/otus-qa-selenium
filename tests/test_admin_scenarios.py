@@ -53,7 +53,7 @@ class TestAdminScenarios:
 
     @allure.title("delete product")
     def test_delete_product(self, driver, account_admin_valid, db_product_random):
-        with allure.step("do login with {account_admin_valid}"):
+        with allure.step(f"do login with {account_admin_valid}"):
             AdminLoginPage(driver, AdminLoginPageLocators.URL,
                         open=True).admin_login_with(*account_admin_valid)
         

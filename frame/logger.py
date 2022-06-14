@@ -20,7 +20,7 @@ def _init_logger(name='', level=None, logfile=None):
     #     return logger
 
     formatter = logging.Formatter(
-        '{asctime} [{levelname}] [{name}] [{funcName}] {message}', style='{')
+        '{asctime} [{levelname}] [{name}] [{funcName}] > {message}', style='{')
     
     if level:
         logger.setLevel(level)
