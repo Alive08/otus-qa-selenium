@@ -30,7 +30,7 @@ def main():
         exit()
 
     my_env = os.environ.copy()
-    my_env['PATH'] = f"{os.environ.get('PATH')}:" + ':'.join(
+    my_env['PATH'] = f"{os.getenv('PATH')}:" + ':'.join(
         [f"{v['binary_path'].rsplit('/', 1)[0]}" for v in d.values()]) + f':{os.path.expanduser(YANDEX)}'
 
     my_command = ["java", "-jar", args.jar, args.mode, "--host", args.host, "--log-level", "ALL"]

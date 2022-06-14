@@ -201,7 +201,7 @@ def db_connector(my_IP):
 
 
 @pytest.fixture
-def db_product_random(db_connector: DB, product_random):
+def db_product_random(db_connector: DB, product_random: ProductData):
 
     yield db_connector.add_product(product_random)
 
@@ -217,7 +217,7 @@ def db_delete_product(db_connector: DB):
 
 
 @pytest.fixture
-def db_customer_valid(db_connector: DB, account_valid):
+def db_customer_valid(db_connector: DB, account_valid: AccountData):
 
     yield db_connector.create_customer(account_valid)
 
@@ -225,7 +225,7 @@ def db_customer_valid(db_connector: DB, account_valid):
 
 
 @pytest.fixture
-def db_delete_customer_valid(db_connector: DB, account_valid):
+def db_delete_customer_valid(db_connector: DB, account_valid: AccountData):
 
     yield
 
@@ -233,7 +233,7 @@ def db_delete_customer_valid(db_connector: DB, account_valid):
 
 
 @pytest.fixture
-def db_customer_random(db_connector: DB, account_random):
+def db_customer_random(db_connector: DB, account_random: AccountData):
 
     yield db_connector.create_customer(account_random)
 
@@ -241,7 +241,7 @@ def db_customer_random(db_connector: DB, account_random):
 
 
 @pytest.fixture
-def db_delete_customer_random(db_connector: DB, account_random):
+def db_delete_customer_random(db_connector: DB, account_random: AccountData):
 
     yield
 
