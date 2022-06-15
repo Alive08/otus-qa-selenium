@@ -31,26 +31,33 @@ class ProductThumbnails(BasePage):
 
     @allure.step("get thumbnails for all products")
     def get_products(self):
+        self._logger.info("get thumbnails for all products")
         return self.find_elements(self.locator.LOCATOR_PRODUCT_THUMBNAILS)
 
-    @allure.step("get a {index} product's thumbnail")
+    @allure.step("get {index} product's thumbnail")
     def get_product(self, index):
+        self._logger.info("get %s product's thumbnail", index)
         return self.get_products()[index]
 
     @allure.step("extract a link to product's page from it's thumbnail")
     def get_product_link(self, product):
+        self._logger.info(
+            "extract a link to product's page from it's thumbnail")
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_HREF)
 
     @allure.step("extract name from product's link")
     def get_product_name(self, product):
+        self._logger.info("extract name from product's link")
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_HREF).get_attribute('text')
 
-    @allure.step("extract product's price value from it's thumbnail")
+    @allure.step("extract price value from product's thumbnail")
     def get_product_price(self, product):
+        self._logger.info("extract price value from product's thumbnail")
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_PRICE)
 
-    @allure.step("extract product's price currency from it's thumbnail")
+    @allure.step("extract price currency from product's thumbnail")
     def get_price_currency(self, product):
+        self._logger.info("extract price currency from product's thumbnail")
         price = self.get_product_price(product)
         if price.text.startswith(Currency.USD.value):
             return Currency.USD.value.lower()
@@ -59,12 +66,14 @@ class ProductThumbnails(BasePage):
         elif price.text.startswith(Currency.GBP.value):
             return Currency.GBP.value.lower()
 
-    @allure.step("extract product's description from it's thumbnail")
+    @allure.step("extract description from product's thumbnail")
     def get_product_description(self, product):
+        self._logger.info("extract description from product's thumbnail")
         return product.find_element(*self.locator.LOCATOR_PRODUCT_THUMBNAIL_CAPTION_DESCRIPTION)
 
-    @allure.step("click on product's link extracted from it's thumbnail")
+    @allure.step("click on link extracted from product's thumbnail")
     def click_product_link(self, product):
+        self._logger.info("click on link extracted from product's thumbnail")
         self.get_product_link(product).click()
 
 

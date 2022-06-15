@@ -23,20 +23,25 @@ class CommonElements(BasePage):
 
     @allure.step("click Logo")
     def click_logo(self):
+        self._logger.info("click Logo")
         return self.click(self.locator.LOCATOR_IMG_LOGO)
 
     @allure.step("click 'Checkout' link")
     def click_checkout(self):
+        self._logger.info("click 'Checkout' link")
         self.click(self.locator.LOCATOR_LINK_CHECKOUT)
 
     @allure.step("click 'Wish list' link")
     def click_wish_list(self):
+        self._logger.info("click 'Wish list' link")
         self.click(self.locator.LOCATOR_LINK_WISH_LIST)
 
     @allure.step("click 'Shopping cart' link")
     def click_shopping_cart(self):
+        self._logger.info("click 'Shopping cart' link")
         self.click(self.locator.LOCATOR_LINK_SHOPPING_CART)
 
     @allure.step("click 'Powered by' link")
     def click_powered_by(self):
+        self._logger.info("click 'Posered by' link")
         self.click(self.locator.LOCATOR_POWERED_BY)

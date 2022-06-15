@@ -41,6 +41,7 @@ class AdminLoginPage(BasePage):
 
     @allure.step("enter login {login}")
     def enter_login(self, login):
+        self._logger.info("enter login %s", login)
         inp = self.find_element(self.locator.LOCATOR_INPUT_USERNAME)
         inp.clear()
         inp.click()
@@ -48,6 +49,7 @@ class AdminLoginPage(BasePage):
 
     @allure.step("enter password {password}")
     def enter_password(self, password):
+        self._logger.info("enter password %s", password)
         inp = self.find_element(self.locator.LOCATOR_INPUT_PASSWORD)
         inp.clear()
         inp.click()
@@ -55,6 +57,7 @@ class AdminLoginPage(BasePage):
 
     @allure.step("enter email {email}")
     def enter_email(self, email):
+        self._logger.info("enter email %s", email)
         inp = self.find_element(self.locator.LOCATOR_INPUT_EMAIL)
         inp.clear()
         inp.click()
@@ -62,46 +65,56 @@ class AdminLoginPage(BasePage):
 
     @allure.step("click Login button")
     def click_login_button(self):
+        self._logger.info("click Login button")
         self.click(self.locator.LOCATOR_BUTTON_LOGIN_SUBMIT)
 
     @allure.step("admin login with login {login}, password {password}")
     def admin_login_with(self, login, password):
+        self._logger.info("admin login with %s, %s", login, password)
         self.enter_login(login)
         self.enter_password(password)
         self.click_login_button()
 
     @allure.step("click Forgotten password link")
     def click_forgotten_password_link(self):
+        self._logger.info("click Forgotten password link")
         self.click(self.locator.LOCATOR_LINK_FORGOTTEN_PASSWORD)
 
     @allure.step("click Cancel button on Forgotten password page")
     def click_forgotten_password_cancel_button(self):
+        self._logger.info("click Cancel button")
         self.click(
             self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_CANCEL)
 
     @allure.step("click Reset button on Forgotten password page")
     def click_forgotten_password_reset_button(self):
+        self._logger.info("click Reset button")
         self.click(
             self.locator.LOCATOR_BUTTON_FORGOTTEN_PASSWORD_SUBMIT)
 
     @allure.step("check if alert danger is present")
     def does_present_alert_danger(self):
+        self._logger.info("check if alert danger is present")
         return self.does_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
 
     @allure.step("check if alert danger does not present")
     def does_not_present_alert_danger(self):
+        self._logger.info("check if alert danger is not present")
         return self.does_not_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
 
     @allure.step("check if alert success is present")
     def does_present_alert_success(self):
+        self._logger.info("check if alert success is present")
         return self.does_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
-    @allure.step("check if alert success does not present")
+    @allure.step("check if alert success is not present")
     def does_not_present_alert_success(self):
+        self._logger.info("check if alert success is not present")
         return self.does_not_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
     @allure.step("close alert")
     def close_alert(self):
+        self._logger.info("close alert")
         self.click(self.locator.LOCATOR_BUTTON_ALERT_CLOSE)
 
 

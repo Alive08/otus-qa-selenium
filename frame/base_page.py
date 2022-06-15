@@ -65,6 +65,7 @@ class BasePage:
             return self.driver.get(self.url)
 
     def at_page(self, title):
+        self._logger.info("check if driver at page %s", title)
         return self.driver.title == title
 
     def back(self):

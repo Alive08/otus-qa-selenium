@@ -122,7 +122,7 @@ def driver(request, options, _app_logger):
     logger = _init_logger('driver')
 
     browser = request.config.getoption('browser')
-    version = request.config.getoption('bversion')
+    bversion = request.config.getoption('bversion')
     executor = request.config.getoption('executor')
 
     options = {}
@@ -132,7 +132,7 @@ def driver(request, options, _app_logger):
 
     capabilities = {
         "browserName": browser,
-        "browserVersion": version,
+        "browserVersion": bversion,
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": False

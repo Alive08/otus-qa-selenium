@@ -16,10 +16,12 @@ class SearchString(BasePage):
 
     @allure.step("click Search button")
     def click_search_button(self):
+        self._logger.info("click Search button")
         return self.click(self.locator.LOCATOR_BUTTON_SEARCH)
 
-    @allure.step("perform search by text {text}")
+    @allure.step("do search by text {text}")
     def do_search(self, text):
+        self._logger.info("do search by text, %s", text)
         element = self.find_element(self.locator.LOCATOR_INPUT_SEARCH)
         element.click()
         element.clear()

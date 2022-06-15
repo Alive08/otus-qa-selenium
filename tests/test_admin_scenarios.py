@@ -26,7 +26,7 @@ class TestAdminScenarios:
             admin_page.click(navigation.catalog.products)
             admin_page.click_add()
 
-        with allure.step("fill in the data at 'General tab"):
+        with allure.step("switch to 'General' tab and fill in the data"):
             admin_page.click_tab('General')
             product_page.set_product_name(product_random.name)
             product_page.set_product_description(product_random.description)
