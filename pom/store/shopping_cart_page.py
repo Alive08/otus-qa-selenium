@@ -21,10 +21,12 @@ class ShoppingCartPage(BasePage):
 
     @allure.step("click Continue button")
     def click_continue_button(self):
+        self._logger.info("click Continue button")
         self.click(self.locator.LOCATOR_BUTTON_CONTINUE)
 
     @allure.step("check if Shopping cart is empty")
     def is_empty(self):
+        self._logger.info("check if Shopping cart is empty")
         return self.locator.TEXT_SHOPPING_CART_EMPTY in self.page_src
 
 

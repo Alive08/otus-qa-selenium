@@ -177,8 +177,10 @@ class BasePage:
             try:
                 self.does_present(locator, time=time)
             except TimeoutException:
+                self._logger.info("element %s is not present", locator)
                 return True
             else:
+                self._logger.warning("element %s is present", locator)
                 return False
 
     def is_clickable(self, locator, time=TIMEOUT):

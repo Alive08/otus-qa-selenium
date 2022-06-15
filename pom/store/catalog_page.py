@@ -75,42 +75,52 @@ class CatalogPage(BasePage):
 
     @allure.step("locate Sort select")
     def get_select_sort(self):
+        self._logger.info("locate Sort select")
         return Select(self.find_element(CatalogPageLocators.LOCATOR_SELECT_SORT))
 
     @allure.step("locate Show select")
     def get_select_show(self):
+        self._logger.info("locate Show select")
         return Select(self.find_element(CatalogPageLocators.LOCATOR_SELECT_SHOW))
 
     @allure.step("set select Sort by text {text}")
     def select_sort_set_by_text(self, text):
+        self._logger.info("set select Sort by text %s", text)
         self.get_select_sort().select_by_visible_text(text)
 
     @allure.step("set select Show by text {text}")
     def select_show_set_by_text(self, text):
+        self._logger.info("set select Show by text %s", text)
         self.get_select_show().select_by_visible_text(text)
 
     @allure.step("get selected option for Show select")
     def get_show_selected_option(self):
+        self._logger.info("set selected option for Show select")
         return self.get_select_show().first_selected_option
 
     @allure.step("get selected option for Sort select")
     def get_sort_selected_option(self):
+        self._logger.info("set selected option for Sort select")
         return self.get_select_sort().first_selected_option
 
     @allure.step("click List view button")
     def click_button_view_list(self):
+        self._logger.info("click List view button")
         self.click(self.locator.LOCATOR_BUTTON_VIEW_LIST)
 
     @allure.step("click Grid view button")
     def click_button_view_grid(self):
+        self._logger.info("click Grid view button")
         self.click(self.locator.LOCATOR_BUTTON_VIEW_GRID)
 
-    @allure.step("get View list elements")
+    @allure.step("get List view elements")
     def get_view_list_elements(self):
+        self._logger.info("get List view elements")
         return self.find_elements(self.locator.LOCATOR_LAYOUT_LIST)
 
     @allure.step("get Grid view elements")
     def get_view_grid_elements(self):
+        self._logger.info("get Grid view elements")
         return self.find_elements(self.locator.LOCATOR_LAYOUT_GRID)
 
 

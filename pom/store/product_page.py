@@ -29,10 +29,12 @@ class ProductPage(BasePage):
 
     @allure.step("get product price")
     def get_product_price(self):
+        self._logger.info("get product price")
         return self.find_element(self.locator.LOCATOR_PRICE).text
 
-    @allure.step("add product to dhopping cart")
+    @allure.step("add product to shopping cart")
     def add_product_to_shopping_cart(self, quantity=0):
+        self._logger.info("add product to shopping cart")
         input = self.find_element(
             self.locator.LOCATOR_INPUT_QUANTITY)
         input.clear()
@@ -41,14 +43,17 @@ class ProductPage(BasePage):
 
     @allure.step("get product's thumbnails (images)")
     def get_thumbnails(self):
+        self._logger.info("get product's thumbnails (images)")
         return self.find_elements(self.locator.LOCATOR_THUMBNAILS_LI)
 
     @allure.step("click {index} product thumbnail")
     def click_thumbnail(self, index):
+        self._logger.info("click %s product thumbnail", index)
         self.get_thumbnails()[index].click()
 
     @allure.step("close product thumbnail (image)")
     def close_thumbnail_image(self):
+        self._logger.info("close product thumbnail (image)")
         self.click(self.locator.LOCATOR_THUMBNAILS_BUTTON_CLOSE)
 
 

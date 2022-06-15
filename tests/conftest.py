@@ -1,12 +1,13 @@
+import json
 import logging
 import random
 import time
 from datetime import datetime
 from pathlib import Path
-import allure
-from allure_commons.types import AttachmentType
 
+import allure
 import pytest
+from allure_commons.types import AttachmentType
 from faker import Faker
 from frame.base_page import BASE_URL
 from frame.browser import Browser
@@ -124,6 +125,7 @@ def driver(request, options, _app_logger):
     browser = request.config.getoption('browser')
     bversion = request.config.getoption('bversion')
     executor = request.config.getoption('executor')
+    start_maximized = request.config.getoption('start_maximized')
 
     options = {}
     for option in USER_OPTIONS:
@@ -151,19 +153,45 @@ def driver(request, options, _app_logger):
             options=options
         )
     else:
+        executor_url = 'Local'
         logger.info("using local instance of %s", browser)
         driver = Browser(browser, options=options)()
+
+    allure.attach(
+        name=driver.session_id,
+        body=json.dumps(driver.capabilities),
+        attachment_type=allure.attachment_type.JSON)
+
+    with open("allure-results/environment.xml", "w+") as file:
+        file.write(f"""
+            <environment>
+                <parameter>
+                    <key>Browser</key>
+                    <value>{browser}</value>
+                </parameter>
+                <parameter>
+                    <key>Browser.version</key>
+                    <value>{bversion}</value>
+                </parameter>
+                <parameter>
+                    <key>Executor</key>
+                    <value>{executor_url}</value>
+                </parameter>
+            </environment>
+        """)
 
     driver.logger = logger
     driver.test_name = request.node.name
 
-    driver.maximize_window()
+    if start_maximized:
+        driver.maximize_window()
 
     logger.info("starting webdriver %s session %s", browser, driver.session_id)
 
     yield driver
 
     logger.info("closing webdriver %s session %s", browser, driver.session_id)
+
     driver.quit()
 
 

@@ -43,40 +43,50 @@ class AdminPage(BasePage):
 
     @allure.step("click Add button")
     def click_add(self):
+        self._logger.info("click Add button")
         self.click(self.locator.LOCATOR_ADD)
 
     @allure.step("click Copy button")
     def click_copy(self):
+        self._logger.info("click Copy button")
         self.click(self.locator.LOCATOR_COPY)
 
     @allure.step("click Delete button")
     def click_delete(self):
+        self._logger.info("click Delete button")
         self.click(self.locator.LOCATOR_DELETE)
 
     @allure.step("click Save button")
     def click_save(self):
+        self._logger.info("click Save button")
         self.click(self.locator.LOCATOR_SAVE)
 
-    @allure.step("click tab {tab}")
+    @allure.step("switch to tab {tab}")
     def click_tab(self, tab):
+        self._logger.info("switch to tab %s", tab)
         self.click(self.locator.tabs.get_item_by_name(tab.lower()))
 
-    @allure.step("check if alert danger is present")
+    @allure.step("check if danger alert is present")
     def does_present_alert_danger(self):
+        self._logger.info("check if danger alert is present")
         return self.does_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
 
-    @allure.step("check if alert danger does not present")
+    @allure.step("check if danger alert is not present")
     def does_not_present_alert_danger(self):
+        self._logger.info("check if danger alert is not present")
         return self.does_not_present(self.locator.LOCATOR_ALERT_DANGER_MESSAGE)
 
-    @allure.step("check if alert success is present")
+    @allure.step("check if success alert is present")
     def does_present_alert_success(self):
+        self._logger.info("check if success alert is present")
         return self.does_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
-    @allure.step("check if alert success does not present")
+    @allure.step("check if alert success is not present")
     def does_not_present_alert_success(self):
+        self._logger.info("check if success alert is not present")
         return self.does_not_present(self.locator.LOCATOR_ALERT_SUCCESS_MESSAGE)
 
     @allure.step("close alert")
     def close_alert(self):
+        self._logger.info("close alert")
         self.click(self.locator.LOCATOR_BUTTON_ALERT_CLOSE)
