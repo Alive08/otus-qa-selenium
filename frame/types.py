@@ -1,5 +1,6 @@
 from collections import namedtuple
 from dataclasses import dataclass
+from enum import Enum
 
 Creds = namedtuple('Creds', ('login', 'password'))
 
@@ -22,3 +23,9 @@ class ProductData:
     price: int
     quantity: int
     categories: str
+
+
+class Currency(Enum):
+    USD = '$'
+    EUR = '€'
+    GBP = '£'

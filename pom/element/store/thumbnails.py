@@ -1,6 +1,7 @@
 import allure
 from frame.base_locator import BaseLocator, Selector
-from frame.base_page import BasePage, Currency
+from frame.base_page import BasePage
+from frame.types import Currency
 from selenium.webdriver.common.by import By
 
 

@@ -1,6 +1,6 @@
 import allure
 import pytest
-from frame.base_page import Currency
+from frame.types import Currency
 from pom.element.store.account import account
 from pom.element.store.account_dropdown import account_dropdown
 from pom.element.store.currency import currency
@@ -22,7 +22,7 @@ class TestUserScenarios:
     @allure.title("User changes currency")
     @pytest.mark.parametrize('cur', (c.name for c in Currency))
     def test_change_currency(self, driver, cur):
-        
+
         with allure.step(f"set currency on main page to {cur}"):
             page = MainPage(driver, MainPageLocators.URL)
             page.open()
@@ -30,7 +30,7 @@ class TestUserScenarios:
             page.click(getattr(currency, cur.lower()))
             assert page.find_element(
                 currency.selected).text == Currency[cur].value
-        
+
         with allure.step(f"check if currency of a product price is {cur}"):
             page.click(navbar.tablets)
             assert page.at_page('Tablets')
@@ -40,7 +40,7 @@ class TestUserScenarios:
 
     @allure.title("Register a new customer account")
     def test_register_user_account(self, driver, account_random: AccountData, db_delete_customer_random):
-        
+
         with allure.step("got to Register Account page"):
             page = RegisterAccountPage(driver, RegisterAccountPageLocators.URL)
             page.open()
@@ -48,9 +48,10 @@ class TestUserScenarios:
         with allure.step(f"submit new account data at {page.title}"):
             account_random.password_2 = account_random.password_1  # valid input
             page.submit_form(account_random, agree=True)
-        
+
         with allure.step(f"redirect to account page and logout"):
-            assert page.at_page(RegisterAccountPageLocators.TEXT_ACCOUNT_CREATED)
+            assert page.at_page(
+                RegisterAccountPageLocators.TEXT_ACCOUNT_CREATED)
             page.click(account.logout)
             AccountPage(driver).click_continue()
             assert page.at_page(MainPageLocators.TITLE_MAIN_PAGE)
@@ -65,7 +66,7 @@ class TestUserScenarios:
             page.click(account_dropdown.login)
             AccountLoginPage(driver).login_with(
                 account_valid.email, account_valid.password_1)
-        
+
         with allure.step("redirect to account page and logout from there"):
             assert page.at_page(AccountPageLocators.TITLE)
             page.click(account_dropdown)

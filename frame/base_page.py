@@ -1,10 +1,8 @@
-from enum import Enum
-import logging
 import allure
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
 from frame.base_locator import Locator, Selector, BaseLocator
 from frame.utils import Utils
@@ -16,12 +14,6 @@ TIMEOUT = 3
 BASE_URL = f'http://{Utils.get_ip()}:8081'
 
 # BASE_URL = 'http://127.0.0.1:8081'
-
-
-class Currency(Enum):
-    USD = '$'
-    EUR = '€'
-    GBP = '£'
 
 
 class BasePage:
@@ -112,20 +104,16 @@ class BasePage:
     def click(self, locator, time=TIMEOUT):
         self._logger.info("click on %s", locator)
         with allure.step(f"click on {locator}"):
-            try:
+            if getattr(locator, 'self', None):
                 locator = locator.self
-            except:
-                pass
             self.__wait(time).until(
                 EC.element_to_be_clickable(locator)).click()
 
     def hover(self, locator, time=TIMEOUT):
         self._logger.info("hover at %s", locator)
         with allure.step(f"hover at {locator}"):
-            try:
+            if getattr(locator, 'self', None):
                 locator = locator.self
-            except:
-                pass
             element = self.find_element(locator, time)
             self.actions.move_to_element(element).perform()
             return element

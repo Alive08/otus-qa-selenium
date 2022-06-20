@@ -134,6 +134,4 @@ class Browser:
         self._logger.debug("%s webdriver is ready for use", self._name)
         return self._browser(*args, **kwargs)
 
-if __name__ == '__main__':
-    pass
 
