@@ -89,9 +89,7 @@ services:
         - --base-url=http://opencart:8080
         - --executor=selenoid
         - --alluredir=artifacts/allure-results
-        - tests/test_pass.py
         - ${TESTS}
-#        - tests/test_admin_login_page.py
       depends_on:
         - opencart
       volumes:
