@@ -107,4 +107,3 @@ volumes:
   opencart_storage_data:
     driver: local
 
-# --abort-on-container-exit

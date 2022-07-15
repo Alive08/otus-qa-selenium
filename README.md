@@ -6,3 +6,5 @@ Selenium basic usage
 30.05.2022 homework #6 user's and admin's scenarios using PO model
 
 16.06.2022 homework #7 selenoid, allure and logging
+
+15.07.2022 homework #11 docker and docker-compose adaptation
