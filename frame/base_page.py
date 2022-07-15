@@ -24,7 +24,7 @@ class BasePage:
         self._logger = _init_logger(type(self).__name__)
         self.driver = driver
         self.actions = ActionChains(driver)
-        self.url = BASE_URL + url
+        self.url = url
         self.__wait = lambda timeout=TIMEOUT: WebDriverWait(
             driver, timeout=timeout)
         if open:

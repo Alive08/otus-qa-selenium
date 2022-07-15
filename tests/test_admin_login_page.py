@@ -4,9 +4,9 @@ from pom.admin.login_page import AdminLoginPage, AdminLoginPageLocators
 
 
 @pytest.fixture(scope='class', autouse=True)
-def page(request, driver):
+def page(request, driver, base_url):
     request.cls.driver = driver
-    request.cls.url = AdminLoginPageLocators.URL
+    request.cls.url = base_url + AdminLoginPageLocators.URL
     page = AdminLoginPage(driver, request.cls.url)
     page.open()
     return page

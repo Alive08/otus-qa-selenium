@@ -26,6 +26,8 @@ USER_OPTIONS = ('--headless',
 
 
 def pytest_addoption(parser):
+    parser.addoption("--myip", default=Utils.get_ip())
+    parser.addoption("--db-host", default=Utils.get_ip())
     parser.addoption("--base-url", default=BASE_URL)
     parser.addoption("--browser", default="chrome",
                      choices=('chrome', 'firefox', 'edge', 'opera', 'yandex'))
@@ -36,8 +38,8 @@ def pytest_addoption(parser):
     parser.addoption("--start-fullscreen", action="store_true")
     parser.addoption("--test-log-level", default="INFO",
                      choices=("DEBUG", "INFO", "WARNING", "ERROR"))
-    parser.addoption("--test-log-file", default="testrun.log")
-    parser.addoption("--screenshots-dir", default="screenshots")
+    parser.addoption("--test-log-file", default="artifacts/testrun.log")
+    parser.addoption("--screenshots-dir", default="artifacts/screenshots")
 
 
 def pytest_configure(config: pytest.Config):
@@ -63,7 +65,7 @@ def _logger(options, _app_logger):
 
 @pytest.fixture(scope='session')
 def screenshots_dir(driver, rootdir, _logger):
-    workdir = Path(rootdir, "screenshots", driver.session_id)
+    workdir = Path(rootdir, "artifacts/screenshots", driver.session_id)
     try:
         workdir.mkdir(parents=True, exist_ok=True)
     except Exception as e:
@@ -98,8 +100,13 @@ def log(request, _logger):
 
 
 @pytest.fixture(scope='session')
-def my_IP():
-    return Utils.get_ip()
+def my_IP(request):
+    return request.config.getoption("--myip")
+
+
+@pytest.fixture(scope='session')
+def db_host(request):
+    return request.config.getoption("--db-host")
 
 
 @pytest.fixture(scope='session')
@@ -162,7 +169,7 @@ def driver(request, options, _app_logger):
         body=json.dumps(driver.capabilities),
         attachment_type=allure.attachment_type.JSON)
 
-    with open("allure-results/environment.xml", "w+") as file:
+    with open("artifacts/allure-results/environment.xml", "w+") as file:
         file.write(f"""
             <environment>
                 <parameter>
@@ -234,10 +241,10 @@ def product_random():
 
 
 @pytest.fixture(autouse=True)
-def back_to_base(request, base_url, _logger: logging.Logger):
+def back_to_base(request, _logger: logging.Logger):
     yield
     try:
-        request.instance.driver.get(base_url + request.instance.url)
+        request.instance.driver.get(request.instance.url)
     except:
         pass
     else:
@@ -251,8 +258,8 @@ def account_admin_valid():
 
 
 @pytest.fixture(scope='session')
-def db_connector(my_IP):
-    connection = DB(host=my_IP, database='bitnami_opencart',
+def db_connector(db_host):
+    connection = DB(host=db_host, database='bitnami_opencart',
                     user='bn_opencart', password='')
 
     yield connection

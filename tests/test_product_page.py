@@ -7,10 +7,10 @@ from pom.store.product_page import ProductPage, ProductPageLocators
 
 
 @pytest.fixture(scope='class', autouse=True)
-def page(request, driver) -> ProductPage:
+def page(request, driver, base_url) -> ProductPage:
     request.cls.driver = driver
-    request.cls.url = ProductPageLocators.URL
-    page = ProductPage(driver)
+    request.cls.url = base_url + ProductPageLocators.URL
+    page = ProductPage(driver, request.cls.url)
     page.open()
     return page
 

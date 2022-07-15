@@ -10,9 +10,9 @@ from conftest import skip_if
 
 
 @pytest.fixture(scope='class', autouse=True)
-def page(request, driver) -> MainPage:
+def page(request, driver, base_url) -> MainPage:
     request.cls.driver = driver
-    request.cls.url = MainPageLocators.URL
+    request.cls.url = base_url + MainPageLocators.URL
     page = MainPage(driver, request.cls.url)
     page.open()
     return page

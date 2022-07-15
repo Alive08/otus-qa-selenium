@@ -1,5 +1,4 @@
 import pytest
-from frame.base_page import BASE_URL
 from pom.element.store.search_string import SearchString
 from pom.store.main_page import MainPage, MainPageLocators
 from pom.store.search_page import SearchPageLocators
@@ -7,9 +6,9 @@ import allure
 
 
 @pytest.fixture(scope='class', autouse=True)
-def page(request, driver) -> MainPage:
+def page(request, driver, base_url) -> MainPage:
     request.cls.driver = driver
-    request.cls.url = MainPageLocators.URL
+    request.cls.url = base_url + MainPageLocators.URL
     page = MainPage(driver, request.cls.url)
     page.open()
     return page
@@ -20,7 +19,7 @@ class TestSearchFromMainPage:
 
     @allure.title("check if main page opened")
     def test_if_at_page(self, page: MainPage):
-        page.go(BASE_URL)
+        page.go(page.url)
         assert page.at_page(MainPageLocators.TITLE_MAIN_PAGE)
 
     @allure.title("click Search button with no text entered")

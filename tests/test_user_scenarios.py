@@ -21,10 +21,10 @@ class TestUserScenarios:
 
     @allure.title("User changes currency")
     @pytest.mark.parametrize('cur', (c.name for c in Currency))
-    def test_change_currency(self, driver, cur):
+    def test_change_currency(self, driver, base_url, cur):
 
         with allure.step(f"set currency on main page to {cur}"):
-            page = MainPage(driver, MainPageLocators.URL)
+            page = MainPage(driver, base_url + MainPageLocators.URL)
             page.open()
             page.click(currency.button)
             page.click(getattr(currency, cur.lower()))
@@ -39,10 +39,10 @@ class TestUserScenarios:
                 tn.get_product(0)) == Currency[cur].value
 
     @allure.title("Register a new customer account")
-    def test_register_user_account(self, driver, account_random: AccountData, db_delete_customer_random):
+    def test_register_user_account(self, driver, base_url, account_random: AccountData, db_delete_customer_random):
 
         with allure.step("got to Register Account page"):
-            page = RegisterAccountPage(driver, RegisterAccountPageLocators.URL)
+            page = RegisterAccountPage(driver, base_url + RegisterAccountPageLocators.URL)
             page.open()
 
         with allure.step(f"submit new account data at {page.title}"):
@@ -57,10 +57,10 @@ class TestUserScenarios:
             assert page.at_page(MainPageLocators.TITLE_MAIN_PAGE)
 
     @allure.title("Test a valid customer login and logout")
-    def test_user_login_and_logout(self, driver, account_valid: AccountData, db_customer_valid):
+    def test_user_login_and_logout(self, driver, base_url, account_valid: AccountData, db_customer_valid):
 
         with allure.step("login from main page"):
-            page = MainPage(driver, MainPageLocators.URL)
+            page = MainPage(driver, base_url + MainPageLocators.URL)
             page.open()
             page.click(account_dropdown)
             page.click(account_dropdown.login)

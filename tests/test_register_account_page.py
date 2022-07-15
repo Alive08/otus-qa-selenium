@@ -1,5 +1,4 @@
 import pytest
-from frame.base_page import BASE_URL
 from pom.element.store.account_dropdown import account_dropdown
 from pom.store.register_account_page import (RegisterAccountPage,
                                              RegisterAccountPageLocators)
@@ -7,9 +6,9 @@ import allure
 
 
 @pytest.fixture(scope='class', autouse=True)
-def page(request, driver) -> RegisterAccountPage:
+def page(request, driver, base_url) -> RegisterAccountPage:
     request.cls.driver = driver
-    request.cls.url = RegisterAccountPageLocators.URL
+    request.cls.url = base_url + RegisterAccountPageLocators.URL
     page = RegisterAccountPage(driver, request.cls.url)
     page.open()
     return page
@@ -20,8 +19,8 @@ def page(request, driver) -> RegisterAccountPage:
 class TestRegisterAccountPage:
 
     @allure.title("Go to Register page from Main page")
-    def test_go_to_register_from_main_page(self, page: RegisterAccountPage):
-        page.go(BASE_URL)
+    def test_go_to_register_from_main_page(self, base_url, page: RegisterAccountPage):
+        page.go(base_url)
         page.click(account_dropdown)
         page.click(account_dropdown.register)
         assert page.at_page(

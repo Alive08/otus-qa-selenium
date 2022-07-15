@@ -2,7 +2,6 @@ from collections import namedtuple
 
 import allure
 import pytest
-from frame.base_page import BASE_URL
 from frame.utils import Utils
 from pom.element.store.breadcrumb import Breadcrumb
 from pom.element.store.navbar import navbar
@@ -13,9 +12,9 @@ from pom.store.main_page import MainPageLocators
 
 
 @pytest.fixture(scope='class', autouse=True)
-def page(request, driver) -> CatalogPage:
+def page(request, driver, base_url) -> CatalogPage:
     request.cls.driver = driver
-    request.cls.url = '/tablet'
+    request.cls.url = base_url + '/tablet'
     page = CatalogPage(driver, request.cls.url)
     page.open()
     return page

@@ -13,10 +13,10 @@ import allure
 class TestAdminScenarios:
 
     @allure.title("add a new product")
-    def test_add_product(self, driver, account_admin_valid, product_random: ProductData, db_delete_product):
+    def test_add_product(self, driver, base_url, account_admin_valid, product_random: ProductData, db_delete_product):
         
         with allure.step("do login"):
-            AdminLoginPage(driver, AdminLoginPageLocators.URL,
+            AdminLoginPage(driver, base_url + AdminLoginPageLocators.URL,
                         open=True).admin_login_with(*account_admin_valid)
         
         with allure.step("go to product list and click Add button"):
@@ -52,9 +52,9 @@ class TestAdminScenarios:
             AdminCommonElements(driver).click_logout()
 
     @allure.title("delete product")
-    def test_delete_product(self, driver, account_admin_valid, db_product_random):
+    def test_delete_product(self, driver, base_url, account_admin_valid, db_product_random):
         with allure.step(f"do login with {account_admin_valid}"):
-            AdminLoginPage(driver, AdminLoginPageLocators.URL,
+            AdminLoginPage(driver, base_url +  AdminLoginPageLocators.URL,
                         open=True).admin_login_with(*account_admin_valid)
         
         with allure.step("go to product list"):
