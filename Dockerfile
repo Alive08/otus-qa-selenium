@@ -4,9 +4,10 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-RUN pip install -U pip
-RUN pip install -r requirements.txt
+RUN pip install pip -U && pip install -r requirements.txt
 
 COPY . .
 
 ENTRYPOINT ["pytest"]
+
+CMD ["tests/test_pass.py"]
