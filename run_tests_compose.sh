@@ -13,6 +13,12 @@ if [ -z $@ ]; then
     usage
 fi
 
+export UID
+
+export GID=$(id -u)
+
+mkdir -p artifacts 
+
 docker network create --driver bridge test_net || true
 
 export TESTS=$@

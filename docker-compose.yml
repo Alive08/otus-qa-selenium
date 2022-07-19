@@ -76,16 +76,17 @@ services:
       build:
         context: .
         dockerfile: Dockerfile
+      user: ${UID}:${GID}
       entrypoint:
         - ./wait-for-it.sh
         - mariadb:3306
         - -t
-        - "30"
+        - "180"
         - --
         - ./wait-for-it.sh
         - opencart:8080
         - -t
-        - "30"
+        - "180"
         - --
         - pytest
         - --headless
@@ -108,4 +109,3 @@ volumes:
     driver: local
   opencart_storage_data:
     driver: local
-
