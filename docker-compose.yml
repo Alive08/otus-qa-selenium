@@ -80,12 +80,12 @@ services:
         - ./wait-for-it.sh
         - mariadb:3306
         - -t
-        - 30
+        - "30"
         - --
         - ./wait-for-it.sh
         - opencart:8080
         - -t
-        - 30
+        - "30"
         - --
         - pytest
         - --headless
