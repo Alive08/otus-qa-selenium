@@ -93,7 +93,7 @@ services:
       depends_on:
         - opencart
       volumes:
-        - '/home/user/otus-qa-selenium/artifacts/:/app/artifacts/'
+        - './artifacts/:/app/artifacts/'
       networks:
         - test_net
 
