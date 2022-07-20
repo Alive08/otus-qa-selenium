@@ -25,6 +25,10 @@ export TESTS=$@
 
 docker-compose up --abort-on-container-exit
 
+tests_status=$?
+
 docker-compose down
 
 docker network rm test_net
+
+exit $tests_status
