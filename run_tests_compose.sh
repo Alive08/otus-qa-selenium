@@ -17,7 +17,9 @@ export UID
 
 export GID=$(id -u)
 
-mkdir -p artifacts 
+rm -rf artifacts
+
+mkdir -p artifacts
 
 docker network create --driver bridge test_net || true
 
