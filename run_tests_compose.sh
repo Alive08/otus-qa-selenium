@@ -9,7 +9,7 @@ USAGE
     exit 1
 }
 
-if [ -z $@ ]; then
+if [ $# -eq 0 ]; then
     usage
 fi
 
