@@ -88,7 +88,7 @@ services:
         - -t
         - "180"
         - --
-        - entrypoint_pytest.sh
+        - ./entrypoint_pytest.sh
         - --headless
         - --db-host=mariadb
         - --base-url=http://opencart:8080
