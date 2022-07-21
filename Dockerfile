@@ -8,6 +8,6 @@ RUN pip install pip -U && pip install -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT ["entrypoint_pytest.sh"]
+ENTRYPOINT ["./entrypoint_pytest.sh"]
 
 CMD ["tests/test_pass.py"]

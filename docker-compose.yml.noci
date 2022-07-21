@@ -89,6 +89,11 @@ services:
         - "180"
         - --
         - ./entrypoint_pytest.sh
+        - --headless
+        - --db-host=mariadb
+        - --base-url=http://opencart:8080
+        - --executor=selenoid
+        - --alluredir=artifacts/allure-results
         - ${PYTEST_ARGS}
       depends_on:
         - opencart

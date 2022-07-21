@@ -23,7 +23,7 @@ mkdir -p artifacts
 
 docker network create --driver bridge test_net || true
 
-export PYTEST_ARGS=$@
+export PYTEST_ARGS="$@"
 
 docker-compose up --abort-on-container-exit
 
