@@ -1,4 +1,4 @@
-peline {
+pipeline {
     
     tools {
         allure 'Allure Report'
