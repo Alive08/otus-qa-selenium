@@ -80,11 +80,10 @@ pipeline {
             post {
                 success {
                     allure includeProperties: false, jdk: '', report: 'artifacts/allure-report', results: [[path: 'artifacts/allure-results']]
-                    archiveArtifacts 'artifacts/*.log'
-                    archiveArtifacts 'artifacts/screenshots/*'
+                    archiveArtifacts './artifacts/*.log'
+                    archiveArtifacts artifacts: './artifacts/screenshots', allowEmptyArchive: 'true'
                 }
             }
         }
     }
 }
-
