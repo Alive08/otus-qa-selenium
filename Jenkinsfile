@@ -1,0 +1,89 @@
+peline {
+    
+    tools {
+        allure 'Allure Report'
+    }
+    
+    agent {
+        label 'linux'
+    }
+
+    stages {
+    
+        stage('Setup parameters') {
+            steps {
+                script { 
+                    properties([
+                        parameters([
+                            string(
+                                defaultValue: 'tests/test_pass.py', 
+                                name: 'TESTS', 
+                                trim: true
+                            ),
+                            string(
+                                defaultValue: """
+                                --test-log-level=INFO --headless --db-host=mariadb --alluredir=artifacts/allure-results
+                                """,
+                                name: 'PYTEST_ARGS', 
+                                trim: true
+                            ),
+                            string(
+                                defaultValue: 'selenoid', 
+                                name: 'EXECUTOR', 
+                                trim: true
+                            ),
+                            string(
+                                defaultValue: 'http://opencart:8080', 
+                                name: 'BASE_URL', 
+                                trim: true
+                            ),
+                            string(
+                                defaultValue: 'chrome', 
+                                name: 'BROWSER', 
+                                trim: true
+                            ),
+                            string(
+                                defaultValue: '103.0', 
+                                name: 'BROWSER_VERSION', 
+                                trim: true
+                            ),
+                            string(
+                                defaultValue: '1', 
+                                name: 'THREADS', 
+                                trim: true
+                            )
+                        ])
+                    ])
+                }
+            }
+        }
+    
+    
+        stage('Tests') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Alive08/otus-qa-selenium.git'
+
+                sh """
+                ./run_tests_compose.sh \
+                --headless \
+                --browser=${params.BROWSER} \
+                --bversion=${params.BROWSER_VERSION} \
+                --executor=${params.EXECUTOR} \
+                --base-url=${params.BASE_URL} \
+                --db-host=mariadb \
+                --alluredir=artifacts/allure-results \
+                -n ${params.THREADS} \
+                ${params.TESTS}
+                """
+            }
+
+            post {
+                success {
+                    allure includeProperties: false, jdk: '', report: 'artifacts/allure-report', results: [[path: 'artifacts/allure-results']]
+                    archiveArtifacts 'artifacts/*.log'
+                }
+            }
+        }
+    }
+}
+
