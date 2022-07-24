@@ -28,7 +28,7 @@ class CatalogPageLocators(BaseLocator):
         By.CSS_SELECTOR, "#input-sort > option:nth-child(9)")
 
     LOCATOR_SELECT_SHOW = Selector(By.CSS_SELECTOR, "#input-limit")
-    LOCATOR_SELECT_SHOW_15 = Selector(
+    LOCATOR_SELECT_SHOW_20 = Selector(
         By.CSS_SELECTOR, "#input-limit > option:nth-child(1)")
     LOCATOR_SELECT_SHOW_25 = Selector(
         By.CSS_SELECTOR, "#input-limit > option:nth-child(2)")
@@ -66,7 +66,7 @@ class CatalogPage(BasePage):
                            'Model (Z - A)': locator.LOCATOR_SELECT_SORT_BY_MODEL_ZA
                            }
 
-    select_show_options = {'15': locator.LOCATOR_SELECT_SHOW_15,
+    select_show_options = {'20': locator.LOCATOR_SELECT_SHOW_20,
                            '25': locator.LOCATOR_SELECT_SHOW_25,
                            '50': locator.LOCATOR_SELECT_SHOW_50,
                            '75': locator.LOCATOR_SELECT_SHOW_75,
