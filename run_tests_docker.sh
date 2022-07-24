@@ -9,11 +9,11 @@ USAGE
     exit 1
 }
 
-if [ -z $@ ]; then
+if [ $# -eq 0 ]; then
     usage
 fi
 
-name=opencart.local
+name=opencart
 ip=$(grep ${name} /etc/hosts| cut -f1)
 
 docker run \
