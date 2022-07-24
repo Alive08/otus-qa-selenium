@@ -19,7 +19,8 @@ from frame.logger import _init_logger
 DRIVER_PATH = '/home/user/Downloads/webdrivers'
 
 COMMON_OPTIONS = ('--no-sandbox', '--disable-infobars',
-                  '--disable-extensions', '--disable-gpu')
+                  '--disable-extensions', '--disable-gpu',
+                  '--disable-dev-shm-usage')
 
 
 class BaseBrowser:
