@@ -37,10 +37,10 @@ pipeline {
                                 name: 'BASE_URL', 
                                 trim: true
                             ),
-                            string(
-                                defaultValue: 'chrome', 
-                                name: 'BROWSER', 
-                                trim: true
+                            choice (
+                                name: 'BROWSER',
+                                choices: 'chrome\nfirefox',
+                                defaultValue: 'chrome'
                             ),
                             string(
                                 defaultValue: '103.0', 

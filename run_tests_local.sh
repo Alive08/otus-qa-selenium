@@ -26,3 +26,5 @@ popd
 pushd ${ENV_DIR}
 ./down.sh
 
+popd
+

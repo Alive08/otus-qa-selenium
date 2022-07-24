@@ -2,6 +2,7 @@ pipeline {
     
     tools {
         allure 'Allure Report'
+        xvfb 'XVFB'
     }
     
     agent {
@@ -21,14 +22,12 @@ pipeline {
                                 trim: true
                             ),
                             string(
-                                defaultValue: """
-                                --test-log-level=INFO --headless --db-host=mariadb --alluredir=artifacts/allure-results
-                                """,
+                                defaultValue: '--test-log-level=INFO --alluredir=artifacts/allure-results',
                                 name: 'PYTEST_ARGS', 
                                 trim: true
                             ),
                             string(
-                                defaultValue: 'selenoid', 
+                                defaultValue: 'local', 
                                 name: 'EXECUTOR', 
                                 trim: true
                             ),
@@ -37,13 +36,20 @@ pipeline {
                                 name: 'BASE_URL', 
                                 trim: true
                             ),
+                            /*
                             string(
                                 defaultValue: 'chrome', 
                                 name: 'BROWSER', 
                                 trim: true
                             ),
+                            */
+                            choice (
+                                name: 'BROWSER',
+                                choices: 'chrome\nfirefox\nopera\nedge',
+                                defaultValue: 'chrome'
+                            ),
                             string(
-                                defaultValue: '103.0', 
+                                defaultValue: '', 
                                 name: 'BROWSER_VERSION', 
                                 trim: true
                             ),
@@ -58,30 +64,60 @@ pipeline {
             }
         }
     
-    
-        stage('Tests') {
+        stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Alive08/otus-qa-selenium.git'
-
-                sh """
-                ./run_tests_compose.sh \
-                --headless \
-                --browser=${params.BROWSER} \
-                --bversion=${params.BROWSER_VERSION} \
-                --executor=${params.EXECUTOR} \
-                --base-url=${params.BASE_URL} \
-                --db-host=mariadb \
-                --alluredir=artifacts/allure-results \
-                -n ${params.THREADS} \
-                ${params.TESTS}
+            }
+        }
+        
+        stage('Environment setup') {
+            steps {
+                sh """#!/bin/bash
+                python3.9 -m venv .venv &&
+                    source .venv/bin/activate &&
+                    pip install pip -U
+                    pip install -r requirements.txt
+                rm -rf ./artifacts
+                mkdir -p artifacts
+                pushd environment/opencart
+                ./up.sh
+                popd
                 """
             }
+        }
 
+        stage('Run Tests') {
+            steps {
+                wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: true, displayNameOffset: 0, installationName: 'XVFB', parallelBuild: true, screen: '1024x1080x24', timeout: 25]) {
+                    sh """#!/bin/bash
+                    source .venv/bin/activate
+                    ./run_tests_local.sh \
+                    --browser=${params.BROWSER} \
+                    --bversion=${params.BROWSER_VERSION} \
+                    --executor=${params.EXECUTOR} \
+                    --base-url=${params.BASE_URL} \
+                    -n ${params.THREADS} \
+                    ${params.TESTS}
+                    """
+                }
+            }
+        }
+
+        stage('Environment teardown') {
+            steps {
+                sh """#!/bin/bash
+                pushd environment/opencart
+                ./down.sh
+                popd
+                """
+            }
+        
             post {
-                success {
+                always {
                     allure includeProperties: false, jdk: '', report: 'artifacts/allure-report', results: [[path: 'artifacts/allure-results']]
-                    archiveArtifacts 'artifacts/*.log'
-                    archiveArtifacts artifacts: 'artifacts/screenshots', allowEmptyArchive: 'true'
+                    archiveArtifacts artifacts: 'artifacts/*.log', allowEmptyArchive: 'true'
+                    archiveArtifacts artifacts: 'artifacts/screenshots/**/*.png', allowEmptyArchive: 'true'
+                    // cleanWs()
                 }
             }
         }
