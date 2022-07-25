@@ -1,5 +1,4 @@
 from enum import Enum
-import logging
 
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions, FirefoxOptions
@@ -7,7 +6,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.edge.service import Service as EdgeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium.webdriver.opera.options import Options as OperaOptions
+# from selenium.webdriver.opera.options import Options as OperaOptions
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
@@ -89,13 +88,17 @@ class BrowserOpera(BaseBrowser):
         self._options = ChromeOptions()
         # self._options = OperaOptions()
         super().__init__(options)
-        self._options.binary_location = '/usr/bin/opera'
+        # self._options.binary_location = '/usr/bin/opera'
         self._options.set_capability("browserName", "opera")
         # https://github.com/operasoftware/operachromiumdriver/issues/96
         self._options.add_experimental_option('w3c', True)
 
     def __call__(self):
-        return webdriver.Opera(executable_path=OperaDriverManager().install(), options=self._options)
+        # return webdriver.Opera(executable_path=OperaDriverManager().install(), options=self._options)
+        return webdriver.Chrome(
+            service=ChromeService(
+                OperaDriverManager().install()),
+            options=self._options)
 
 
 class BrowserYandex(BaseBrowser):
@@ -134,5 +137,3 @@ class Browser:
     def __call__(self, *args, **kwargs):
         self._logger.debug("%s webdriver is ready for use", self._name)
         return self._browser(*args, **kwargs)
-
-
