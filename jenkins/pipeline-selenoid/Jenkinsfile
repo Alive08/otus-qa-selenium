@@ -43,7 +43,7 @@ pipeline {
                                 defaultValue: 'chrome'
                             ),
                             string(
-                                defaultValue: '103.0', 
+                                defaultValue: '', 
                                 name: 'BROWSER_VERSION', 
                                 trim: true
                             ),
